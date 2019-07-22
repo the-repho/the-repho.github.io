@@ -1744,7 +1744,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2182a4;
+  background: #78acff;
 }
 .feed-link,
 .chat {
@@ -2809,7 +2809,7 @@ ul.breadcrumb li+li:last-child {
   text-overflow: ellipsis;
 }
 body {
-  background-image: url("/images/background.png");
+  background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
