@@ -93,15 +93,18 @@
   };
 </script>
 
-  <meta name="keywords" content="OI">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="其实就是这道题：[P1972 [SDOI2009]HH的项链](https://www.luogu.org/problemnew/show/P1972)  离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。 先把所有询问以右端点排序，然后慢慢向后解决。 记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹">
+<meta name="keywords" content="-树状数组 -离线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="维护区间不同颜色">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/维护区间不同颜色/index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
+<meta property="og:description" content="其实就是这道题：[P1972 [SDOI2009]HH的项链](https://www.luogu.org/problemnew/show/P1972)  离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。 先把所有询问以右端点排序，然后慢慢向后解决。 记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T04:28:50.891Z">
+<meta property="og:updated_time" content="2019-07-22T10:21:21.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="维护区间不同颜色">
+<meta name="twitter:description" content="其实就是这道题：[P1972 [SDOI2009]HH的项链](https://www.luogu.org/problemnew/show/P1972)  离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。 先把所有询问以右端点排序，然后慢慢向后解决。 记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹">
 
 
 
@@ -109,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/22/维护区间不同颜色/">
 
 
 
@@ -120,7 +123,7 @@
 </script>
 
   
-  <title>tags | Repho's blog</title>
+  <title>维护区间不同颜色 | Repho's blog</title>
   
 
 
@@ -242,7 +245,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -340,92 +343,215 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/维护区间不同颜色/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="repho">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Repho's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">tags
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">维护区间不同颜色
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              
-                <a href="/tags/树状数组-离线/" style="font-size: 12px; color: #ccc">-树状数组 -离线</a> <a href="/tags/杂项/" style="font-size: 12px; color: #ccc">杂项</a>
-              
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-22 18:16:06 / 修改时间：18:21:21" itemprop="dateCreated datePublished" datetime="2019-07-22T18:16:06+08:00">2019-07-22</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>其实就是这道题：<br>[P1972 [SDOI2009]HH的项链](<a href="https://www.luogu.org/problemnew/show/P1972" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1972</a>)</p>
+<hr>
+<p>离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。</p>
+<p>先把所有询问以右端点排序，然后慢慢向后解决。</p>
+<p>记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹掉，然后在这里记上这种颜色，在更新表示每个颜色最后出现的数组。</p>
+<p>code:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO 600100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MO 1000005</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//by Oliver</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch = <span class="string">' '</span>, last;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>)</span><br><span class="line">        last = ch, ch = getchar();</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        ans = ans * <span class="number">10</span> + <span class="keyword">int</span>(ch - <span class="string">'0'</span>), ch = getchar();</span><br><span class="line">    <span class="keyword">if</span> (last == <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">return</span> -ans;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//head</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a[NO], m, d[NO], last[MO];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> L, R, pos, ans;</span><br><span class="line">&#125;asks[NO];</span><br><span class="line"><span class="comment">//variable</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &amp; -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = pos; i &lt;= n; i += lowbit(i))</span><br><span class="line">        d[i] += val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = pos; i; i -= lowbit(i))</span><br><span class="line">        ans += d[i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node i, node j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i.R &lt; j.R;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node i, node j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i.pos &lt; j.pos;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n = read();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = read();</span><br><span class="line">    m = read();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=m; i++)</span><br><span class="line">        asks[i].L = read(), asks[i].R = read(), asks[i].pos = i;</span><br><span class="line">    sort(asks + <span class="number">1</span>, asks + m + <span class="number">1</span>, cmp1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">memset</span>(last, <span class="number">0</span>, <span class="keyword">sizeof</span>(last));</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(; now &lt;= asks[i].R; now++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(last[a[now]])</span><br><span class="line">                add(<span class="number">-1</span>, last[a[now]]);</span><br><span class="line">            add(<span class="number">1</span>, now), last[a[now]] = now;</span><br><span class="line">        &#125;</span><br><span class="line">        asks[i].ans = ask(asks[i].R) - ask(asks[i].L - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(asks + <span class="number">1</span>, asks + m + <span class="number">1</span>, cmp2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; asks[i].ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>其实这题应该还可以用一些其他方法做(莫队之类的)。但是其实是卡不过去的，（最好成绩也只有90pt..）</p>
+<p>然后这种思路还可以去维护不止数量不少于$2$个的颜色数量等等。//一道贪心模拟赛上的题。</p>
+<p>此外好像也可以用主席树做。学了更。</p>
+
       
     </div>
-    
-
-
 
     
+
+    
+      
+    
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/树状数组-离线/" rel="tag"># -树状数组 -离线</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/22/head/" rel="next" title="head">
+                <i class="fa fa-chevron-left"></i> head
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -852,7 +978,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script>
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#更多");
   
   </script>
 
