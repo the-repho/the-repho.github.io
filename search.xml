@@ -2,17 +2,17 @@
 <search>
   <entry>
     <title><![CDATA[test]]></title>
-    <url>%2F2019%2F08%2Ftest%2F</url>
+    <url>%2Ftest%2F</url>
     <content type="text"><![CDATA[![123](1.jpg)]]></content>
   </entry>
   <entry>
     <title><![CDATA[8.1 模拟赛 题解]]></title>
-    <url>%2F2019%2F08%2F8-1-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3%2F</url>
+    <url>%2F8-1-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[比赛地址：http://jzoj.net/senior/#contest/home/2821 水叮当的舞步题面 考场这个名字好熟悉。？ 贪心一下？直接看看左上角所在的联通块外接的颜色中最多的然后去改那种颜色？先写了出来，发现不是一点难写。 手造数据发现好像贪心有问题。那么看外接颜色中联通块内个数之和最多的去改？发现过了手玩的样例。 感觉可以$A$于是开始看后面的题。//打个暴力都好。$orz..$ 出分：$0pt..$ 多测清零之后$10pt.$ 贪心错了。$orz.$. 正解搜索优化。。 首先最朴素的搜索：直接搜每一次跳什么颜色。 然后剪枝： 迭代加深，就是搜1层，2层…慢慢地搜下去。 如果剩下的部分中不同的颜色个数加上现在已经进行的操作个数已经超过了现在搜的层数直接减掉。 这样就可以$A$了。 $code: $ https://paste.ubuntu.com/p/DXr5JSwKqd/ Vani和Cl2捉迷藏题面 那么就是要求一个一般图的最大独立集。NP问题啊。。。 只能过20pt.的点。正解估计是什么神仙做法了。 出分：因为看错题爆零。 正解好的，他就是一个$DAG$然后那个互相望到的意思是一条路径上的前面的点可以看到后面的所有点。那就是在$DAG$上的最大独立集了。然后就可以拆成入点和出点，做一个最小路径覆盖数 $cnt$（就是最大匹配数），然后直接用 $n - cnt$ 就可以了。 二分图求一个最大匹配数直接匈牙利或者 $dinic$ 就可以了。//这是最简单的一题。。 $code: $ https://paste.ubuntu.com/p/RzNnpvkqdZ/ 粉刷匠题面 考场容斥？不太行。暴力吧。看起来可以$dp$然后想了好久发现最朴素的dp都要爆炸然后放弃了。 出分：暴力又没清零$40pt =&gt; 30pt..$ 正解两个老师讲了两种，下面分别介绍。 两维比较简单的DP考虑 $dp_{i, j}$ 表示已经选好了前 $i$ 种颜色，其中有 $j$ 对相邻的同色。 然后考虑转移，现在考虑怎么转移到 $dp_{i+1}$上去。首先需要把 $c_{i+1}$ 个桶分成 $k$ 组，然后再把这 $k$ 组插到前面的 $\sum_{a=1}^{i}c_{a}$ 的空里面。然后因为可能插进去之后把相邻同色的给破坏了，因此需要枚举一个 $t$ 表示有 $t$ 个相邻同色被破坏了。那么转移方程就可以写出来了： $\Large dp_{i + 1, j + c_{i+1}-k-t} +=dp_{i, j} \times C_{c_{i+1}}^k \times C_k^t \times C_j^t $ 然后就可以 $A$ 掉了。这个调起来是有点恶心的。 $code: $ https://paste.ubuntu.com/p/HWJrPTG566/ 七维很暴力的DP先咕吧。。]]></content>
   </entry>
   <entry>
     <title><![CDATA[线段树扫描线]]></title>
-    <url>%2F2019%2F08%2F%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%89%AB%E6%8F%8F%E7%BA%BF%2F</url>
+    <url>%2F%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%89%AB%E6%8F%8F%E7%BA%BF%2F</url>
     <content type="text"><![CDATA[简述线段树扫描线算法准确的来说就是用线段树维护在一个二维空间中的一根和 $x$ 轴平行线上的信息（$y$ 轴同理），通过把这跟扫描线从下向上扫一遍，就能得到二维平面上的一些信息。 而因为维护的是一个水平的直线，所以一般就是求矩形相关的信息了。 由于矩形有一个固定范围，因此我们一般将它分成上下边两个区间，一个加上操作，另一个消除操作。这样在中间算上这个矩形的贡献就可以了。下文称这些直线（区间）为关键直线，因为只有这里可能让线上的信息变化。 至于具体的维护什么信息就因题目而异了。 时间复杂度就是线段树的 $\log$ 加上离散化的二分 $log$，总的还是 $O(n\log n)$ 的。 最典型的例题就是矩形面积并了。 矩形面积并Atlantis 题面上的数据很小，但用线段树做扫描线是 $O(n\log n)$ 复杂度的。 我们想用一条线从下向上扫一遍来求矩形面积并，我们考虑每条关键直线怎么更新答案。因为求的是面积，所以要考虑的是两条直线之间的答案。因为是求所有矩形的面积并，所以每次两条关键直线之间的面积一定是若干个宽是两条直线之间距离的矩形面积之和，就维护每一次的长有多少与宽相乘即可。由于坐标是实数，先离散化，然后用线段树维护直线上被覆盖的区间长度即可。这个将矩形下边记为 $+1$，下边记为 $-1.$ 这里可以用到一个技巧：不把标记下放，因为每一个区间的加上后是会被整体减去的。因此是否被覆盖可以只考虑着一个点是否被整体覆盖，若没有则看两个儿子。另外，因为是区间长度，所以需要记录的不是点而是区间，所以把每个区间右边的区间信息弄在左端点上即可。 //注意实数啊，$lower_bound$ 找离散化也要开 $double..$ $code : $ https://paste.ubuntu.com/p/m4nyPVfvvK/ 除此之外用于维护扫描线上的其他信息也是可以的，比如最大值。 最大 矩形权值交之和窗口的星星 首先因为窗口大小是固定的，那么考虑一颗星星在窗口中的位置（如果被选中），那么他一定会在 $w\times h$ 的矩形内部，因此如果固定一颗星星在一个窗口的左下角，计算这个窗口内的所有部分的最大值（每个位置初始值是自己的值，其他星星的窗口交过来了就加上那颗星星的值）就是包含这个星星的最佳答案了。 那么我们就是要维护一个矩形内的交的部分的和，然后求最大值。 还是一样，考虑用一条扫描线，每一次拓展到一条矩形边的时候直接区间加它的权值，然后拓展完的时候求最大值。因为坐标还是很大所以还是要离散化。 注意，在以纵坐标排序的同时，需要保证一条线上先加再减，不然可能把答案给减没了。 $code:$ https://paste.ubuntu.com/p/6BxXC5T34B/ 其他这里列举一下出现的方法吧。 矩形内点数和 矩形面积交 矩形外周长]]></content>
       <categories>
         <category>算法</category>
@@ -23,7 +23,7 @@
   </entry>
   <entry>
     <title><![CDATA[维护区间不同颜色]]></title>
-    <url>%2F2019%2F07%2F%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2%2F</url>
+    <url>%2F%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2%2F</url>
     <content type="text"><![CDATA[其实就是这道题：HH的项链 离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。 先把所有询问以右端点排序，然后慢慢向后解决。 记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹掉，然后在这里记上这种颜色，在更新表示每个颜色最后出现的数组。 code: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#define INF 0x3f3f3f3f#define NO 600100#define MO 1000005typedef long long ll;//by Oliverusing namespace std;ll read()&#123; char ch = ' ', last; ll ans = 0; while (ch &lt; '0' || ch &gt; '9') last = ch, ch = getchar(); while (ch &gt;= '0' &amp;&amp; ch &lt;= '9') ans = ans * 10 + int(ch - '0'), ch = getchar(); if (last == '-') return -ans; return ans;&#125;//headint n, a[NO], m, d[NO], last[MO];struct node&#123; int L, R, pos, ans;&#125;asks[NO];//variableint lowbit(int x)&#123; return x &amp; -x;&#125;void add(int val, int pos)&#123; for(int i = pos; i &lt;= n; i += lowbit(i)) d[i] += val;&#125;int ask(int pos)&#123; int ans = 0; for(int i = pos; i; i -= lowbit(i)) ans += d[i]; return ans;&#125;bool cmp1(node i, node j)&#123; return i.R &lt; j.R;&#125;bool cmp2(node i, node j)&#123; return i.pos &lt; j.pos;&#125;void init()&#123; n = read(); for(int i = 1; i &lt;= n; i++) a[i] = read(); m = read(); for(int i = 1; i &lt;=m; i++) asks[i].L = read(), asks[i].R = read(), asks[i].pos = i; sort(asks + 1, asks + m + 1, cmp1);&#125;//functionsint main()&#123; init(); memset(last, 0, sizeof(last)); int now = 1; for(int i = 1; i &lt;= m; i++) &#123; for(; now &lt;= asks[i].R; now++) &#123; if(last[a[now]]) add(-1, last[a[now]]); add(1, now), last[a[now]] = now; &#125; asks[i].ans = ask(asks[i].R) - ask(asks[i].L - 1); &#125; sort(asks + 1, asks + m + 1, cmp2); for(int i = 1; i &lt;= m; i++) cout &lt;&lt; asks[i].ans &lt;&lt; endl; return 0;&#125;//main 其实这题应该还可以用一些其他方法做(莫队之类的)。但是其实是卡不过去的，（最好成绩也只有90pt..） 然后这种思路还可以去维护不止数量不少于$2$个的颜色数量等等。//一道贪心模拟赛上的题。 此外好像也可以用主席树做。学了更。]]></content>
       <categories>
         <category>算法</category>
@@ -34,7 +34,7 @@
   </entry>
   <entry>
     <title><![CDATA[head]]></title>
-    <url>%2F2019%2F07%2Fhead%2F</url>
+    <url>%2Fhead%2F</url>
     <content type="text"><![CDATA[保存于此，以便在外机登陆时取用。 另，需使用线段树时或其他定义时可自行修改，以免引起歧义而编译错误，这里不以添加。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#pragma G++ optimize (2)#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;queue&gt;#include &lt;vector&gt;#define INF 0x3f3f3f3f#define NO 30005#define MO 100005#define mp(x, y) make_pair(x, y)#define fi first#define se second#define lln putchar('\n')typedef long long ll;typedef double db;using namespace std;typedef pair&lt;int, int&gt; pii;inline ll read()&#123; char ch = ' ', last; ll ans = 0; while (ch &lt; '0' || ch &gt; '9') last = ch, ch = getchar(); while (ch &gt;= '0' &amp;&amp; ch &lt;= '9') ans = ans * 10 + int(ch - '0'), ch = getchar(); if (last == '-') return -ans; return ans;&#125;void write(ll x)&#123; if (x &gt;= 10) write(x / 10); putchar(x % 10 + '0');&#125;//head//variablevoid init()&#123; &#125;//functionsint main()&#123; init(); return 0;&#125;//main]]></content>
       <categories>
         <category>工具</category>
