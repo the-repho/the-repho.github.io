@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="Count题面  考场主攻它！ 首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。 大概的式子是这样的： ​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$">
+  <meta name="description" content="Count题面考场主攻它！首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。大概的式子是这样的：​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.13 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="Count题面  考场主攻它！ 首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。 大概的式子是这样的： ​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$">
+<meta property="og:description" content="Count题面考场主攻它！首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。大概的式子是这样的：​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20模拟赛%20题解&#x2F;Count.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20模拟赛%20题解&#x2F;pj.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20模拟赛%20题解&#x2F;tg.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Count.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;pj.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;tg.png">
 <meta property="og:updated_time" content="2019-10-31T17:15:01.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20模拟赛%20题解&#x2F;Count.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Count.png">
 
 <link rel="canonical" href="http://yoursite.com/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/">
 
@@ -240,12 +240,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.13 模拟赛 题解/Count.png" title="Count">
+        <h1 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Count.png" class title="Count"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>主攻它！</p><p>首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。</p><p>大概的式子是这样的：</p><p>​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$ </p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>主攻它！</p>
-<p>首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。</p>
-<p>大概的式子是这样的：</p>
-<p>​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$ </p>
+
+
+
+
 <p>我一开始想的是把下面一样的合并一下求，但是没有发现简洁公式。而且这个式子本来就是 $\large\frac{n}{m}$ 项的， $n$ 那么大它项数就直接炸了。</p>
 <p>所以换一个思路，考虑他们对 $m$ 的余数。因为不被整除，所以原式可以直接表示成 $\sum a_i\equiv A\mod m$ 。所以每一个 $a_i$ 可以转化成对 $m$ 的余数和商两部分，商部分因为没有任何限制，所以可以直接挡板法求，余数部分相当于若干个 $\in[1,<del>m-1]$ 的整数相加与 $n$ 模 $m$ 同余。同样，我们把 $n$ 也分成被 $m$ 组成的部分和被余数组成的部分，因为余数有范围，所以 $n$ 被余数组成的部分 $N’\in [k,</del>k(m-1)]$ 。这个东西规模就从 $10^{18}$ 缩小成 $km$ 了。那我们来看怎么求这些余数部分。</p>
 <p>首先是同余，所以 $N’$ 的取值也是以 $m$ 为间隔的，也就是我们可以枚举这个和，复杂度是 $k$ 的，然后还是可以挡板，但是有 $[1,~m -1]$ 的限制。容斥一下？有点麻烦先看看其他的吧。（不麻烦啊这就是正解！！！）</p>
@@ -261,7 +261,7 @@
 <p>$code:$ <a href="https://paste.ubuntu.com/p/dJRMVsjtkW/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/dJRMVsjtkW/</a></p>
 <h4 id="生成函数。？"><a href="#生成函数。？" class="headerlink" title="生成函数。？"></a>生成函数。？</h4><p>老师说是道板子。。但是没学。。咕。（好像说代码和容斥是一样的。？）</p>
 <h1 id="Pj"><a href="#Pj" class="headerlink" title="Pj"></a>Pj</h1><p>普及组？你在逗我。。</p>
-<h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.13 模拟赛 题解/pj.png" title="pj">
+<h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/pj.png" class title="pj">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>暴力滚了。</p>
 <p>出分： $0pt.~~CE$ 了。。我随机数的 $ctime$ 头文件没打有尖括号。。</p>
@@ -279,7 +279,7 @@
 <p>然后线性递推出来记一下有几个 $1$ 几个 $2$ ，快速幂一下回答询问就好。</p>
 <p>总复杂度 $O(n+q\log n).$ （$\log$ 在快速幂。）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/fCnZ6myWHn/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/fCnZ6myWHn/</a></p>
-<h1 id="Tg"><a href="#Tg" class="headerlink" title="Tg"></a>Tg</h1><img src="/8.13 模拟赛 题解/tg.png" title="tg">
+<h1 id="Tg"><a href="#Tg" class="headerlink" title="Tg"></a>Tg</h1><img src="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/tg.png" class title="tg">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>暴力滚了。但是还是手玩了几组样例，觉得那个序列挺有意思的，但是没时间了。</p>
 <p>出分：$3pt.$ 这个点没有询问。。</p>

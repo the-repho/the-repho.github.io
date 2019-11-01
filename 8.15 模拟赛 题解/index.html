@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="Vote题面  考场一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。 首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,">
+  <meta name="description" content="Vote题面考场一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.15 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="Vote题面  考场一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。 首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,">
+<meta property="og:description" content="Vote题面考场一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20模拟赛%20题解&#x2F;Vote.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20模拟赛%20题解&#x2F;Point.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20模拟赛%20题解&#x2F;Actor.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Vote.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Point.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Actor.png">
 <meta property="og:updated_time" content="2019-10-31T17:14:58.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20模拟赛%20题解&#x2F;Vote.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Vote.png">
 
 <link rel="canonical" href="http://yoursite.com/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/">
 
@@ -240,10 +240,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Vote"><a href="#Vote" class="headerlink" title="Vote"></a>Vote</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.15 模拟赛 题解/Vote.png" title="Vote">
+        <h1 id="Vote"><a href="#Vote" class="headerlink" title="Vote"></a>Vote</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Vote.png" class title="Vote"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。</p><p>首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}$ 表示前 $i$ 个 $j$ 被选了没有之类的。。）</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。</p>
-<p>首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}$ 表示前 $i$ 个 $j$ 被选了没有之类的。。）</p>
+
+
 <p>然后发现还是暴力吧。就打了暴力，当然前面是一个错的贪心，因为后来我不知道为什么就想着用靠近 $0.5$ 的数。（那样是最小吧。。）</p>
 <p>出分：$20pt.$ 果然，数据大的点 $WA$ 了。</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>没错，答案一定是一个前缀后缀，证明如下：</p>
@@ -253,7 +253,7 @@
 <p>​    $\Large f_{i,<del>j}=f_{i-1,</del>j-1}\times p<del>+f_{i - 1,</del>j}\times (1-p_i).$</p>
 <p>最后枚举一下 $k$ 个数里面有几个在左边，几个赞成就好，注意答案是对每种选法取 $\max.$</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/qpwqWxVhdk/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/qpwqWxVhdk/</a></p>
-<h1 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.15 模拟赛 题解/Point.png" title="Point">
+<h1 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Point.png" class title="Point">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>没怎么看，随便想出来了一个 $n^2$ 的暴力，就是枚举答案在哪里，然后向左右扩展找到最远的地方更新答案。</p>
 <p>出分：$30pt..RE$ 了。。数组开小了。</p>
@@ -268,7 +268,7 @@
 <p>$code:$ （$T$ 了的，<del>当然可能</del>就是我写丑了。）<a href="https://paste.ubuntu.com/p/VvckND36vP/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/VvckND36vP/</a></p>
 <h4 id="优秀的线性做法-真正的标算"><a href="#优秀的线性做法-真正的标算" class="headerlink" title="优秀的线性做法 真正的标算"></a>优秀的线性做法 <del>真正的标算</del></h4><p>记得最一开始的 $n^2$ 暴力吗？这个可以优化的。因为每次是向左扩展一些，向右扩展一些，那么记一个点 $i$ 向右扩展到的点为 $r_i$ ，向左是 $l_i$ ，那么在区间 $[l_i,<del>r_i]$ 中间的点就不可能有更优的答案了，因此可以跳过他们。因此实现起来可以向两个方向扫一遍，每次向右扩展到 $r_i$ 的时候就把 $[i,</del>r_i]$ 的 $r$ 都记成 $r_i$ ，然后从 $r_i + 1$ 继续找即可。这样每个点只会被扩展一次，所以就是线性的了。！</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/yKH42tkcpP/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/yKH42tkcpP/</a></p>
-<h1 id="Actor"><a href="#Actor" class="headerlink" title="Actor"></a>Actor</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.15 模拟赛 题解/Actor.png" title="Actor">
+<h1 id="Actor"><a href="#Actor" class="headerlink" title="Actor"></a>Actor</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Actor.png" class title="Actor">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>$emm..$ 不会。。考虑暴力吧。</p>
 <p>然后第一个点特别小，就打了个表，其他的点放弃了。</p>

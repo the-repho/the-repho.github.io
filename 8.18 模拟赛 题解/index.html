@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="比赛真的变简单了好多呢。 Backpack题面  考场首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。） 然后黑了自己。 然后开始 $dp$ ，发现是一个 $O(nm).$ ： ​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$ 搞完后面的之后回头来看，发现 $a,b$ 的范围只有 $[1,100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存">
+  <meta name="description" content="比赛真的变简单了好多呢。Backpack题面考场首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）然后黑了自己。然后开始 $dp$ ，发现是一个 $O(nm).$ ：​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$搞完后面的之后回头来看，发现 $a,b$ 的范围只有 $[1,100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\m">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.18 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="比赛真的变简单了好多呢。 Backpack题面  考场首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。） 然后黑了自己。 然后开始 $dp$ ，发现是一个 $O(nm).$ ： ​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$ 搞完后面的之后回头来看，发现 $a,b$ 的范围只有 $[1,100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存">
+<meta property="og:description" content="比赛真的变简单了好多呢。Backpack题面考场首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）然后黑了自己。然后开始 $dp$ ，发现是一个 $O(nm).$ ：​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$搞完后面的之后回头来看，发现 $a,b$ 的范围只有 $[1,100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\m">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20模拟赛%20题解&#x2F;backpack.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20模拟赛%20题解&#x2F;median.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20模拟赛%20题解&#x2F;sequence.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;backpack.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;median.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;sequence.png">
 <meta property="og:updated_time" content="2019-10-31T17:14:51.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20模拟赛%20题解&#x2F;backpack.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;backpack.png">
 
 <link rel="canonical" href="http://yoursite.com/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/">
 
@@ -240,14 +240,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>比赛真的变简单了好多呢。</p>
-<h1 id="Backpack"><a href="#Backpack" class="headerlink" title="Backpack"></a>Backpack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.18 模拟赛 题解/backpack.png" title="backpack">
+        <p>比赛真的变简单了好多呢。</p><h1 id="Backpack"><a href="#Backpack" class="headerlink" title="Backpack"></a>Backpack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/backpack.png" class title="backpack"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）</p><p>然后黑了自己。</p><p>然后开始 $dp$ ，发现是一个 $O(nm).$ ：</p><p>​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$</p><p>搞完后面的之后回头来看，发现 $a,<del>b$ 的范围只有 $[1,</del>100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\max v.$</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）</p>
-<p>然后黑了自己。</p>
-<p>然后开始 $dp$ ，发现是一个 $O(nm).$ ：</p>
-<p>​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$</p>
-<p>搞完后面的之后回头来看，发现 $a,<del>b$ 的范围只有 $[1,</del>100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\max v.$</p>
+
+
+
+
+
+
 <p>然后就得到了一个 $O(m\max a)$ 的算法，能拿 $60pt.$ 稍微考虑了一下矩乘但是好像不太好写就没管了。</p>
 <p>出分： $60pt.$ </p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><h4 id="贪心。？？"><a href="#贪心。？？" class="headerlink" title="贪心。？？"></a>贪心。？？</h4><p>没错，一开始的类似部分背包的贪心有一定的正确性。可以大概的猜到，最优解里面一定会有很大一部分用性价比最大的物品组成的。所以我们考虑剩下多少贪心不一定正确。</p>
@@ -262,7 +262,7 @@
 <p>​                                                             $\large\left[\begin{matrix} -1 &amp; 0&amp;-1&amp;\cdots &amp;-1&amp;-1\-1&amp;-1&amp;0&amp;\cdots&amp;-1&amp;-1\\\vdots&amp;\vdots &amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\-1&amp;-1&amp;-1&amp;\cdots&amp;0&amp;-1\-1&amp;-1&amp;-1&amp;\cdots&amp;-1&amp;0\\v_1&amp;v_2&amp;v_3&amp;\cdots&amp;v_{k-1}&amp;v_k\end{matrix}\right]$ </p>
 <p>那么用它自乘再预处理前 $k$ 个就可以矩乘了。</p>
 <p>$code:$ </p>
-<h1 id="Median"><a href="#Median" class="headerlink" title="Median"></a>Median</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.18 模拟赛 题解/median.png" title="median">
+<h1 id="Median"><a href="#Median" class="headerlink" title="Median"></a>Median</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/median.png" class title="median">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>不知道是什么时候无意中看到了这道题的算法。但是没什么印象了，大概记得是二分吧。</p>
 <p>所以首先我考虑在一个上面二分，然后每次在另一个上面 $lower_bound$ 出它的位置，加起来就可以知道它在合并之后的序列中的位置，复杂度就是 $O(n\log^2n).$ </p>
@@ -272,7 +272,7 @@
 <p><strong>注意：上面说的更多一点其实是有问题的，仅用来理解这个算法的正确性。当一边的数分散在两极的时候，可能这边的少些，但是仍然要删它了。</strong></p>
 <p>出分：$100pt.$ </p>
 <p>$code: $ </p>
-<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.18 模拟赛 题解/sequence.png" title="sequence">
+<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/sequence.png" class title="sequence">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>我是怎么都没看出来它是一个积性函数。（因为在此之前我的认知是所有数都要有 $f(x)f(y)=f(xy).$）</p>
 <p>然后写的爆搜。</p>

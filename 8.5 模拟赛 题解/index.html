@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2831 Game题面  考场比较简单的数学题。&#x2F;&#x2F;没想到第二道能 $A$ 的题就在今天。 首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。 分开行列的时候观察每一个点上原始的数字是什么： 第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把">
+  <meta name="description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2831Game题面考场比较简单的数学题。&#x2F;&#x2F;没想到第二道能 $A$ 的题就在今天。首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。分开行列的时候观察每一个点上原始的数字是什么：第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把行和列分开了">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.5 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2831 Game题面  考场比较简单的数学题。&#x2F;&#x2F;没想到第二道能 $A$ 的题就在今天。 首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。 分开行列的时候观察每一个点上原始的数字是什么： 第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把">
+<meta property="og:description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2831Game题面考场比较简单的数学题。&#x2F;&#x2F;没想到第二道能 $A$ 的题就在今天。首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。分开行列的时候观察每一个点上原始的数字是什么：第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把行和列分开了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20模拟赛%20题解&#x2F;game.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20模拟赛%20题解&#x2F;jump.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20模拟赛%20题解&#x2F;sequence.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;game.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;jump.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;sequence.png">
 <meta property="og:updated_time" content="2019-10-31T17:14:39.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20模拟赛%20题解&#x2F;game.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;game.png">
 
 <link rel="canonical" href="http://yoursite.com/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/">
 
@@ -240,13 +240,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2831" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2831</a></p>
-<h1 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.5 模拟赛 题解/game.png" title="game">
+        <p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2831" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2831</a></p><h1 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/game.png" class title="game"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>比较简单的数学题。//没想到第二道能 $A$ 的题就在今天。</p><p>首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。</p><p>分开行列的时候观察每一个点上原始的数字是什么：</p><p>第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把行和列分开了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>比较简单的数学题。//没想到第二道能 $A$ 的题就在今天。</p>
-<p>首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。</p>
-<p>分开行列的时候观察每一个点上原始的数字是什么：</p>
-<p>第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把行和列分开了。</p>
+
+
+
+
+
 <table>
     <tr>
         <td>1</td>
@@ -319,7 +319,7 @@
 <p>出分：$40pt.$ 我求倍数和的时候没取模爆炸了！！！！</p>
 <p>加了就 $A$ 了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/CpJXw6vXhR/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/CpJXw6vXhR/</a></p>
-<h1 id="Jump"><a href="#Jump" class="headerlink" title="Jump"></a>Jump</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.5 模拟赛 题解/jump.png" title="jump">
+<h1 id="Jump"><a href="#Jump" class="headerlink" title="Jump"></a>Jump</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/jump.png" class title="jump">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>这个。一个数好像只能向一个地方走, 那就是 $n$ 个点,  $n$ 条边, 就是一颗基环外向树啊？</p>
 <p>那么一定有循环了。但是找循环应该是 $O(nm)$ 级别的, 待修改的话就起飞了。</p>
@@ -337,7 +337,7 @@
 <p>$code: $ </p>
 <h3 id="原题。？"><a href="#原题。？" class="headerlink" title="原题。？"></a>原题。？</h3><p>$luogu$ 原题链接：[<a href="https://www.luogu.org/problem/P4739]（它开" target="_blank" rel="noopener">https://www.luogu.org/problem/P4739]（它开</a> $8s$ 比赛开 $4s$ ？）</p>
 <p>[<a href="https://www.luogu.org/problem/P4739]" target="_blank" rel="noopener">https://www.luogu.org/problem/P4739]</a> :<a href="https://www.luogu.org/problem/P4739" target="_blank" rel="noopener">https://www.luogu.org/problem/P4739</a></p>
-<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.5 模拟赛 题解/sequence.png" title="sequence">
+<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/sequence.png" class title="sequence">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>想着用线段树 $Hash$ , （我傻啊又没有重复。。）写了 $WA$ 掉了的暴力。//没时间了。。</p>
 <p>出分：$0pt…$</p>

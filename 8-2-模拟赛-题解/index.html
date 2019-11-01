@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2825 Attack题面  考场点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？ 先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。 然后打了个暴力。 出分：我暴力打错了挂成一个小数。&#x2F;&#x2F;出题人手抖把时限开成了 $10">
+  <meta name="description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2825Attack题面考场点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。">
 <meta name="keywords" content="-模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.2 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2825 Attack题面  考场点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？ 先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。 然后打了个暴力。 出分：我暴力打错了挂成一个小数。&#x2F;&#x2F;出题人手抖把时限开成了 $10">
+<meta property="og:description" content="比赛地址：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2825Attack题面考场点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-模拟赛-题解&#x2F;Attack.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-模拟赛-题解&#x2F;Bomb.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-模拟赛-题解&#x2F;Contra.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3&#x2F;Attack.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3&#x2F;Bomb.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3&#x2F;Contra.png">
 <meta property="og:updated_time" content="2019-10-31T17:14:10.618Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-模拟赛-题解&#x2F;Attack.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3&#x2F;Attack.png">
 
 <link rel="canonical" href="http://yoursite.com/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/">
 
@@ -246,18 +246,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2825" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2825</a></p>
-<h1 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-模拟赛-题解/Attack.png" title="Attack">
+        <p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2825" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2825</a></p><h1 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/Attack.png" class title="Attack"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？</p><p>先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？</p>
-<p>先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。</p>
+
+
+
 <p>然后打了个暴力。</p>
 <p>出分：我暴力打错了挂成一个小数。//出题人手抖把时限开成了 $10s$ 让暴力能 $A$ 当然要优美一些的暴力。。</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>其实就用暴力吧。一个优化就是不是每次询问的时候根据值排序，而是预先排好序之后去顺序选，就能保证递增了。这个可以做到严格 $O(nm)$ 但是修改可能做不到 $O(1)$ 了。</p>
 <p>标准复杂度的东西题解上是划分树可以学学。或者是一个什么整体二分加树套树。。//有时间的话。。</p>
 <p>$code: $ </p>
 <p>​    暴力：<a href="https://paste.ubuntu.com/p/trfdZHK8YY/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/trfdZHK8YY/</a></p>
-<h1 id="Bomb"><a href="#Bomb" class="headerlink" title="Bomb"></a>Bomb</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-模拟赛-题解/Bomb.png" title="Bomb">
+<h1 id="Bomb"><a href="#Bomb" class="headerlink" title="Bomb"></a>Bomb</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/Bomb.png" class title="Bomb">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>主要写这题了。<del>还花了几乎所有时间在一个很简单的问题上。。</del></p>
 <p>先考虑三个点的曼哈顿距离是什么。可以发现就是包住他们的一个矩形的周长。而一定有一个点在定点上。（另一个点可能也在，但是没关系。。）然后记录一个横纵坐标的前后缀最大最小值就可以了。（有 $8$ 个。。）</p>
@@ -280,7 +280,7 @@
 <p>因为一个点还有 $y$ 的一维，所以就可以给 $y$ 排个序，然后每一次保证选的点的 $y$ 值在 $[p[i].y - ans, p[i].y]$ 里面就好了，其中 $p[i].y$ 是最右边的那个点。</p>
 <p>就可以 $A$ 了！</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/sMfKgftmdd/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/sMfKgftmdd/</a></p>
-<h1 id="Contra"><a href="#Contra" class="headerlink" title="Contra"></a>Contra</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-模拟赛-题解/Contra.png" title="Contra">
+<h1 id="Contra"><a href="#Contra" class="headerlink" title="Contra"></a>Contra</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/Contra.png" class title="Contra">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>想了想这个 $p$ 可以二分答案啊。然后概率 $dp$？然后想了一会没想出方程来，就放弃掉了。</p>
 <p><del>主要原因其实是第二题看起来很可做就去肝它了</del></p>

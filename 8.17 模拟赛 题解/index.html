@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="Slope题面  考场首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。 那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么： ​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_">
+  <meta name="description" content="Slope题面考场首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么：​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_2)}|">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.17 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="Slope题面  考场首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。 那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么： ​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_">
+<meta property="og:description" content="Slope题面考场首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么：​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_2)}|">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20模拟赛%20题解&#x2F;slope.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20模拟赛%20题解&#x2F;min.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20模拟赛%20题解&#x2F;swap.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;slope.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;min.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;swap.png">
 <meta property="og:updated_time" content="2019-10-31T17:14:53.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20模拟赛%20题解&#x2F;slope.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;slope.png">
 
 <link rel="canonical" href="http://yoursite.com/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/">
 
@@ -240,11 +240,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Slope"><a href="#Slope" class="headerlink" title="Slope"></a>Slope</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.17 模拟赛 题解/slope.png" title="slope">
+        <h1 id="Slope"><a href="#Slope" class="headerlink" title="Slope"></a>Slope</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/slope.png" class title="slope"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。</p><p>那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么：</p><p>​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_2)}|=\frac 1 Q|\frac{(Px_1-Qy_1)-(Px_2-Qy_2)}{x_1-x_2}|.$ </p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。</p>
-<p>那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么：</p>
-<p>​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_2)}|=\frac 1 Q|\frac{(Px_1-Qy_1)-(Px_2-Qy_2)}{x_1-x_2}|.$ </p>
+
+
+
 <p>当我们转化成这样的时候，就发现分子上的部分括号内的只与某一个点有关.</p>
 <p>那么对于每一个点，就可以记 $\large w_i=Px_1-Qy_1$ ，那么这里的 $\Delta$ 在忽略前面的常数之后就相当于：</p>
 <p>​    $\Large \Delta = |\frac{w_1-w_2}{x_1-x_2}|.$ </p>
@@ -255,7 +255,7 @@
 <p>程序就记一下如果相等取 $k$ 的 $\min$ 就好了。</p>
 <p>出分：$100pt.$</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/MVB39949PK/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/MVB39949PK/</a></p>
-<h1 id="Min"><a href="#Min" class="headerlink" title="Min"></a>Min</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.17 模拟赛 题解/min.png" title="min">
+<h1 id="Min"><a href="#Min" class="headerlink" title="Min"></a>Min</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/min.png" class title="min">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>第一次讲课讲 $DP$ 的时候好像说过很多种这一类题，那么考虑一个朴素的 $DP.$ </p>
 <p>$f_i$ 表示最后一个区间以 $i$ 结尾的答案，那么转移就枚举最后一个区间左端点即可。具体就是：</p>
@@ -267,7 +267,7 @@
 <p>首先答案如果是在栈上面维护的点之外的地方，那么肯定可以在它靠右的最近的一个点上有不劣的答案。那么我们只需要在关键点上更新信息就好。那么我们可以考虑维护每两个相邻关键点中间的区间中的 $f$ 值，而在不断弹出栈顶的时候可以一起记下他们的 $f$ 来继承他们的贡献。因为我们设的 $f$ 是一个前缀的答案，所以可以直接用栈顶来更新当前的 $f_i$，需要注意的是这个点单独成一个区间也需要考虑。</p>
 <p>那么写起来就较为容易了。整体而言不算是很难的 $dp$ 优化，但是细节很多了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/wGNYdXZg65/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/wGNYdXZg65/</a></p>
-<h1 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.17 模拟赛 题解/swap.png" title="swap">
+<h1 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/swap.png" class title="swap">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>是一道有趣的题目，一开始的想法是找逆序对然后直接暴力交换，开始写的时候发现不好写。。</p>
 <p>然后随便糊了一个特别慢的东西。就交了。</p>

@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="Maze题面  考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。 然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后">
+  <meta name="description" content="Maze题面考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.12 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
-<meta property="og:description" content="Maze题面  考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。 然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后">
+<meta property="og:description" content="Maze题面考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20模拟赛%20题解&#x2F;Factory.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Factory.png">
 <meta property="og:updated_time" content="2019-10-31T17:15:03.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20模拟赛%20题解&#x2F;Factory.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;Factory.png">
 
 <link rel="canonical" href="http://yoursite.com/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/">
 
@@ -238,9 +238,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3>
+        <h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p>
+
 <p>然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后一个小时开始写的，还没写完就 $250$ 行左右，还没搞完还没调试。没了。</p>
 <p>出分：没交。</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>很不幸的是分块和线段树两种都能做。没必要结合在一起。我服了我自己。</p>
@@ -281,7 +281,7 @@
 <p>​    对于两个点 $A(x_1, <del>y_1),</del>B(x_2,<del>y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, ~x_1 -y_1),</del>B’(x_2+y_2,<del>x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,</del>b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
 <p>那么就用线段树扫描线扫以一个点为中心的矩形里面包含的点的数量即可。（前缀点数和。）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/PTvD7P2Yqr/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/PTvD7P2Yqr/</a></p>
-<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12 模拟赛 题解/Factory.png" title="Factory">
+<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Factory.png" class title="Factory">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>一开始想到思路的竟然是这题。</p>
 <p>既然要任意情况都行，所以最后的矩阵一定是一个对角线上全是 $1$ 的正方形的方案。</p>

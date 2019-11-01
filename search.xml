@@ -3,10 +3,10 @@
   <entry>
     <title>8.20 模拟赛  题解</title>
     <url>/8.20%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Glo"><a href="#Glo" class="headerlink" title="Glo"></a>Glo</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.20%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/glo.png" class title="glo">
+    <content><![CDATA[<h1 id="Glo"><a href="#Glo" class="headerlink" title="Glo"></a>Glo</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.20%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/glo.png" class title="glo"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一看是一个最长上升子序列，只是带一点特殊的东西，再一看数据范围，根据已学知识要用单调栈搞一个 $\log$ 算法差不多能过。</p><p>然后开始看那个特殊的区间加操作。然后发现如果把一个区间加向后面拓展成后缀加，答案一定是不劣的，同理区间减扩展成前缀减。进一步我们发现最长上升子序列关心的只是他们之间的差值，所以数值本身意义不大，因此前缀减可以等效成后缀加，那么现在的问题就变成了要给一个后缀加上一个数之后的最长上升子序列了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一看是一个最长上升子序列，只是带一点特殊的东西，再一看数据范围，根据已学知识要用单调栈搞一个 $\log$ 算法差不多能过。</p>
-<p>然后开始看那个特殊的区间加操作。然后发现如果把一个区间加向后面拓展成后缀加，答案一定是不劣的，同理区间减扩展成前缀减。进一步我们发现最长上升子序列关心的只是他们之间的差值，所以数值本身意义不大，因此前缀减可以等效成后缀加，那么现在的问题就变成了要给一个后缀加上一个数之后的最长上升子序列了。</p>
+
+
 <p>然后我考虑单调栈的做法，就是维护一个当前的上升子序列长度为 $x$ 的一个最小值，然后找到刚好比自己大的位置插进去，并更新答案。所以我的想法就是与此同时也在一个后缀的栈里面找到 $x-k$ 的位置，用那里的后缀最长下降子序列更新总的答案。但是这个栈是没办法回退的，所以我发现不能预处理一遍后缀栈然后在做前缀的时候退出上一位的影响。那就只能暴力做这里的栈了，这个做法要么时间爆炸要么空间爆炸。而我也没有什么进一步思路了。</p>
 <p>看看部分分。</p>
 <h4 id="k-0"><a href="#k-0" class="headerlink" title="$k=0$"></a>$k=0$</h4><p>这个就是普通的最长上升子序列。直接做。</p>
@@ -43,14 +43,14 @@
   <entry>
     <title>8.18 模拟赛  题解</title>
     <url>/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛真的变简单了好多呢。</p>
-<h1 id="Backpack"><a href="#Backpack" class="headerlink" title="Backpack"></a>Backpack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.18 模拟赛 题解/backpack.png" title="backpack">
+    <content><![CDATA[<p>比赛真的变简单了好多呢。</p><h1 id="Backpack"><a href="#Backpack" class="headerlink" title="Backpack"></a>Backpack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/backpack.png" class title="backpack"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）</p><p>然后黑了自己。</p><p>然后开始 $dp$ ，发现是一个 $O(nm).$ ：</p><p>​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$</p><p>搞完后面的之后回头来看，发现 $a,<del>b$ 的范围只有 $[1,</del>100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\max v.$</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）</p>
-<p>然后黑了自己。</p>
-<p>然后开始 $dp$ ，发现是一个 $O(nm).$ ：</p>
-<p>​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$</p>
-<p>搞完后面的之后回头来看，发现 $a,<del>b$ 的范围只有 $[1,</del>100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\max v.$</p>
+
+
+
+
+
+
 <p>然后就得到了一个 $O(m\max a)$ 的算法，能拿 $60pt.$ 稍微考虑了一下矩乘但是好像不太好写就没管了。</p>
 <p>出分： $60pt.$ </p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><h4 id="贪心。？？"><a href="#贪心。？？" class="headerlink" title="贪心。？？"></a>贪心。？？</h4><p>没错，一开始的类似部分背包的贪心有一定的正确性。可以大概的猜到，最优解里面一定会有很大一部分用性价比最大的物品组成的。所以我们考虑剩下多少贪心不一定正确。</p>
@@ -65,7 +65,7 @@
 <p>​                                                             $\large\left[\begin{matrix} -1 &amp; 0&amp;-1&amp;\cdots &amp;-1&amp;-1\-1&amp;-1&amp;0&amp;\cdots&amp;-1&amp;-1\\\vdots&amp;\vdots &amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\-1&amp;-1&amp;-1&amp;\cdots&amp;0&amp;-1\-1&amp;-1&amp;-1&amp;\cdots&amp;-1&amp;0\\v_1&amp;v_2&amp;v_3&amp;\cdots&amp;v_{k-1}&amp;v_k\end{matrix}\right]$ </p>
 <p>那么用它自乘再预处理前 $k$ 个就可以矩乘了。</p>
 <p>$code:$ </p>
-<h1 id="Median"><a href="#Median" class="headerlink" title="Median"></a>Median</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.18 模拟赛 题解/median.png" title="median">
+<h1 id="Median"><a href="#Median" class="headerlink" title="Median"></a>Median</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/median.png" class title="median">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>不知道是什么时候无意中看到了这道题的算法。但是没什么印象了，大概记得是二分吧。</p>
 <p>所以首先我考虑在一个上面二分，然后每次在另一个上面 $lower_bound$ 出它的位置，加起来就可以知道它在合并之后的序列中的位置，复杂度就是 $O(n\log^2n).$ </p>
@@ -75,7 +75,7 @@
 <p><strong>注意：上面说的更多一点其实是有问题的，仅用来理解这个算法的正确性。当一边的数分散在两极的时候，可能这边的少些，但是仍然要删它了。</strong></p>
 <p>出分：$100pt.$ </p>
 <p>$code: $ </p>
-<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.18 模拟赛 题解/sequence.png" title="sequence">
+<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/sequence.png" class title="sequence">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>我是怎么都没看出来它是一个积性函数。（因为在此之前我的认知是所有数都要有 $f(x)f(y)=f(xy).$）</p>
 <p>然后写的爆搜。</p>
@@ -95,11 +95,11 @@
   <entry>
     <title>8.17 模拟赛  题解</title>
     <url>/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Slope"><a href="#Slope" class="headerlink" title="Slope"></a>Slope</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.17 模拟赛 题解/slope.png" title="slope">
+    <content><![CDATA[<h1 id="Slope"><a href="#Slope" class="headerlink" title="Slope"></a>Slope</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/slope.png" class title="slope"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。</p><p>那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么：</p><p>​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_2)}|=\frac 1 Q|\frac{(Px_1-Qy_1)-(Px_2-Qy_2)}{x_1-x_2}|.$ </p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>首先读了下题，题意是找出斜率最接近 $\large\frac{P}{Q}$ 过两点直线的斜率·。</p>
-<p>那么直接看一下一条直线的斜率和 $\large \frac{P}{Q}$ 的差是什么：</p>
-<p>​    $\Large \Delta=|\frac{P}{Q}-\frac{y_1-y_2}{x_1-x_2}|=|\frac{P(x_1-x_2)-Q(y_1-y_2)}{Q(x_1-x_2)}|=\frac 1 Q|\frac{(Px_1-Qy_1)-(Px_2-Qy_2)}{x_1-x_2}|.$ </p>
+
+
+
 <p>当我们转化成这样的时候，就发现分子上的部分括号内的只与某一个点有关.</p>
 <p>那么对于每一个点，就可以记 $\large w_i=Px_1-Qy_1$ ，那么这里的 $\Delta$ 在忽略前面的常数之后就相当于：</p>
 <p>​    $\Large \Delta = |\frac{w_1-w_2}{x_1-x_2}|.$ </p>
@@ -110,7 +110,7 @@
 <p>程序就记一下如果相等取 $k$ 的 $\min$ 就好了。</p>
 <p>出分：$100pt.$</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/MVB39949PK/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/MVB39949PK/</a></p>
-<h1 id="Min"><a href="#Min" class="headerlink" title="Min"></a>Min</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.17 模拟赛 题解/min.png" title="min">
+<h1 id="Min"><a href="#Min" class="headerlink" title="Min"></a>Min</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/min.png" class title="min">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>第一次讲课讲 $DP$ 的时候好像说过很多种这一类题，那么考虑一个朴素的 $DP.$ </p>
 <p>$f_i$ 表示最后一个区间以 $i$ 结尾的答案，那么转移就枚举最后一个区间左端点即可。具体就是：</p>
@@ -122,7 +122,7 @@
 <p>首先答案如果是在栈上面维护的点之外的地方，那么肯定可以在它靠右的最近的一个点上有不劣的答案。那么我们只需要在关键点上更新信息就好。那么我们可以考虑维护每两个相邻关键点中间的区间中的 $f$ 值，而在不断弹出栈顶的时候可以一起记下他们的 $f$ 来继承他们的贡献。因为我们设的 $f$ 是一个前缀的答案，所以可以直接用栈顶来更新当前的 $f_i$，需要注意的是这个点单独成一个区间也需要考虑。</p>
 <p>那么写起来就较为容易了。整体而言不算是很难的 $dp$ 优化，但是细节很多了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/wGNYdXZg65/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/wGNYdXZg65/</a></p>
-<h1 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.17 模拟赛 题解/swap.png" title="swap">
+<h1 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/swap.png" class title="swap">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>是一道有趣的题目，一开始的想法是找逆序对然后直接暴力交换，开始写的时候发现不好写。。</p>
 <p>然后随便糊了一个特别慢的东西。就交了。</p>
@@ -145,10 +145,10 @@
   <entry>
     <title>8.15 模拟赛  题解</title>
     <url>/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Vote"><a href="#Vote" class="headerlink" title="Vote"></a>Vote</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.15 模拟赛 题解/Vote.png" title="Vote">
+    <content><![CDATA[<h1 id="Vote"><a href="#Vote" class="headerlink" title="Vote"></a>Vote</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Vote.png" class title="Vote"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。</p><p>首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}$ 表示前 $i$ 个 $j$ 被选了没有之类的。。）</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。</p>
-<p>首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}$ 表示前 $i$ 个 $j$ 被选了没有之类的。。）</p>
+
+
 <p>然后发现还是暴力吧。就打了暴力，当然前面是一个错的贪心，因为后来我不知道为什么就想着用靠近 $0.5$ 的数。（那样是最小吧。。）</p>
 <p>出分：$20pt.$ 果然，数据大的点 $WA$ 了。</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>没错，答案一定是一个前缀后缀，证明如下：</p>
@@ -158,7 +158,7 @@
 <p>​    $\Large f_{i,<del>j}=f_{i-1,</del>j-1}\times p<del>+f_{i - 1,</del>j}\times (1-p_i).$</p>
 <p>最后枚举一下 $k$ 个数里面有几个在左边，几个赞成就好，注意答案是对每种选法取 $\max.$</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/qpwqWxVhdk/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/qpwqWxVhdk/</a></p>
-<h1 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.15 模拟赛 题解/Point.png" title="Point">
+<h1 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Point.png" class title="Point">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>没怎么看，随便想出来了一个 $n^2$ 的暴力，就是枚举答案在哪里，然后向左右扩展找到最远的地方更新答案。</p>
 <p>出分：$30pt..RE$ 了。。数组开小了。</p>
@@ -173,7 +173,7 @@
 <p>$code:$ （$T$ 了的，<del>当然可能</del>就是我写丑了。）<a href="https://paste.ubuntu.com/p/VvckND36vP/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/VvckND36vP/</a></p>
 <h4 id="优秀的线性做法-真正的标算"><a href="#优秀的线性做法-真正的标算" class="headerlink" title="优秀的线性做法 真正的标算"></a>优秀的线性做法 <del>真正的标算</del></h4><p>记得最一开始的 $n^2$ 暴力吗？这个可以优化的。因为每次是向左扩展一些，向右扩展一些，那么记一个点 $i$ 向右扩展到的点为 $r_i$ ，向左是 $l_i$ ，那么在区间 $[l_i,<del>r_i]$ 中间的点就不可能有更优的答案了，因此可以跳过他们。因此实现起来可以向两个方向扫一遍，每次向右扩展到 $r_i$ 的时候就把 $[i,</del>r_i]$ 的 $r$ 都记成 $r_i$ ，然后从 $r_i + 1$ 继续找即可。这样每个点只会被扩展一次，所以就是线性的了。！</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/yKH42tkcpP/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/yKH42tkcpP/</a></p>
-<h1 id="Actor"><a href="#Actor" class="headerlink" title="Actor"></a>Actor</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.15 模拟赛 题解/Actor.png" title="Actor">
+<h1 id="Actor"><a href="#Actor" class="headerlink" title="Actor"></a>Actor</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Actor.png" class title="Actor">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>$emm..$ 不会。。考虑暴力吧。</p>
 <p>然后第一个点特别小，就打了个表，其他的点放弃了。</p>
@@ -187,12 +187,12 @@
   <entry>
     <title>8.13 模拟赛  题解</title>
     <url>/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.13 模拟赛 题解/Count.png" title="Count">
+    <content><![CDATA[<h1 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Count.png" class title="Count"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>主攻它！</p><p>首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。</p><p>大概的式子是这样的：</p><p>​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$ </p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>主攻它！</p>
-<p>首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。</p>
-<p>大概的式子是这样的：</p>
-<p>​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$ </p>
+
+
+
+
 <p>我一开始想的是把下面一样的合并一下求，但是没有发现简洁公式。而且这个式子本来就是 $\large\frac{n}{m}$ 项的， $n$ 那么大它项数就直接炸了。</p>
 <p>所以换一个思路，考虑他们对 $m$ 的余数。因为不被整除，所以原式可以直接表示成 $\sum a_i\equiv A\mod m$ 。所以每一个 $a_i$ 可以转化成对 $m$ 的余数和商两部分，商部分因为没有任何限制，所以可以直接挡板法求，余数部分相当于若干个 $\in[1,<del>m-1]$ 的整数相加与 $n$ 模 $m$ 同余。同样，我们把 $n$ 也分成被 $m$ 组成的部分和被余数组成的部分，因为余数有范围，所以 $n$ 被余数组成的部分 $N’\in [k,</del>k(m-1)]$ 。这个东西规模就从 $10^{18}$ 缩小成 $km$ 了。那我们来看怎么求这些余数部分。</p>
 <p>首先是同余，所以 $N’$ 的取值也是以 $m$ 为间隔的，也就是我们可以枚举这个和，复杂度是 $k$ 的，然后还是可以挡板，但是有 $[1,~m -1]$ 的限制。容斥一下？有点麻烦先看看其他的吧。（不麻烦啊这就是正解！！！）</p>
@@ -208,7 +208,7 @@
 <p>$code:$ <a href="https://paste.ubuntu.com/p/dJRMVsjtkW/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/dJRMVsjtkW/</a></p>
 <h4 id="生成函数。？"><a href="#生成函数。？" class="headerlink" title="生成函数。？"></a>生成函数。？</h4><p>老师说是道板子。。但是没学。。咕。（好像说代码和容斥是一样的。？）</p>
 <h1 id="Pj"><a href="#Pj" class="headerlink" title="Pj"></a>Pj</h1><p>普及组？你在逗我。。</p>
-<h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.13 模拟赛 题解/pj.png" title="pj">
+<h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/pj.png" class title="pj">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>暴力滚了。</p>
 <p>出分： $0pt.~~CE$ 了。。我随机数的 $ctime$ 头文件没打有尖括号。。</p>
@@ -226,7 +226,7 @@
 <p>然后线性递推出来记一下有几个 $1$ 几个 $2$ ，快速幂一下回答询问就好。</p>
 <p>总复杂度 $O(n+q\log n).$ （$\log$ 在快速幂。）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/fCnZ6myWHn/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/fCnZ6myWHn/</a></p>
-<h1 id="Tg"><a href="#Tg" class="headerlink" title="Tg"></a>Tg</h1><img src="/8.13 模拟赛 题解/tg.png" title="tg">
+<h1 id="Tg"><a href="#Tg" class="headerlink" title="Tg"></a>Tg</h1><img src="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/tg.png" class title="tg">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>暴力滚了。但是还是手玩了几组样例，觉得那个序列挺有意思的，但是没时间了。</p>
 <p>出分：$3pt.$ 这个点没有询问。。</p>
@@ -251,9 +251,9 @@
   <entry>
     <title>8.12 模拟赛  题解</title>
     <url>/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3>
+    <content><![CDATA[<h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p>
+
 <p>然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后一个小时开始写的，还没写完就 $250$ 行左右，还没搞完还没调试。没了。</p>
 <p>出分：没交。</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>很不幸的是分块和线段树两种都能做。没必要结合在一起。我服了我自己。</p>
@@ -294,7 +294,7 @@
 <p>​    对于两个点 $A(x_1, <del>y_1),</del>B(x_2,<del>y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, ~x_1 -y_1),</del>B’(x_2+y_2,<del>x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,</del>b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
 <p>那么就用线段树扫描线扫以一个点为中心的矩形里面包含的点的数量即可。（前缀点数和。）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/PTvD7P2Yqr/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/PTvD7P2Yqr/</a></p>
-<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12 模拟赛 题解/Factory.png" title="Factory">
+<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/Factory.png" class title="Factory">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>一开始想到思路的竟然是这题。</p>
 <p>既然要任意情况都行，所以最后的矩阵一定是一个对角线上全是 $1$ 的正方形的方案。</p>
@@ -323,12 +323,12 @@
   <entry>
     <title>8.10 模拟赛  题解</title>
     <url>/8.10%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p><del>因为好像走了就用不了 $jzoj$ 了所以不放比赛地址了。。</del></p>
-<h1 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.10 模拟赛 题解/math.png" title="math">
+    <content><![CDATA[<p><del>因为好像走了就用不了 $jzoj$ 了所以不放比赛地址了。。</del></p><h1 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.10%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/math.png" class title="math"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>考场上主要玩这题了。能 $A$ 了就值了。。</p><p>首先朴素的把答案的式子展开：$\vec a=(x_1, y_1), ~\vec b = (x_2, y_2).$</p><p>​    $\large\begin{equation} \begin{aligned}Ans &amp;=|\lambda_1\vec a+\lambda_2\vec b|^2\\&amp;=(\lambda_1x_1+\lambda_2x_2)^2+(\lambda_1y_1+\lambda_2y_2)^2\ &amp;=\lambda_1^2x_1^2+2\lambda_1\lambda_2x_1x_2+\lambda_2^2x_2^2+\lambda_1^2y_1^2+2\lambda_1\lambda_2y_1y_2+\lambda_2^2y_2^2 \ &amp;=\lambda_1^2(x_1^2+y_1^2)+2\lambda_1\lambda_2(x_1x_2+y_1y_2)+\lambda_2^2(x_2^2+y_2^2)\end{aligned}\end{equation}$ </p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>考场上主要玩这题了。能 $A$ 了就值了。。</p>
-<p>首先朴素的把答案的式子展开：$\vec a=(x_1, y_1), ~\vec b = (x_2, y_2).$</p>
-<p>​    $\large\begin{equation} \begin{aligned}Ans &amp;=|\lambda_1\vec a+\lambda_2\vec b|^2\\&amp;=(\lambda_1x_1+\lambda_2x_2)^2+(\lambda_1y_1+\lambda_2y_2)^2\ &amp;=\lambda_1^2x_1^2+2\lambda_1\lambda_2x_1x_2+\lambda_2^2x_2^2+\lambda_1^2y_1^2+2\lambda_1\lambda_2y_1y_2+\lambda_2^2y_2^2 \ &amp;=\lambda_1^2(x_1^2+y_1^2)+2\lambda_1\lambda_2(x_1x_2+y_1y_2)+\lambda_2^2(x_2^2+y_2^2)\end{aligned}\end{equation}$ </p>
+
+
+
+
 <p>然后因为 $\vec a, <del>\vec b$ 是给定的，所以可以记 $\large a=x_1^2+y_1^2,</del>b=x_1x_2+y_1y_2,~c=x_2^2+y_2^2.$ </p>
 <p>那么式子就变成了：$\large Ans =a\lambda_1^2+2b\lambda_1\lambda_2+c\lambda_2^2$，然后我们研究右边。</p>
 <p>首先有 $a\geq 0$ 所以把右边配成定点式有：$\large a(\lambda_1+\frac b a \lambda_2)^2+\frac{ac-b^2}a \lambda_2^2 \geq \frac{ac-b^2}a \lambda_2^2$ </p>
@@ -366,13 +366,13 @@
 <p>这个复杂度就比上面的剪枝靠谱多了。</p>
 <p>$code:$ </p>
 <hr>
-<h1 id="Treasure"><a href="#Treasure" class="headerlink" title="Treasure"></a>Treasure</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.10 模拟赛 题解/treasure.png" title="treasure">
+<h1 id="Treasure"><a href="#Treasure" class="headerlink" title="Treasure"></a>Treasure</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.10%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/treasure.png" class title="treasure">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>一看就是爆搜？写了写前两个点，自己造的小数据过了，就没管了。</p>
 <p>具体做法就是每一层记录最左最右的宝藏位置，那么他们之间的一定挖过了。然后暴力看走那个就好。</p>
 <p>出分：$0pt.$ </p>
 <h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>好像是用斯坦纳树，看了博客不太会。咕。</p>
-<h1 id="City"><a href="#City" class="headerlink" title="City"></a>City</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.10 模拟赛 题解/city.png" title="city">
+<h1 id="City"><a href="#City" class="headerlink" title="City"></a>City</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.10%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/city.png" class title="city">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>建树$+DP$ ？</p>
 <p>写了写一个倍增求路径和但是是错的。</p>
@@ -391,21 +391,21 @@
   <entry>
     <title>8.9 模拟赛  题解</title>
     <url>/8.9%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2835" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2835</a></p>
-<hr>
-<h1 id="Cell"><a href="#Cell" class="headerlink" title="Cell"></a>Cell</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.9 模拟赛 题解/cell.png" title="cell">
+    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2835" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2835</a></p><hr><h1 id="Cell"><a href="#Cell" class="headerlink" title="Cell"></a>Cell</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.9%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/cell.png" class title="cell"><p>###　考场</p><p>比较简单的题吧，首先它给出了一种叫传送门的东西要走迷宫，就先看看传送门用来做什么。</p><p>它可以被开在墙上，然后在墙边上传送过去。</p><p>那么就相当于两个点由一条更近的路连在一起了，那么就考虑最短路，看这个可能连成稠密图，所以跑 $dijkstra$ 。</p><a id="more"></a>
 
-<p>###　考场</p>
-<p>比较简单的题吧，首先它给出了一种叫传送门的东西要走迷宫，就先看看传送门用来做什么。</p>
-<p>它可以被开在墙上，然后在墙边上传送过去。</p>
-<p>那么就相当于两个点由一条更近的路连在一起了，那么就考虑最短路，看这个可能连成稠密图，所以跑 $dijkstra$ 。</p>
+
+
+
+
+
+
 <p>怎么建边呢？首先两个相邻的不是墙的点之间要连，长度为 $1$，另外在墙边上可以传到其他传送门去。所以墙边上就向每一个对着的墙前的空地连长度为 $1$ 的边。然后最短路。</p>
 <p>出分： $0pt. RE$ ？？？？？经过反复检查<del>提交</del>发现我在读图的时候用 $int$ 存了 $char.$ 但理论上没什么事啊。。$orz…$</p>
 <p>改了之后还是没有 $A$ 为什么呢？</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>仔细读题！发现第二项说明，就是建传送门的时候不需要和墙相邻！那么在四边没有墙的地方就也可以向某一边发传送门，然后走到另一个最近的墙，再在那座墙上开个传送门传到原来发了传送门的地方。也就是对于点 $(i, <del>j)$ 向四个方向拓展到了墙是 $(x_k,</del>y_k),<del>k \in [0,</del>3]$ 那么向每个点建长度为 $\min |x_k-i+y_k-j|+1$ 的边。（这里最近的点可能建了更远的边，但是没关系，因为我们可以直接用以前建好了的相邻空地的边走过去。）</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/hbSPW2jsFJ/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/hbSPW2jsFJ/</a></p>
 <h6 id="原题：jzoj5781"><a href="#原题：jzoj5781" class="headerlink" title="原题：jzoj5781"></a>原题：<a href="http://jzoj.net/senior/#main/show/5781" target="_blank" rel="noopener">jzoj5781</a></h6><hr>
-<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.9 模拟赛 题解/tree.png" title="tree">
+<h1 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.9%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/tree.png" class title="tree">
 
 <h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>这个，好复杂，没什么想法。。</p>
 <p>考虑一下随机吧！既然是二叉搜索树，$n$ 也很小，那就考虑每次随即一个插入顺序，暴力插入更新答案？</p>
@@ -417,7 +417,7 @@
 <p>后面的区间和考虑用前缀和预处理即可。并且如果每一次求 $\gcd$ 也会 $T$ 掉，所以两两间的 $\gcd$ 也要预处理。$k$ 跟另外答案是 $\max f_{1,<del>i,</del>1}+f_{i,<del>n,</del>0}.$ </p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/f2wk9GBwJX/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/f2wk9GBwJX/</a></p>
 <hr>
-<h1 id="Rotate"><a href="#Rotate" class="headerlink" title="Rotate"></a>Rotate</h1><img src="/8.9 模拟赛 题解/rotate.png" title="rotate">
+<h1 id="Rotate"><a href="#Rotate" class="headerlink" title="Rotate"></a>Rotate</h1><img src="/8.9%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/rotate.png" class title="rotate">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>题意很简单，先考虑第一个 $30pt.$： $O(n^3)$ 暴力：暴力选区间，暴力反转，暴力找对数。</p>
 <p>然后看第二个数据点是个 $O(n^2)$ 的做法，那考虑优化上面那个暴力：不需要暴力找了，可以固定一个中间点，然后一对一对向外面扩展，没扩展一层更新答案。这就有 $60pt.$ 了。（卡到了 $65pt..$）</p>
@@ -440,25 +440,25 @@
   <entry>
     <title>8.7 模拟赛  题解</title>
     <url>/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛链接：<a href="http://jzoj.net/senior/#contest/home/2833" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2833</a></p>
-<h1 id="Seq"><a href="#Seq" class="headerlink" title="Seq"></a>Seq</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.7 模拟赛 题解/seq.png" title="seq">
+    <content><![CDATA[<p>比赛链接：<a href="http://jzoj.net/senior/#contest/home/2833" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2833</a></p><h1 id="Seq"><a href="#Seq" class="headerlink" title="Seq"></a>Seq</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/seq.png" class title="seq"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>题目变简单了。这道题一个递推式很显然地看出可以做矩乘。那考虑怎么构造矩阵。</p><p>因为他都是前面式子相乘得到的下一项，而递推式里的常数 $b_i$ 又在指数上，可以想到两个等底数的式子相乘就等于他们的指数相加。那么只需要在指数上做矩乘维护一个递推后的指数和就好了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>题目变简单了。这道题一个递推式很显然地看出可以做矩乘。那考虑怎么构造矩阵。</p>
-<p>因为他都是前面式子相乘得到的下一项，而递推式里的常数 $b_i$ 又在指数上，可以想到两个等底数的式子相乘就等于他们的指数相加。那么只需要在指数上做矩乘维护一个递推后的指数和就好了。</p>
+
+
+
 <p>这么构造矩阵的话，转移矩阵会很好看：</p>
 <p>$\begin{bmatrix}<br>0 &amp;1 &amp; 0 &amp; …&amp;0 &amp; 0\\<br>0 &amp; 0 &amp; 1 &amp; …&amp;0 &amp; 0\\<br>&amp;&amp;&amp;…\\<br>0 &amp; 0 &amp; 0 &amp; …&amp; 1&amp; 0\\<br>0 &amp; 0 &amp; 0 &amp; …&amp;0&amp;1\\<br>b_k&amp;b_{k-1}&amp;b_{k-2}&amp;…&amp;b_2&amp;b_1\\<br>\end{bmatrix}$</p>
 <p>构造起来也很简单。然后普通矩乘就好。</p>
 <p>注意这里跑起来会有点慢，经过反复卡常 $+O3$ 之后本地仍然 $1.6s+.$ 开网之后在 $customtest$ 测了一下发现开 $O3 ~400ms+$，不开 $2000ms+…$ 然后交了 $O3.$ 拍了很久没错就觉得应该是满分了。</p>
 <p>出分：$100pt.$</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/87Rk2K453B/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/87Rk2K453B/</a></p>
-<h1 id="Dream"><a href="#Dream" class="headerlink" title="Dream"></a>Dream</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.7 模拟赛 题解/dream.png" title="dream">
+<h1 id="Dream"><a href="#Dream" class="headerlink" title="Dream"></a>Dream</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/dream.png" class title="dream">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>挺喜欢题面的。然后发现好像可以直接贪心。因为一个 $t$ 只能对应一个 $[l,~r]$，所以我们可以类似选区间的策略按左端点排序然后尽量选右端点靠左的区间和 $t$ 配对，这样区间更靠右的就有可能和后面的点配对从而有更优的答案。</p>
 <p>具体实现起来就把区间按左端点排序，从小到大考虑 $t$ ，每一次首先把所有左端点小于 $t$ 的区间假如考虑中，因为后面的 $t$ 不减而我们要找最小的右端点，所以我们只需要用一个小根堆存这些区间的右端点，在找区间的时候如果堆顶比 $t$ 还要小，就直接弹出，因为它不能和 $t$ 配对就更不可能和 $t$ 后面的数配对。然后如果能配上一个就计入答案并弹出堆顶。（因为有可能一个满足的区间都没有，就是堆为空）</p>
 <p>代码也很简单了。</p>
 <p>出分：$100pt.$ //其实当时没想要拿满，但好像也举不出反例就交了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/n2XGdh5xkT/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/n2XGdh5xkT/</a></p>
-<h1 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.7 模拟赛 题解/tree.png" title="tree">
+<h1 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/tree.png" class title="tree">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>先暴力吧，就是暴力两个点然后暴力中间的点走过了一个点对没有。</p>
 <p>然后觉得这个枚举另一个点的过程好像可以在搜出去的过程中解决，但是没往下想。//这个是可以的。</p>
@@ -487,13 +487,13 @@
   <entry>
     <title>8.5 模拟赛  题解</title>
     <url>/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2831" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2831</a></p>
-<h1 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.5 模拟赛 题解/game.png" title="game">
+    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2831" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2831</a></p><h1 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/game.png" class title="game"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>比较简单的数学题。//没想到第二道能 $A$ 的题就在今天。</p><p>首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。</p><p>分开行列的时候观察每一个点上原始的数字是什么：</p><p>第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把行和列分开了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>比较简单的数学题。//没想到第二道能 $A$ 的题就在今天。</p>
-<p>首先发现 $n, m$ 都很大就肯定要行列分开的。因为你开一个数据结构空间也肯定爆了。</p>
-<p>分开行列的时候观察每一个点上原始的数字是什么：</p>
-<p>第 $i$ 行 $j$ 列是 $(i - 1)\times m+j$ 这个东西好像天然把行和列分开了。</p>
+
+
+
+
+
 <table>
     <tr>
         <td>1</td>
@@ -566,7 +566,7 @@
 <p>出分：$40pt.$ 我求倍数和的时候没取模爆炸了！！！！</p>
 <p>加了就 $A$ 了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/CpJXw6vXhR/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/CpJXw6vXhR/</a></p>
-<h1 id="Jump"><a href="#Jump" class="headerlink" title="Jump"></a>Jump</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.5 模拟赛 题解/jump.png" title="jump">
+<h1 id="Jump"><a href="#Jump" class="headerlink" title="Jump"></a>Jump</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/jump.png" class title="jump">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>这个。一个数好像只能向一个地方走, 那就是 $n$ 个点,  $n$ 条边, 就是一颗基环外向树啊？</p>
 <p>那么一定有循环了。但是找循环应该是 $O(nm)$ 级别的, 待修改的话就起飞了。</p>
@@ -584,7 +584,7 @@
 <p>$code: $ </p>
 <h3 id="原题。？"><a href="#原题。？" class="headerlink" title="原题。？"></a>原题。？</h3><p>$luogu$ 原题链接：[<a href="https://www.luogu.org/problem/P4739]（它开" target="_blank" rel="noopener">https://www.luogu.org/problem/P4739]（它开</a> $8s$ 比赛开 $4s$ ？）</p>
 <p>[<a href="https://www.luogu.org/problem/P4739]" target="_blank" rel="noopener">https://www.luogu.org/problem/P4739]</a> :<a href="https://www.luogu.org/problem/P4739" target="_blank" rel="noopener">https://www.luogu.org/problem/P4739</a></p>
-<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.5 模拟赛 题解/sequence.png" title="sequence">
+<h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/sequence.png" class title="sequence">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>想着用线段树 $Hash$ , （我傻啊又没有重复。。）写了 $WA$ 掉了的暴力。//没时间了。。</p>
 <p>出分：$0pt…$</p>
@@ -611,10 +611,10 @@
   <entry>
     <title>8.4 模拟赛  题解</title>
     <url>/8.4%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2827" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2827</a></p>
-<h1 id="Forging"><a href="#Forging" class="headerlink" title="Forging"></a>Forging</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.4 模拟赛 题解/forging.png" title="forging">
+    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2827" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2827</a></p><h1 id="Forging"><a href="#Forging" class="headerlink" title="Forging"></a>Forging</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.4%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/forging.png" class title="forging"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>本来可以第一次考场上 $A$ 题，结果卡空间！我开了 $ll$ 就炸了！$int$ 就过了！而且他还卡常数。。（我 用 $cout$ 他最后一个点就 $T$ 了。）//终于可以考场正解一起写了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>本来可以第一次考场上 $A$ 题，结果卡空间！我开了 $ll$ 就炸了！$int$ 就过了！而且他还卡常数。。（我 用 $cout$ 他最后一个点就 $T$ 了。）//终于可以考场正解一起写了。</p>
+
+
 <p>首先理解一下题意，就是两个相邻级别的剑合在一起，有 $p$ 的概率成功合成更高一级的剑，有 $1 - p$ 的概率变成较低级别的剑，就相当于较高的剑没了。发现这个东西 $DP$ 是搞不定的，因为他有后效性而且还要有一个无穷的极限。这个就好像就要推式子。？</p>
 <p>先看看部分分吧：</p>
 <h4 id="特殊性质？-p-1-？"><a href="#特殊性质？-p-1-？" class="headerlink" title="特殊性质？$p = 1$？"></a>特殊性质？$p = 1$？</h4><p>那概率不就是 $1$ ？好了 $40pt.$ 到手，直接递推 $f_i = f_{i - 1} + f_{i - 2}.$</p>
@@ -675,26 +675,23 @@
   <entry>
     <title>test</title>
     <url>/test/</url>
-    <content><![CDATA[<img src="/test/1.jpg" title="???">
-
-<p>![123](1.jpg)</p>
-]]></content>
+    <content><![CDATA[<img src="/test/1.jpg" class title="???"><p>![123](1.jpg)</p>]]></content>
   </entry>
   <entry>
     <title>8.2 模拟赛  题解</title>
     <url>/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2825" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2825</a></p>
-<h1 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-模拟赛-题解/Attack.png" title="Attack">
+    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2825" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2825</a></p><h1 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/Attack.png" class title="Attack"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？</p><p>先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>点开发现第一题就是一个数据结构。然后既是二维的还是一个求第 $k$ 小还是一个待修改的，那岂不是要一个四维的数据结构来弄。？</p>
-<p>先想了想用二维线段树套树，然后发现以前连二维线段树都没写过瞬间放弃了。</p>
+
+
+
 <p>然后打了个暴力。</p>
 <p>出分：我暴力打错了挂成一个小数。//出题人手抖把时限开成了 $10s$ 让暴力能 $A$ 当然要优美一些的暴力。。</p>
 <h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>其实就用暴力吧。一个优化就是不是每次询问的时候根据值排序，而是预先排好序之后去顺序选，就能保证递增了。这个可以做到严格 $O(nm)$ 但是修改可能做不到 $O(1)$ 了。</p>
 <p>标准复杂度的东西题解上是划分树可以学学。或者是一个什么整体二分加树套树。。//有时间的话。。</p>
 <p>$code: $ </p>
 <p>​    暴力：<a href="https://paste.ubuntu.com/p/trfdZHK8YY/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/trfdZHK8YY/</a></p>
-<h1 id="Bomb"><a href="#Bomb" class="headerlink" title="Bomb"></a>Bomb</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-模拟赛-题解/Bomb.png" title="Bomb">
+<h1 id="Bomb"><a href="#Bomb" class="headerlink" title="Bomb"></a>Bomb</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/Bomb.png" class title="Bomb">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>主要写这题了。<del>还花了几乎所有时间在一个很简单的问题上。。</del></p>
 <p>先考虑三个点的曼哈顿距离是什么。可以发现就是包住他们的一个矩形的周长。而一定有一个点在定点上。（另一个点可能也在，但是没关系。。）然后记录一个横纵坐标的前后缀最大最小值就可以了。（有 $8$ 个。。）</p>
@@ -717,7 +714,7 @@
 <p>因为一个点还有 $y$ 的一维，所以就可以给 $y$ 排个序，然后每一次保证选的点的 $y$ 值在 $[p[i].y - ans, p[i].y]$ 里面就好了，其中 $p[i].y$ 是最右边的那个点。</p>
 <p>就可以 $A$ 了！</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/sMfKgftmdd/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/sMfKgftmdd/</a></p>
-<h1 id="Contra"><a href="#Contra" class="headerlink" title="Contra"></a>Contra</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-模拟赛-题解/Contra.png" title="Contra">
+<h1 id="Contra"><a href="#Contra" class="headerlink" title="Contra"></a>Contra</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8-2-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/Contra.png" class title="Contra">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>想了想这个 $p$ 可以二分答案啊。然后概率 $dp$？然后想了一会没想出方程来，就放弃掉了。</p>
 <p><del>主要原因其实是第二题看起来很可做就去肝它了</del></p>
@@ -751,12 +748,12 @@
   <entry>
     <title>8.1 模拟赛  题解</title>
     <url>/8-1-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2821" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2821</a></p>
-<h1 id="水叮当的舞步"><a href="#水叮当的舞步" class="headerlink" title="水叮当的舞步"></a>水叮当的舞步</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8-1-模拟赛-题解/dance.png" title="dance">
+    <content><![CDATA[<p>比赛地址：<a href="http://jzoj.net/senior/#contest/home/2821" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2821</a></p><h1 id="水叮当的舞步"><a href="#水叮当的舞步" class="headerlink" title="水叮当的舞步"></a>水叮当的舞步</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8-1-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/dance.png" class title="dance"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>这个名字好熟悉。？</p><p>贪心一下？直接看看左上角所在的联通块外接的颜色中最多的然后去改那种颜色？先写了出来，发现不是一点难写。</p><p>手造数据发现好像贪心有问题。那么看外接颜色中联通块内个数之和最多的去改？发现过了手玩的样例。</p><a id="more"></a>
 
-<h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>这个名字好熟悉。？</p>
-<p>贪心一下？直接看看左上角所在的联通块外接的颜色中最多的然后去改那种颜色？先写了出来，发现不是一点难写。</p>
-<p>手造数据发现好像贪心有问题。那么看外接颜色中联通块内个数之和最多的去改？发现过了手玩的样例。</p>
+
+
+
+
 <p>感觉可以$A$于是开始看后面的题。//打个暴力都好。$orz..$</p>
 <p>出分：$0pt..$ 多测清零之后$10pt.$ </p>
 <p>贪心错了。$orz.$.</p>
@@ -769,7 +766,7 @@
 </ol>
 <p>这样就可以$A$了。</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/DXr5JSwKqd/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/DXr5JSwKqd/</a></p>
-<h1 id="Vani和Cl2捉迷藏"><a href="#Vani和Cl2捉迷藏" class="headerlink" title="Vani和Cl2捉迷藏"></a>Vani和Cl2捉迷藏</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8-1-模拟赛-题解/game.jpg" title="game">
+<h1 id="Vani和Cl2捉迷藏"><a href="#Vani和Cl2捉迷藏" class="headerlink" title="Vani和Cl2捉迷藏"></a>Vani和Cl2捉迷藏</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8-1-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/game.jpg" class title="game">
 
 <p>那么就是要求一个一般图的最大独立集。NP问题啊。。。</p>
 <p>只能过20pt.的点。正解估计是什么神仙做法了。</p>
@@ -777,7 +774,7 @@
 <h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>好的，他就是一个$DAG$然后那个互相望到的意思是一条路径上的前面的点可以看到后面的所有点。那就是在$DAG$上的最大独立集了。然后就可以拆成入点和出点，做一个最小路径覆盖数 $cnt$（就是最大匹配数），然后直接用 $n - cnt$ 就可以了。</p>
 <p>二分图求一个最大匹配数直接匈牙利或者 $dinic$ 就可以了。//这是最简单的一题。。</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/RzNnpvkqdZ/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/RzNnpvkqdZ/</a></p>
-<h1 id="粉刷匠"><a href="#粉刷匠" class="headerlink" title="粉刷匠"></a>粉刷匠</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8-1-模拟赛-题解/paint.png" title="paint">
+<h1 id="粉刷匠"><a href="#粉刷匠" class="headerlink" title="粉刷匠"></a>粉刷匠</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8-1-%E6%A8%A1%E6%8B%9F%E8%B5%9B-%E9%A2%98%E8%A7%A3/paint.png" class title="paint">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>容斥？不太行。暴力吧。看起来可以$dp$然后想了好久发现最朴素的dp都要爆炸然后放弃了。</p>
 <p>出分：暴力又没清零$40pt =&gt; 30pt..$</p>
@@ -796,9 +793,9 @@
   <entry>
     <title>线段树扫描线</title>
     <url>/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%89%AB%E6%8F%8F%E7%BA%BF/</url>
-    <content><![CDATA[<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>线段树扫描线算法准确的来说就是用线段树维护在一个二维空间中的一根和 $x$ 轴平行线上的信息（$y$ 轴同理），通过把这跟扫描线从下向上扫一遍，就能得到二维平面上的一些信息。</p>
-<p>而因为维护的是一个水平的直线，所以一般就是求矩形相关的信息了。</p>
-<p>由于矩形有一个固定范围，因此我们一般将它分成上下边两个区间，一个加上操作，另一个消除操作。这样在中间算上这个矩形的贡献就可以了。下文称这些直线（区间）为关键直线，因为只有这里可能让线上的信息变化。</p>
+    <content><![CDATA[<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>线段树扫描线算法准确的来说就是用线段树维护在一个二维空间中的一根和 $x$ 轴平行线上的信息（$y$ 轴同理），通过把这跟扫描线从下向上扫一遍，就能得到二维平面上的一些信息。</p><p>而因为维护的是一个水平的直线，所以一般就是求矩形相关的信息了。</p><p>由于矩形有一个固定范围，因此我们一般将它分成上下边两个区间，一个加上操作，另一个消除操作。这样在中间算上这个矩形的贡献就可以了。下文称这些直线（区间）为关键直线，因为只有这里可能让线上的信息变化。</p><a id="more"></a>
+
+
 <p>至于具体的维护什么信息就因题目而异了。</p>
 <p>时间复杂度就是线段树的 $\log$ 加上离散化的二分 $log$，总的还是 $O(n\log n)$ 的。</p>
 <p>最典型的例题就是矩形面积并了。</p>
@@ -834,11 +831,11 @@
   <entry>
     <title>维护区间不同颜色</title>
     <url>/%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
-    <content><![CDATA[<p>其实就是这道题：<a href="https://www.luogu.org/problemnew/show/P1972" target="_blank" rel="noopener">HH的项链</a></p>
-<hr>
-<p>离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。</p>
-<p>先把所有询问以右端点排序，然后慢慢向后解决。</p>
-<p>记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹掉，然后在这里记上这种颜色，在更新表示每个颜色最后出现的数组。</p>
+    <content><![CDATA[<p>其实就是这道题：<a href="https://www.luogu.org/problemnew/show/P1972" target="_blank" rel="noopener">HH的项链</a></p><hr><p>离线转化成一个单点修改区间查询的问题。这样就可以用线段树或者树状数组做了。//用树状数组简单多了。。</p><p>先把所有询问以右端点排序，然后慢慢向后解决。</p><p>记录一下每个颜色最后出现在的地方，然后如果这个地方又出现了那种颜色的话，就把之前那个地方的颜色抹掉，然后在这里记上这种颜色，在更新表示每个颜色最后出现的数组。</p><a id="more"></a>
+
+
+
+
 <p>code:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO 600100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MO 1000005</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//by Oliver</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch = <span class="string">' '</span>, last;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>)</span><br><span class="line">        last = ch, ch = getchar();</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        ans = ans * <span class="number">10</span> + <span class="keyword">int</span>(ch - <span class="string">'0'</span>), ch = getchar();</span><br><span class="line">    <span class="keyword">if</span> (last == <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">return</span> -ans;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//head</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a[NO], m, d[NO], last[MO];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> L, R, pos, ans;</span><br><span class="line">&#125;asks[NO];</span><br><span class="line"><span class="comment">//variable</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &amp; -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = pos; i &lt;= n; i += lowbit(i))</span><br><span class="line">        d[i] += val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = pos; i; i -= lowbit(i))</span><br><span class="line">        ans += d[i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node i, node j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i.R &lt; j.R;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node i, node j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i.pos &lt; j.pos;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n = read();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = read();</span><br><span class="line">    m = read();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=m; i++)</span><br><span class="line">        asks[i].L = read(), asks[i].R = read(), asks[i].pos = i;</span><br><span class="line">    sort(asks + <span class="number">1</span>, asks + m + <span class="number">1</span>, cmp1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">memset</span>(last, <span class="number">0</span>, <span class="keyword">sizeof</span>(last));</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(; now &lt;= asks[i].R; now++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(last[a[now]])</span><br><span class="line">                add(<span class="number">-1</span>, last[a[now]]);</span><br><span class="line">            add(<span class="number">1</span>, now), last[a[now]] = now;</span><br><span class="line">        &#125;</span><br><span class="line">        asks[i].ans = ask(asks[i].R) - ask(asks[i].L - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(asks + <span class="number">1</span>, asks + m + <span class="number">1</span>, cmp2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; asks[i].ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br></pre></td></tr></table></figure>
 
@@ -857,9 +854,7 @@
   <entry>
     <title>head</title>
     <url>/head/</url>
-    <content><![CDATA[<p>保存于此，以便在外机登陆时取用。</p>
-<p>另，需使用线段树时或其他定义时可自行修改，以免引起歧义而编译错误，这里不以添加。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> G++ optimize (2)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO 30005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MO 100005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp(x, y) make_pair(x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lln putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> db;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch = <span class="string">' '</span>, last;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>)</span><br><span class="line">        last = ch, ch = getchar();</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        ans = ans * <span class="number">10</span> + <span class="keyword">int</span>(ch - <span class="string">'0'</span>), ch = getchar();</span><br><span class="line">    <span class="keyword">if</span> (last == <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">return</span> -ans;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">10</span>)</span><br><span class="line">        write(x / <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(x % <span class="number">10</span> + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//head</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//variable</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<p>保存于此，以便在外机登陆时取用。</p><p>另，需使用线段树时或其他定义时可自行修改，以免引起歧义而编译错误，这里不以添加。</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> G++ optimize (2)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO 30005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MO 100005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp(x, y) make_pair(x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lln putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> db;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch = <span class="string">' '</span>, last;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>)</span><br><span class="line">        last = ch, ch = getchar();</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        ans = ans * <span class="number">10</span> + <span class="keyword">int</span>(ch - <span class="string">'0'</span>), ch = getchar();</span><br><span class="line">    <span class="keyword">if</span> (last == <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">return</span> -ans;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">10</span>)</span><br><span class="line">        write(x / <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(x % <span class="number">10</span> + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//head</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//variable</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>工具</category>
       </categories>
