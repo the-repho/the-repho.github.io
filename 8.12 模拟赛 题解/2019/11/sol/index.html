@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Maze题面考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。">
+<meta name="keywords" content="模拟赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.12 模拟赛  题解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
+<meta property="og:site_name" content="Repho&#39;s blog">
+<meta property="og:description" content="Maze题面考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Factory.png">
+<meta property="og:updated_time" content="2019-10-31T17:15:03.924Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Factory.png">
+
+<link rel="canonical" href="http://yoursite.com/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>8.12 模拟赛  题解 | Repho's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Repho's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The coding life...</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="repho">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Repho's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          8.12 模拟赛  题解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-01 00:48:24 / 修改时间：01:15:03" itemprop="dateCreated datePublished" datetime="2019-11-01T00:48:24+08:00">2019-11-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
+
+
+<p>然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后一个小时开始写的，还没写完就 $250$ 行左右，还没搞完还没调试。没了。</p>
+<p>出分：没交。</p>
+<h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>很不幸的是分块和线段树两种都能做。没必要结合在一起。我服了我自己。</p>
+<h4 id="分块"><a href="#分块" class="headerlink" title="分块"></a>分块</h4><p>虽说也是分块，但这是普通的分块，就是分成 $\sqrt m$ 块。 然后也是两边暴力 $bfs$ 然后中间预处理完了就直接跳大块。修改的话是暴力重构是 $O(n^2\sqrt m)$ 的，询问要枚举中间的转移点，是 $O(n^3\sqrt m)$ 的。</p>
+<p>总复杂度就是 $qn^3\sqrt m.$ </p>
+<p>好像这个开 $O3$ 优化可以过。</p>
+<h4 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h4><p>跟我前面用的线段树一样但有几点变动。</p>
+<p>不需要分组！！！然后每个地方也是二维数组存的是从左端点到右端点的每对点之间的最短距离。转移的时候也是枚举一个中间点转移。然后查询直接分下去，修改直接改单点。</p>
+<p>这样复杂度就都是 $qn^3\log m.$ </p>
+<p>好写多了。。</p>
+<p>$code: $ <a href="https://paste.ubuntu.com/p/8qCFTTQkwM/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/8qCFTTQkwM/</a></p>
+<h1 id="Mhw"><a href="#Mhw" class="headerlink" title="Mhw"></a>Mhw</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3>
+
+<h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>看上去是个二分图的样子。题目给了两类人，在一定距离下他们有克制关系。那就相当于有向边啊。</p>
+<p>因为要求的三点环必须有两条边是横跨两边，另一边在一半上的，所以只需要给那个在一半上的点定向就可以了。那么三点环有几种连边情况：（对于在一边的两点 $x,~y$ 和 另一边上的点 $z$）</p>
+<p>​    1. 对于两条边 $x\leftrightarrow z <del>\&amp;</del> y \leftrightarrow z$ 他们的方向必须是反的。就是： $x\rightarrow z <del>\&amp;</del> z \rightarrow y$ 或 $y\rightarrow z<del>(\alpha) ~\&amp;</del> z \rightarrow x(\beta).$<br>​     2. 对于上面的两种不同的边的方向，我们要给 $x \leftrightarrow y$ 定向，在最大值的时候就是在所有 $\alpha$ 和 $\beta$ 环里面找到较多的一个给它们定向，最小值则相反。</p>
+<p>那么求两点间的边数就可以确定边的方向了。我只会 $n^3$ 的方法。。</p>
+<p>出分： $20pt.O(n^3).$ </p>
+<h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>$O(n^3)$ 可以过 $1000????$ （要开 $O3$ 优化别想了。）</p>
+<h4 id="线段树扫描线"><a href="#线段树扫描线" class="headerlink" title="线段树扫描线"></a>线段树扫描线</h4><p>又是你。扫描线。</p>
+<p>这玩意跟扫描线有什么关系啊。？</p>
+<p>我们先继续上面的两项向下分析。先把两边的点染色，左边的染白色，右边染黑色。那么我们先考虑所有白点间的边。</p>
+<p>我们记白点 $x$ 连向一个黑点的黑点总数是 $f_x.$ 而两个白点 $x,<del>y$ 同时连向一个黑点的黑点总数是 $g_{x,</del>y}.$ </p>
+<p>所以对于两个点 $x,<del>y$ 间半环（两条确定边）个数就是 $f_x-g_{x,</del>y}$ 相当于取一个补集。</p>
+<p>那么对于所有的贡献就是：</p>
+<p>$\Large \begin{aligned}Ans&amp;=\sum\limits_{x,<del>y</del>\in<del>S_{white}} \max\{f_x-g_{x,</del>y},<del>f_y-g_{x,y}\}\\\Large&amp;=\sum\limits_{x,</del>y<del>\in</del>S_{white}} \max\{f_x,f_y\}-g_{x,~y}\end{aligned}$</p>
+<p>那么我们再考虑右边的那个 $g_{x, y}$ 能不能也化成 $f_x$ ？</p>
+<p>它的意思就是同时连向了一个黑点，那么反过来就是一个黑点被两个白点连了，那么既然我们还要求一遍所有黑点 $f$ 那么就相当于是对于每一个黑点，选两个连向自己的边的总数。所以把 $f$ 重新定义成连向异色点的。</p>
+<p>那么就是：$\large \sum g_{x, y} = \sum\tbinom{f_k}2.$具体而言就是说：</p>
+<p>$\Large Ans=\sum\limits_{x,<del>y</del>\in<del>S_{white}} \max\{f_x,f_y\}-\sum\limits_{k</del>\in~S_{black}}\tbinom {f_k}2.$</p>
+<p>剩下的就是求所有的 $f_x$ 了。 </p>
+<p>我们回到最初的连边条件：曼哈顿距离小于等于 $D.$ 这个不太好处理所以<del>常规地</del>把他转化成切比雪夫距离。至于它是什么：</p>
+<p>​    对于两个 $k$ 维的点 $A,<del>B$，其中 $A=(a_1,</del>a_2,<del>…,</del>a_k)$，<br>​    则他们的切比雪夫距离定义为：$\large\max\limits_{i<del>=</del>1}^k\{|a_i-b_i|\}.$</p>
+<p><del>曼哈顿距离是什么就不说了。。</del> </p>
+<p>那么怎么转换呢？曼哈顿距离只是二维的，所以对于 $(x,<del>y)$，就变成 $(x+y,</del>x-y).$ </p>
+<p>但其实理解起来没那么复杂。我们要算的是曼哈顿距离小于等于 $D$ 就是说要在范围内的点集。因为是曼哈顿距离，所以他就是一个斜着的正方形。这个就已经变成了二维的矩形内选点，但是线段树扫描线只能搞横平竖直的矩形，所以考虑把所有正方形旋转 $45^\circ$ 。而这个其实就可以用上面的那个变换。</p>
+<p>还有一个问题，就是这样转换完之后长度没变吗？没变！证明如下：</p>
+<p>​    对于两个点 $A(x_1, <del>y_1),</del>B(x_2,<del>y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, ~x_1 -y_1),</del>B’(x_2+y_2,<del>x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,</del>b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
+<p>那么就用线段树扫描线扫以一个点为中心的矩形里面包含的点的数量即可。（前缀点数和。）</p>
+<p>$code:$ <a href="https://paste.ubuntu.com/p/PTvD7P2Yqr/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/PTvD7P2Yqr/</a></p>
+<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/Factory.png" class title="Factory">
+
+<h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>一开始想到思路的竟然是这题。</p>
+<p>既然要任意情况都行，所以最后的矩阵一定是一个对角线上全是 $1$ 的正方形的方案。</p>
+<p>所以就贪心排个序，然后顺着用并查集记一下现在所在的正方形大小。</p>
+<p>然后自己黑了自己。。然后随便排了下序过了，然后交了。</p>
+<p>出分：$30pt.$ 贪心是错的。</p>
+<h3 id="正解-2"><a href="#正解-2" class="headerlink" title="正解"></a>正解</h3><p>神仙状压 $DP.$</p>
+<p>听了三遍之后感觉差不多了。</p>
+<p>首先题目给的一个人会不会操作几台机器给出的一张表其实就可以相当于是一张二分图。</p>
+<p>那么一个人会操作就相当于给那个机器连上了一条边。由于上面那个小结论，我们就是需要把每个二分图上的联通块连成完全二分图并且两边点数相等。</p>
+<p>证明呢？考虑反证：</p>
+<p>​    如果不连通，那么设人有一些没和 $x$ 连边，那么当和 $x$ 连边的人不做 $x$ 的时候，就没人做 $x$ 了。</p>
+<p>​    如果联通了但是点数不相等，那么就无法一一分配。</p>
+<p>然后我们把每个联通块记成一个二元组 $(x_i,~y_i)$ 那么考虑怎么选这些二元组让代价最小。那么考虑状压 $DP$ 看每个联通块选不选时候的答案。</p>
+<p>如可统计答案呢？因为已连边数不变，要加的边数等于总边数减已连边数，所以最小化总边数即可。总边数则是 $\large\sum\limits_{S’\subseteq S}\sum\limits_{i\in S’} x_i\times\sum y_i=\sum\limits_{S’\subseteq S}(\sum\limits_{i\in S’}x_i)^2.$ </p>
+<p>最暴力的方法 $dp_S$ 表示选 $S$ 集合的答案，转移则枚举子集，如果子集满足 $\large \sum\limits_{i<del>\in</del>S’} x_i=\sum\limits_{i<del>\in</del>S’} y_i$ 就用它更新答案。复杂度是 $3^{cnt}$ ，$cnt$ 是二元组数量。</p>
+<p>然后慢慢优化它。</p>
+<p>设 $dp_{S,<del>i}$ 表示现在已选的数是 $S$ ，在处理的联通块里面的 $\sum x=i.$ 那么每次枚举一个二元组加到状态里面即可，然后如果 $S$ 有 $\sum x=\sum y$（之前配好了，现在也配好了，所以总的是好的。），就相当于目前已经可以更新答案了就给 $dp_{S,</del>0}$ 更新。时间复杂度是 $2^{cnt}n.$ 还需要进一步优化。</p>
+<p>发现其实不需要把每一个二元组记下来，只需要记每一种二元组出现了多少次。这个可以用一个 $cnt$ 压起来，每次向上枚举就可以了，出题人说其实 $n=30$ 时一共只有 $1.7e5$ 左右种二元组，每一次就只需要枚举一种二元组，那么时间复杂度就是 $O(n\times 1.7e5)$ ，是能过的。空间复杂度可能有点高，但是也不会太大。</p>
+<p>$code:$ </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/8.10%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/" rel="next" title="8.10 模拟赛  题解">
+                  <i class="fa fa-chevron-left"></i> 8.10 模拟赛  题解
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/" rel="prev" title="8.13 模拟赛  题解">
+                  8.13 模拟赛  题解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maze"><span class="nav-number">1.</span> <span class="nav-text">Maze</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面"><span class="nav-number">1.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场"><span class="nav-number">1.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解"><span class="nav-number">1.0.3.</span> <span class="nav-text">正解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分块"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">分块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线段树"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">线段树</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mhw"><span class="nav-number">2.</span> <span class="nav-text">Mhw</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">正解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线段树扫描线"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">线段树扫描线</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Factory"><span class="nav-number">3.</span> <span class="nav-text">Factory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面-2"><span class="nav-number">3.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场-2"><span class="nav-number">3.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解-2"><span class="nav-number">3.0.3.</span> <span class="nav-text">正解</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="repho"
+    src="/images/head.png">
+  <p class="site-author-name" itemprop="name">repho</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/the-repho" title="GitHub &rarr; https://github.com/the-repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2373338240@qq.com" title="E-Mail &rarr; mailto:2373338240@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/space/show?uid=78369" title="Luogu &rarr; https://www.luogu.org/space/show?uid=78369" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Harmony_" title="Codeforces1 &rarr; https://codeforces.com/profile/Harmony_" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces1</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Repho" title="Codeforces2 &rarr; https://codeforces.com/profile/Repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces2</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/180000517" title="bilibili &rarr; https://space.bilibili.com/180000517" rel="noopener" target="_blank"><i class="fa fa-fw fa-tv"></i>bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">repho</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>

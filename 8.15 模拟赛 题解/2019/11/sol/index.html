@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Vote题面考场一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}">
+<meta name="keywords" content="模拟赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.15 模拟赛  题解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
+<meta property="og:site_name" content="Repho&#39;s blog">
+<meta property="og:description" content="Vote题面考场一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Vote.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Point.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Actor.png">
+<meta property="og:updated_time" content="2019-10-31T17:14:58.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Vote.png">
+
+<link rel="canonical" href="http://yoursite.com/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>8.15 模拟赛  题解 | Repho's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Repho's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The coding life...</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="repho">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Repho's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          8.15 模拟赛  题解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-01 00:48:44 / 修改时间：01:14:58" itemprop="dateCreated datePublished" datetime="2019-11-01T00:48:44+08:00">2019-11-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Vote"><a href="#Vote" class="headerlink" title="Vote"></a>Vote</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/Vote.png" class title="Vote"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>一开始觉得应该是越靠近旁边的越容易被选上，但是写了一个小程序一看不太对。发现已选一定人之后怎么求出他们中的贡献是一定要求的所以开始推这个式子。</p><p>首先考虑 $f_i$ 表示前 $i$ 个是选上的，那么向下一个转移。然后可以插一对进去，可以两个赞成，两个反对或者一个赞成一个反对。一个赞成一个反对可以直接转移，但是另外两种情况就不行了，然后我开始走弯路，走了很远很远。。（$f_{i,~j}$ 表示前 $i$ 个 $j$ 被选了没有之类的。。）</p><a id="more"></a>
+
+
+
+<p>然后发现还是暴力吧。就打了暴力，当然前面是一个错的贪心，因为后来我不知道为什么就想着用靠近 $0.5$ 的数。（那样是最小吧。。）</p>
+<p>出分：$20pt.$ 果然，数据大的点 $WA$ 了。</p>
+<h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>没错，答案一定是一个前缀后缀，证明如下：</p>
+<p>​    考虑一个数 $p_i$ 的贡献：$P<em>p_i+Q</em>(1-p_i)=(P-Q)p_i+Q.$ 其中 $P,~Q$ 是之前的答案，发现它其实是一个一次函数，所以极致一定在左右两端取到。证完。</p>
+<p>那么左右两端可以 $DP$ 一下了。右边同理所以考虑左边。</p>
+<p>$f_{i,~j}$ 表示前 $i$ 个中 $j$ 个赞成的结果。那么转移就从上一个赞成还是反对转移。具体就是：</p>
+<p>​    $\Large f_{i,<del>j}=f_{i-1,</del>j-1}\times p<del>+f_{i - 1,</del>j}\times (1-p_i).$</p>
+<p>最后枚举一下 $k$ 个数里面有几个在左边，几个赞成就好，注意答案是对每种选法取 $\max.$</p>
+<p>$code:$ <a href="https://paste.ubuntu.com/p/qpwqWxVhdk/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/qpwqWxVhdk/</a></p>
+<h1 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/Point.png" class title="Point">
+
+<h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>没怎么看，随便想出来了一个 $n^2$ 的暴力，就是枚举答案在哪里，然后向左右扩展找到最远的地方更新答案。</p>
+<p>出分：$30pt..RE$ 了。。数组开小了。</p>
+<p>重开数组之后： $95pt..????$  说好的 $5e5???$ 你让 $n^2$ 过？</p>
+<h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><h4 id="n-3-n-2-暴力"><a href="#n-3-n-2-暴力" class="headerlink" title="$n^3,n^2$暴力~~"></a><del>$n^3,</del>n^2$暴力~~</h4><p>数据水到一定程度。。。所谓的 $n^3$ 过 $5e5,~$ 暴力碾表算。。</p>
+<h4 id="题解给的正解"><a href="#题解给的正解" class="headerlink" title="题解给的正解"></a>题解给的正解</h4><p>因为对于一段序列，如果能够是答案，那么最小的一个数一定就是那个关键数，也一定是序列中所有数的 $\gcd.$ 那么考虑用 $ST$ 表存 $\gcd$ 和 $\min$ ，二分答案判断就好，复杂度是 $O(n\log^2 n)$。</p>
+<p>但是它 $T$ 了！！！这玩意没有暴力跑得快！！！</p>
+<p>出题人在题解里面说要卡常才能过，但是暴力过了。。</p>
+<p>唯一解释就是出题人卡了 $\gcd!!$ 如果所有的 $\gcd$ 卡满可能是更劣的。。</p>
+<p>$upd…:$ 不。。其实我发现是 $math.h$ 里面的 $\log_2$ 这玩意跑的特别慢。</p>
+<p><del>但是他放了暴力。。</del></p>
+<p>$code:$ （$T$ 了的，<del>当然可能</del>就是我写丑了。）<a href="https://paste.ubuntu.com/p/VvckND36vP/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/VvckND36vP/</a></p>
+<h4 id="优秀的线性做法-真正的标算"><a href="#优秀的线性做法-真正的标算" class="headerlink" title="优秀的线性做法 真正的标算"></a>优秀的线性做法 <del>真正的标算</del></h4><p>记得最一开始的 $n^2$ 暴力吗？这个可以优化的。因为每次是向左扩展一些，向右扩展一些，那么记一个点 $i$ 向右扩展到的点为 $r_i$ ，向左是 $l_i$ ，那么在区间 $[l_i,<del>r_i]$ 中间的点就不可能有更优的答案了，因此可以跳过他们。因此实现起来可以向两个方向扫一遍，每次向右扩展到 $r_i$ 的时候就把 $[i,</del>r_i]$ 的 $r$ 都记成 $r_i$ ，然后从 $r_i + 1$ 继续找即可。这样每个点只会被扩展一次，所以就是线性的了。！</p>
+<p>$code:$ <a href="https://paste.ubuntu.com/p/yKH42tkcpP/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/yKH42tkcpP/</a></p>
+<h1 id="Actor"><a href="#Actor" class="headerlink" title="Actor"></a>Actor</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.15%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/Actor.png" class title="Actor">
+
+<h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>$emm..$ 不会。。考虑暴力吧。</p>
+<p>然后第一个点特别小，就打了个表，其他的点放弃了。</p>
+<p>出分：$13pt.$</p>
+<h3 id="正解-2"><a href="#正解-2" class="headerlink" title="正解"></a>正解</h3><p>神仙 $DP~+$  优化。？咕。 </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/" rel="next" title="8.13 模拟赛  题解">
+                  <i class="fa fa-chevron-left"></i> 8.13 模拟赛  题解
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/8.17%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/" rel="prev" title="8.17 模拟赛  题解">
+                  8.17 模拟赛  题解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vote"><span class="nav-number">1.</span> <span class="nav-text">Vote</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面"><span class="nav-number">1.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场"><span class="nav-number">1.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解"><span class="nav-number">1.0.3.</span> <span class="nav-text">正解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Point"><span class="nav-number">2.</span> <span class="nav-text">Point</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">正解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#n-3-n-2-暴力"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">$n^3,n^2$暴力~~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解给的正解"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">题解给的正解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优秀的线性做法-真正的标算"><span class="nav-number">2.0.3.3.</span> <span class="nav-text">优秀的线性做法 真正的标算</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Actor"><span class="nav-number">3.</span> <span class="nav-text">Actor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面-2"><span class="nav-number">3.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场-2"><span class="nav-number">3.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解-2"><span class="nav-number">3.0.3.</span> <span class="nav-text">正解</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="repho"
+    src="/images/head.png">
+  <p class="site-author-name" itemprop="name">repho</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/the-repho" title="GitHub &rarr; https://github.com/the-repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2373338240@qq.com" title="E-Mail &rarr; mailto:2373338240@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/space/show?uid=78369" title="Luogu &rarr; https://www.luogu.org/space/show?uid=78369" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Harmony_" title="Codeforces1 &rarr; https://codeforces.com/profile/Harmony_" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces1</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Repho" title="Codeforces2 &rarr; https://codeforces.com/profile/Repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces2</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/180000517" title="bilibili &rarr; https://space.bilibili.com/180000517" rel="noopener" target="_blank"><i class="fa fa-fw fa-tv"></i>bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">repho</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>

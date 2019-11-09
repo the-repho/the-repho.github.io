@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="比赛链接：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2833Seq题面考场题目变简单了。这道题一个递推式很显然地看出可以做矩乘。那考虑怎么构造矩阵。因为他都是前面式子相乘得到的下一项，而递推式里的常数 $b_i$ 又在指数上，可以想到两个等底数的式子相乘就等于他们的指数相加。那么只需要在指数上做矩乘维护一个递推后的指数和就好了。">
+<meta name="keywords" content="模拟赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.7 模拟赛  题解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
+<meta property="og:site_name" content="Repho&#39;s blog">
+<meta property="og:description" content="比赛链接：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2833Seq题面考场题目变简单了。这道题一个递推式很显然地看出可以做矩乘。那考虑怎么构造矩阵。因为他都是前面式子相乘得到的下一项，而递推式里的常数 $b_i$ 又在指数上，可以想到两个等底数的式子相乘就等于他们的指数相加。那么只需要在指数上做矩乘维护一个递推后的指数和就好了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;seq.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;dream.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;tree.png">
+<meta property="og:updated_time" content="2019-10-31T17:14:21.098Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;seq.png">
+
+<link rel="canonical" href="http://yoursite.com/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>8.7 模拟赛  题解 | Repho's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Repho's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The coding life...</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="repho">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Repho's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          8.7 模拟赛  题解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-01 00:47:13 / 修改时间：01:14:21" itemprop="dateCreated datePublished" datetime="2019-11-01T00:47:13+08:00">2019-11-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>比赛链接：<a href="http://jzoj.net/senior/#contest/home/2833" target="_blank" rel="noopener">http://jzoj.net/senior/#contest/home/2833</a></p><h1 id="Seq"><a href="#Seq" class="headerlink" title="Seq"></a>Seq</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/seq.png" class title="seq"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>题目变简单了。这道题一个递推式很显然地看出可以做矩乘。那考虑怎么构造矩阵。</p><p>因为他都是前面式子相乘得到的下一项，而递推式里的常数 $b_i$ 又在指数上，可以想到两个等底数的式子相乘就等于他们的指数相加。那么只需要在指数上做矩乘维护一个递推后的指数和就好了。</p><a id="more"></a>
+
+
+
+
+<p>这么构造矩阵的话，转移矩阵会很好看：</p>
+<p>$\begin{bmatrix}<br>0 &amp;1 &amp; 0 &amp; …&amp;0 &amp; 0\\<br>0 &amp; 0 &amp; 1 &amp; …&amp;0 &amp; 0\\<br>&amp;&amp;&amp;…\\<br>0 &amp; 0 &amp; 0 &amp; …&amp; 1&amp; 0\\<br>0 &amp; 0 &amp; 0 &amp; …&amp;0&amp;1\\<br>b_k&amp;b_{k-1}&amp;b_{k-2}&amp;…&amp;b_2&amp;b_1\\<br>\end{bmatrix}$</p>
+<p>构造起来也很简单。然后普通矩乘就好。</p>
+<p>注意这里跑起来会有点慢，经过反复卡常 $+O3$ 之后本地仍然 $1.6s+.$ 开网之后在 $customtest$ 测了一下发现开 $O3 ~400ms+$，不开 $2000ms+…$ 然后交了 $O3.$ 拍了很久没错就觉得应该是满分了。</p>
+<p>出分：$100pt.$</p>
+<p>$code:$ <a href="https://paste.ubuntu.com/p/87Rk2K453B/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/87Rk2K453B/</a></p>
+<h1 id="Dream"><a href="#Dream" class="headerlink" title="Dream"></a>Dream</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/dream.png" class title="dream">
+
+<h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>挺喜欢题面的。然后发现好像可以直接贪心。因为一个 $t$ 只能对应一个 $[l,~r]$，所以我们可以类似选区间的策略按左端点排序然后尽量选右端点靠左的区间和 $t$ 配对，这样区间更靠右的就有可能和后面的点配对从而有更优的答案。</p>
+<p>具体实现起来就把区间按左端点排序，从小到大考虑 $t$ ，每一次首先把所有左端点小于 $t$ 的区间假如考虑中，因为后面的 $t$ 不减而我们要找最小的右端点，所以我们只需要用一个小根堆存这些区间的右端点，在找区间的时候如果堆顶比 $t$ 还要小，就直接弹出，因为它不能和 $t$ 配对就更不可能和 $t$ 后面的数配对。然后如果能配上一个就计入答案并弹出堆顶。（因为有可能一个满足的区间都没有，就是堆为空）</p>
+<p>代码也很简单了。</p>
+<p>出分：$100pt.$ //其实当时没想要拿满，但好像也举不出反例就交了。</p>
+<p>$code:$ <a href="https://paste.ubuntu.com/p/n2XGdh5xkT/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/n2XGdh5xkT/</a></p>
+<h1 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/tree.png" class title="tree">
+
+<h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>先暴力吧，就是暴力两个点然后暴力中间的点走过了一个点对没有。</p>
+<p>然后觉得这个枚举另一个点的过程好像可以在搜出去的过程中解决，但是没往下想。//这个是可以的。</p>
+<p>然后开始看特殊数据。</p>
+<p>一条链还只有一对点的话，直接左边右边讨论。</p>
+<p>菊花图的一对点的话，也可以直接讨论，这个讨论了我很一会。</p>
+<p>然后由于第一题卡常卡了很久，<del>谁知道它臭氧优化那么快。。</del> 没时间了。</p>
+<p>出分：$20pt.$ //可能讨论挂了吧。毕竟没有造数据看。</p>
+<h3 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h3><p>？？矩形面积并？？神奇。。</p>
+<p>还是先从序列上下手的，把问题转化成求不合法的对数，这样原来的答案就是总对数减。</p>
+<p>求不合法的对数的话，就是所有包括这两个点 $[l_i, <del>r_i]$ 的一个区间，这样就是要区间的左端点 $\leq l_i$，右端点 $\geq r_i$。这个东西的解集可以看成一个二维的东西，具体而言就是一个矩形，因为它就是所有满足 $x \in [1,</del>l_i],<del>y\in [r_i,</del>n]$ 的点对。这个就是一个矩形了。然后对每一个求一个并就是求矩形面积并了。</p>
+<p>这是序列上的，那树上怎么办呢？那我们就在 $dfs$ 序上面考虑就好了。考虑点对 $(x,~y)$就有两种情况：</p>
+<p>​    1. $(x,<del>y)$ 不是相互的祖先，那么一对答案 $(u,</del>v)$ 要满足 $u$ 在 $x$ 的子树里面，$v$ 在 $y$ 的子树里面，那么在一个 $dfs$ 序上就可以直接转化成两段区间。<br>​     2. $(x, <del>y)$ 有祖先后代关系，不妨设 $x$ 是 $y$ 的祖先，那么一对答案 $(u,</del>v)$ 要满足 $u$ 在 $y$ 的子树里面，$v$ 在整棵树除了 $y$ 所在的 $x$ 的子树里面。这个就是整个区间减一个区间，拆成两个区间即可。</p>
+<p>然后就是矩形面积并了。</p>
+<p>那它怎么写呢？？？</p>
+<p>既然这个已经咕了很久，今天又是七夕，那就来写一下他吧。这个还是单独放在另一个博客里吧：[矩形面积并]</p>
+<p>[矩形面积并]: </p>
+<p>然后和普通的矩形面积并不同，它的坐标是比较小的，所以不需要离散化，除此之外，因为一对点就算是算面积也只能被算一次，所以要严格保证所有表示矩形区间的横坐标小于纵坐标，大于就换一下，以为换一下不影响计数。而且因为边界都要算上，所以再加矩形的时候吧终边（上边）纵坐标 $+1$ 之后再加，保证上面那条线被算到了。</p>
+<p>最后用 $\frac{n\times (n-1)}{2} - cnt$ 就可以得到答案了。</p>
+<p>$code:$ <a href="https://paste.ubuntu.com/p/BDvhkHGKDy/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/BDvhkHGKDy/</a></p>
+<h6 id="七夕快乐啊！！orz…"><a href="#七夕快乐啊！！orz…" class="headerlink" title="七夕快乐啊！！orz….."></a>七夕快乐啊！！orz…..</h6>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/8.5%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/" rel="next" title="8.5 模拟赛  题解">
+                  <i class="fa fa-chevron-left"></i> 8.5 模拟赛  题解
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/8.9%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/" rel="prev" title="8.9 模拟赛  题解">
+                  8.9 模拟赛  题解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Seq"><span class="nav-number">1.</span> <span class="nav-text">Seq</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面"><span class="nav-number">1.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场"><span class="nav-number">1.0.2.</span> <span class="nav-text">考场</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dream"><span class="nav-number">2.</span> <span class="nav-text">Dream</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">考场</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tree"><span class="nav-number">3.</span> <span class="nav-text">tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面-2"><span class="nav-number">3.0.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考场-2"><span class="nav-number">3.0.2.</span> <span class="nav-text">考场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正解"><span class="nav-number">3.0.3.</span> <span class="nav-text">正解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#七夕快乐啊！！orz…"><span class="nav-number">3.0.3.0.0.1.</span> <span class="nav-text">七夕快乐啊！！orz…..</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="repho"
+    src="/images/head.png">
+  <p class="site-author-name" itemprop="name">repho</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/the-repho" title="GitHub &rarr; https://github.com/the-repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2373338240@qq.com" title="E-Mail &rarr; mailto:2373338240@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/space/show?uid=78369" title="Luogu &rarr; https://www.luogu.org/space/show?uid=78369" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Harmony_" title="Codeforces1 &rarr; https://codeforces.com/profile/Harmony_" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces1</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Repho" title="Codeforces2 &rarr; https://codeforces.com/profile/Repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces2</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/180000517" title="bilibili &rarr; https://space.bilibili.com/180000517" rel="noopener" target="_blank"><i class="fa fa-fw fa-tv"></i>bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">repho</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
