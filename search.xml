@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>matrix 题解(CSP模拟赛11.11)</title>
+    <url>/matrix-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/</url>
+    <content><![CDATA[<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小 $P$ 现在有一个 $n\times m$ 的 $01$ 矩阵，某一天他突发奇想：假设矩阵行与行可以任意交换，其中最大的全 $1$ 子矩阵有多大。</p><p>他想了很久都没有得出答案，于是找到了你。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个数 $n, m$，描述矩阵的大小。</p><p>接下来 $n$ 行，每行一个长度为 $m$ 的 $01$ 字符串，描述 $01$ 矩阵。</p><a id="more"></a>
+
+
+
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个数，及最大全 $1$ 子矩阵面积。</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 $1$"></a>样例 $1$</h3><h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2 2</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例-2"><a href="#样例-2" class="headerlink" title="样例  $2$"></a>样例  $2$</h3><h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4 3</span><br><span class="line">100</span><br><span class="line">011</span><br><span class="line">000</span><br><span class="line">101</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="样例-3"><a href="#样例-3" class="headerlink" title="样例 $3$"></a>样例 $3$</h3><h4 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">11 16</span><br><span class="line">0111110101100011</span><br><span class="line">1000101100010000</span><br><span class="line">0010110110010101</span><br><span class="line">0110110010110010</span><br><span class="line">0011101101110000</span><br><span class="line">1001100011010111</span><br><span class="line">0010011111111000</span><br><span class="line">0100100100111110</span><br><span class="line">1001000000100111</span><br><span class="line">0110000011001000</span><br><span class="line">1011111011010000</span><br></pre></td></tr></table></figure>
+
+<h4 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>对于 $30\%$ 的数据，$n,m\leq 10$ </p>
+<p>对于 $70\%$ 的数据，$n, m \leq 1000$ </p>
+<p>对于 $100\%$ 的数据，$n,m\leq 5000$ </p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>看到这种题目首先想到的是 $dp$ ，可能是中了最大子矩形的毒，但是很快发现那个交换的操作很灵活，不方便记成状态，况且数据很大，不允许很复杂的 $dp$ 。</p>
+<p>大概一算，时间复杂度最多只能是 $O(nm)$ 得了，对于矩阵来说就是线性。那么既然行和行之间可以交换，自然想到我们可以单独处理每一行的信息。于是：</p>
+<h2 id="很傻很正确的模拟"><a href="#很傻很正确的模拟" class="headerlink" title="很傻很正确的模拟"></a>很傻很正确的模拟</h2><p>我们可以对于每一行每个位置记下这样的东西 $f_i$ ：</p>
+<p>​    如果第 $i $ 位是 $0$ ，$f_i=0$；<br>​    如果第 $i$ 位是 $0$ ，$f_i$ 为 $f_i$ 前面最多有多少个 $1.$ </p>
+<p>举个例子：</p>
+<p>​    $A=11100110001110\\F=12300120001230$ </p>
+<p>进一步的，如果我们把所有位结合起来，就会发现这个 $f$ 其实可以表示这一行最大能对边长为多少的矩阵做贡献。</p>
+<p>自然的，我们可以把每一行的 $f$ 算出来，再对于每一列（准确的说是一个前缀矩阵）算一下答案。即我们记 $g_i$ 表示在这一列每一行的 $f$ 中有 $g_i$ 个是 $i$ 。然后我们发现 $f$ 记的是最大的长度，所以小于 $f$ 的长度都可以取到，所以需要对 $g$ 做一个后缀和，那么最终的答案是每一列的：$\min\limits^n_{i=1}g_i\times i$ ，因为 $g_i$ 表示有多少行，$i$ 表示行的长度（也就是列数），乘起来就是体积了。</p>
+<p>那么处理 $f$ 时间复杂度是 $O(nm)$，处理 $g$ 是 $O(nm)$，总的就也是 $O(nm)$ 了。</p>
+<p>注意要优化读入不然会卡常。</p>
+<p>$code:$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3fll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NO 5005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MO 300005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp(x, y) make_pair(x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fup(i, x, y) for(register int i = x; i &lt;= y; ++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fdn(i, x, y) for(register int i = x; i &gt;= y; --i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lln putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> blk putchar(<span class="meta-string">' '</span>)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> db;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, pii&gt; piii;</span><br><span class="line"><span class="function">ll <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> ch = <span class="string">' '</span>, last;</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>)</span><br><span class="line">        last = ch, ch = getchar();</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        ret = ((ret + (ret &lt;&lt; <span class="number">2</span>)) &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>), ch = getchar();</span><br><span class="line">    <span class="keyword">return</span> last == <span class="string">'-'</span> ? -ret : ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'-'</span>), x = -x;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">9</span>)</span><br><span class="line">        write(x / <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(x % <span class="number">10</span> + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//head</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, a[NO][NO], book[NO];</span><br><span class="line"><span class="built_in">string</span> x;</span><br><span class="line"><span class="comment">//variable</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"matrix.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"matrix.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    n = read(), m = read();</span><br><span class="line">    fup (i, <span class="number">1</span>, n)</span><br><span class="line">        fup (j, <span class="number">1</span>, m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> ch = getchar();</span><br><span class="line">            <span class="keyword">while</span> (ch == <span class="string">' '</span> || ch == <span class="string">'\n'</span> || ch == <span class="string">'\r'</span>)</span><br><span class="line">                ch = getchar();</span><br><span class="line">            a[i][j] = ch - <span class="string">'0'</span>, a[i][j] = (a[i][j] ? a[i][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    fup (i, <span class="number">1</span>, m)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(book, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (m + <span class="number">1</span>));</span><br><span class="line">        fup (j, <span class="number">1</span>, n)</span><br><span class="line">            book[a[j][i]]++;</span><br><span class="line">        fdn (j, m, <span class="number">1</span>)</span><br><span class="line">            book[j] += book[j + <span class="number">1</span>];</span><br><span class="line">        fup (j, <span class="number">1</span>, m)</span><br><span class="line">            ans = max(ans, book[j] * j);</span><br><span class="line">    &#125;</span><br><span class="line">    write(ans), lln;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//main</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="题解说的计数排序（？？）"><a href="#题解说的计数排序（？？）" class="headerlink" title="题解说的计数排序（？？）"></a>题解说的计数排序（？？）</h2><p>放张图吧：（效率和上面是一样的。所以了解上面就好）</p>
+<img src="/matrix-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/sol1.png" class title="sol1">
+
+<img src="/matrix-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/sol2.png" class title="sol2">
+
+<h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><a href="/matrix-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/matrix.rar" title="download">download</a>]]></content>
+      <tags>
+        <tag>前缀和</tag>
+        <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pay 题解(CSP模拟赛11.11)</title>
+    <url>/pay-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>hide</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模拟联合国北外会游记</title>
+    <url>/%E6%A8%A1%E6%8B%9F%E8%81%94%E5%90%88%E5%9B%BD%E5%8C%97%E5%A4%96%E4%BC%9A%E6%B8%B8%E8%AE%B0/2019/11/sol/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>hide</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>灾难 题解</title>
+    <url>/%E7%81%BE%E9%9A%BE-%E9%A2%98%E8%A7%A3/2019/11/sol/</url>
+    <content><![CDATA[<p>​                                                                                </p>]]></content>
+      <tags>
+        <tag>LCA</tag>
+        <tag>拓扑排序</tag>
+        <tag>hide</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>巡访 题解</title>
     <url>/%E5%B7%A1%E8%AE%BF-%E9%A2%98%E8%A7%A3/2019/11/sol/</url>
     <content><![CDATA[<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h2 id="题目名称-巡访"><a href="#题目名称-巡访" class="headerlink" title="题目名称 巡访"></a>题目名称 巡访</h2><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>　　$Chanxer$ 终于当上了“中华农民联盟”的盟主，他举目四望，决定四处走走，巡视自己的农土。</p><p>　　“中华农民联盟”的成员有个村庄，在“村村通”计划中，村庄们被条道路联通了起来， $Chanxer$ 计划从某个村庄出发，访问所有的村庄。</p><p>可是 $Chanxer$ 出行有一个特殊的要求，那就是必须以农车代步，现在我们知道哪些村庄配备有农车，也就是说，只有配备有农车的村庄才能够被作为出发点。</p><a id="more"></a>
@@ -757,6 +834,9 @@
     <title>test</title>
     <url>/test/2019/08/sol/</url>
     <content><![CDATA[<img src="/test/2019/08/sol/1.jpg" class title="???"><p>![123](1.jpg)</p><a href="/test/2019/08/sol/test.txt" title="test">test</a>]]></content>
+      <tags>
+        <tag>hide</tag>
+      </tags>
   </entry>
   <entry>
     <title>8.2 模拟赛  题解</title>
