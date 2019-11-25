@@ -336,9 +336,9 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>dp</tag>
         <tag>贪心</tag>
         <tag>分治</tag>
+        <tag>dp</tag>
         <tag>单调队列优化</tag>
       </tags>
   </entry>
@@ -384,8 +384,8 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>dp</tag>
         <tag>贪心</tag>
+        <tag>dp</tag>
       </tags>
   </entry>
   <entry>
@@ -981,11 +981,11 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>dp</tag>
         <tag>贪心</tag>
         <tag>分治</tag>
         <tag>线段树</tag>
         <tag>二分</tag>
+        <tag>dp</tag>
       </tags>
   </entry>
   <entry>
@@ -1033,9 +1033,9 @@
         <category>模拟赛</category>
       </categories>
       <tags>
+        <tag>dp</tag>
         <tag>搜索</tag>
         <tag>二分图匹配</tag>
-        <tag>dp</tag>
       </tags>
   </entry>
   <entry>
