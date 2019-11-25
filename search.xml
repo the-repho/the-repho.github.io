@@ -281,8 +281,8 @@
       </categories>
       <tags>
         <tag>贪心</tag>
-        <tag>线性筛</tag>
         <tag>矩乘</tag>
+        <tag>线性筛</tag>
         <tag>快速排序</tag>
       </tags>
   </entry>
@@ -604,8 +604,8 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>树形dp</tag>
         <tag>斯坦纳树</tag>
+        <tag>树形dp</tag>
       </tags>
   </entry>
   <entry>
@@ -709,8 +709,8 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>线段树</tag>
         <tag>贪心</tag>
+        <tag>线段树</tag>
         <tag>矩阵乘法</tag>
       </tags>
   </entry>
@@ -838,9 +838,9 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟</tag>
-        <tag>线段树</tag>
         <tag>分治</tag>
+        <tag>线段树</tag>
+        <tag>模拟</tag>
       </tags>
   </entry>
   <entry>
@@ -982,9 +982,9 @@
       </categories>
       <tags>
         <tag>dp</tag>
-        <tag>线段树</tag>
         <tag>贪心</tag>
         <tag>分治</tag>
+        <tag>线段树</tag>
         <tag>二分</tag>
       </tags>
   </entry>
@@ -1033,9 +1033,9 @@
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>dp</tag>
         <tag>搜索</tag>
         <tag>二分图匹配</tag>
+        <tag>dp</tag>
       </tags>
   </entry>
   <entry>
