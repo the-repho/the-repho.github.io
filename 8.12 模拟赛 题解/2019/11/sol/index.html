@@ -51,17 +51,19 @@
 </script>
 
   <meta name="description" content="Maze题面考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。">
-<meta name="keywords" content="模拟赛">
+<meta name="keywords" content="线段树,状压dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.12 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
 <meta property="og:site_name" content="Repho&#39;s blog">
 <meta property="og:description" content="Maze题面考场第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Factory.png">
-<meta property="og:updated_time" content="2019-10-31T17:15:03.924Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;maze.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;mhw.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;factory.png">
+<meta property="og:updated_time" content="2019-11-25T10:01:21.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Factory.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;maze.png">
 
 <link rel="canonical" href="http://yoursite.com/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/">
 
@@ -215,9 +217,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-01 00:48:24 / 修改时间：01:15:03" itemprop="dateCreated datePublished" datetime="2019-11-01T00:48:24+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 00:48:24" itemprop="dateCreated datePublished" datetime="2019-11-01T00:48:24+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-25 18:01:21" itemprop="dateModified" datetime="2019-11-25T18:01:21+08:00">2019-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">模拟赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -238,7 +257,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
+        <h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/maze.png" class title="maze"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
 
 
 <p>然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后一个小时开始写的，还没写完就 $250$ 行左右，还没搞完还没调试。没了。</p>
@@ -252,12 +271,12 @@
 <p>这样复杂度就都是 $qn^3\log m.$ </p>
 <p>好写多了。。</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/8qCFTTQkwM/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/8qCFTTQkwM/</a></p>
-<h1 id="Mhw"><a href="#Mhw" class="headerlink" title="Mhw"></a>Mhw</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3>
+<h1 id="Mhw"><a href="#Mhw" class="headerlink" title="Mhw"></a>Mhw</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/mhw.png" class title="mhw">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>看上去是个二分图的样子。题目给了两类人，在一定距离下他们有克制关系。那就相当于有向边啊。</p>
 <p>因为要求的三点环必须有两条边是横跨两边，另一边在一半上的，所以只需要给那个在一半上的点定向就可以了。那么三点环有几种连边情况：（对于在一边的两点 $x,~y$ 和 另一边上的点 $z$）</p>
-<p>​    1. 对于两条边 $x\leftrightarrow z <del>\&amp;</del> y \leftrightarrow z$ 他们的方向必须是反的。就是： $x\rightarrow z <del>\&amp;</del> z \rightarrow y$ 或 $y\rightarrow z<del>(\alpha) ~\&amp;</del> z \rightarrow x(\beta).$<br>​     2. 对于上面的两种不同的边的方向，我们要给 $x \leftrightarrow y$ 定向，在最大值的时候就是在所有 $\alpha$ 和 $\beta$ 环里面找到较多的一个给它们定向，最小值则相反。</p>
-<p>那么求两点间的边数就可以确定边的方向了。我只会 $n^3$ 的方法。。</p>
+<pre><code>1. 对于两条边 $x\leftrightarrow z \&amp; y \leftrightarrow z$ 他们的方向必须是反的。就是： $x\rightarrow z \&amp; z \rightarrow y$ 或 $y\rightarrow z(\alpha) \&amp; z \rightarrow x(\beta).$ 
+​     2. 对于上面的两种不同的边的方向，我们要给 $x \leftrightarrow y$ 定向，在最大值的时候就是在所有 $\alpha$ 和 $\beta$ 环里面找到较多的一个给它们定向，最小值则相反。</code></pre><p>那么求两点间的边数就可以确定边的方向了。我只会 $n^3$ 的方法。。</p>
 <p>出分： $20pt.O(n^3).$ </p>
 <h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>$O(n^3)$ 可以过 $1000????$ （要开 $O3$ 优化别想了。）</p>
 <h4 id="线段树扫描线"><a href="#线段树扫描线" class="headerlink" title="线段树扫描线"></a>线段树扫描线</h4><p>又是你。扫描线。</p>
@@ -266,22 +285,22 @@
 <p>我们记白点 $x$ 连向一个黑点的黑点总数是 $f_x.$ 而两个白点 $x,<del>y$ 同时连向一个黑点的黑点总数是 $g_{x,</del>y}.$ </p>
 <p>所以对于两个点 $x,<del>y$ 间半环（两条确定边）个数就是 $f_x-g_{x,</del>y}$ 相当于取一个补集。</p>
 <p>那么对于所有的贡献就是：</p>
-<p>$\Large \begin{aligned}Ans&amp;=\sum\limits_{x,<del>y</del>\in<del>S_{white}} \max\{f_x-g_{x,</del>y},<del>f_y-g_{x,y}\}\\\Large&amp;=\sum\limits_{x,</del>y<del>\in</del>S_{white}} \max\{f_x,f_y\}-g_{x,~y}\end{aligned}$</p>
+<p>$\Large \begin{aligned}Ans&amp;=\sum\limits_{x,y\in S_{white}} \max\{f_x-g_{x,y},f_y-g_{x,y}\}\\\Large&amp;=\sum\limits_{x,y\in S_{white}} \max\{f_x,f_y\}-g_{x,y}\end{aligned}$</p>
 <p>那么我们再考虑右边的那个 $g_{x, y}$ 能不能也化成 $f_x$ ？</p>
 <p>它的意思就是同时连向了一个黑点，那么反过来就是一个黑点被两个白点连了，那么既然我们还要求一遍所有黑点 $f$ 那么就相当于是对于每一个黑点，选两个连向自己的边的总数。所以把 $f$ 重新定义成连向异色点的。</p>
 <p>那么就是：$\large \sum g_{x, y} = \sum\tbinom{f_k}2.$具体而言就是说：</p>
-<p>$\Large Ans=\sum\limits_{x,<del>y</del>\in<del>S_{white}} \max\{f_x,f_y\}-\sum\limits_{k</del>\in~S_{black}}\tbinom {f_k}2.$</p>
+<p>$\Large Ans=\sum\limits_{x,y\in S_{white}} \max\{f_x,f_y\}-\sum\limits_{k\in S_{black}}\tbinom {f_k}2.$</p>
 <p>剩下的就是求所有的 $f_x$ 了。 </p>
 <p>我们回到最初的连边条件：曼哈顿距离小于等于 $D.$ 这个不太好处理所以<del>常规地</del>把他转化成切比雪夫距离。至于它是什么：</p>
-<p>​    对于两个 $k$ 维的点 $A,<del>B$，其中 $A=(a_1,</del>a_2,<del>…,</del>a_k)$，<br>​    则他们的切比雪夫距离定义为：$\large\max\limits_{i<del>=</del>1}^k\{|a_i-b_i|\}.$</p>
+<p>​    对于两个 $k$ 维的点 $A,~B$，其中 $A=(a_1,a_2,…,a_k)$，<br>​    则他们的切比雪夫距离定义为：$\large\max\limits_{i=1}^k\{|a_i-b_i|\}.$</p>
 <p><del>曼哈顿距离是什么就不说了。。</del> </p>
-<p>那么怎么转换呢？曼哈顿距离只是二维的，所以对于 $(x,<del>y)$，就变成 $(x+y,</del>x-y).$ </p>
+<p>那么怎么转换呢？曼哈顿距离只是二维的，所以对于 $(x,y)$，就变成 $(x+y,x-y).$ </p>
 <p>但其实理解起来没那么复杂。我们要算的是曼哈顿距离小于等于 $D$ 就是说要在范围内的点集。因为是曼哈顿距离，所以他就是一个斜着的正方形。这个就已经变成了二维的矩形内选点，但是线段树扫描线只能搞横平竖直的矩形，所以考虑把所有正方形旋转 $45^\circ$ 。而这个其实就可以用上面的那个变换。</p>
 <p>还有一个问题，就是这样转换完之后长度没变吗？没变！证明如下：</p>
-<p>​    对于两个点 $A(x_1, <del>y_1),</del>B(x_2,<del>y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, ~x_1 -y_1),</del>B’(x_2+y_2,<del>x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,</del>b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
+<p>​    对于两个点 $A(x_1, y_1),<del>B(x_2,y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, x_1 -y_1),</del>B’(x_2+y_2,x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,~b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
 <p>那么就用线段树扫描线扫以一个点为中心的矩形里面包含的点的数量即可。（前缀点数和。）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/PTvD7P2Yqr/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/PTvD7P2Yqr/</a></p>
-<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/Factory.png" class title="Factory">
+<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/factory.png" class title="Factory">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>一开始想到思路的竟然是这题。</p>
 <p>既然要任意情况都行，所以最后的矩阵一定是一个对角线上全是 $1$ 的正方形的方案。</p>
@@ -311,7 +330,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+              <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag"># 线段树</a>
+              <a href="/tags/%E7%8A%B6%E5%8E%8Bdp/" rel="tag"># 状压dp</a>
           </div>
 
         
@@ -390,13 +410,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

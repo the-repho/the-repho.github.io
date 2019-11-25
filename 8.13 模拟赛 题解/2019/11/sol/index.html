@@ -51,7 +51,7 @@
 </script>
 
   <meta name="description" content="Count题面考场主攻它！首先因为它要求所有数不是 $m$ 的倍数，所以首先考虑容斥一下把 $m$ 扣掉。大概的式子是这样的：​    $\Large C_{n - 1}^{m - 1}-\sum\limits_{k=1}^{\frac {n}{m}}C_{n-km-1}^{m-1}-\sum\limits_{k=2}^{\frac {n}{m}}C_{n-km-1}^{m-2}-…$">
-<meta name="keywords" content="模拟赛">
+<meta name="keywords" content="dp,容斥,计数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.13 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Count.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;pj.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;tg.png">
-<meta property="og:updated_time" content="2019-10-31T17:15:01.493Z">
+<meta property="og:updated_time" content="2019-11-25T10:01:13.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.13%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;Count.png">
 
@@ -217,9 +217,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-01 00:48:34 / 修改时间：01:15:01" itemprop="dateCreated datePublished" datetime="2019-11-01T00:48:34+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 00:48:34" itemprop="dateCreated datePublished" datetime="2019-11-01T00:48:34+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-25 18:01:13" itemprop="dateModified" datetime="2019-11-25T18:01:13+08:00">2019-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">模拟赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -272,8 +289,11 @@
 <p>指数为二的时候有两种情况，就是一个 $2$ 和两个 $1.$ </p>
 <p>一个二的时候可以类似上面转移，但是两个一就需要再考虑了。</p>
 <p>考虑最后一列的 $i,<del>j$ 有两个 $1.$ 第 $i,</del>j$ 行的另一个 $1$ 在或者不在同列。首先要选两个 $1$ 在那就是 $\large C_i^2.$</p>
-<pre><code>    1. 不在同列的话我们考虑合并其中的两列（可以 $i$ 的到 $j$ 也可以反过来。），那么就变成了两个 $1$ 在一列上。这个就是 $\large 2C_i^2f_{i-1}.$ 
-​         2. 在同列的话我们首先去掉 $j$ 行和最后一列，然后在 $i$ 行另一个 $1$ 的位置变成 $2.$ 这个 $2$ 则考虑上面 一个 $2$ 的处理方法，那么同列情况的总数就是 $\large (i-1)C_i^2f_{i-2}.$ 注意因为上面一种情况我们算过这个一次了，所以要把它减掉。</code></pre><p>这样就有总的转移式：</p>
+<ol>
+<li>不在同列的话我们考虑合并其中的两列（可以 $i$ 的到 $j$ 也可以反过来。），那么就变成了两个 $1$ 在一列上。这个就是 $\large 2C_i^2f_{i-1}.$ </li>
+<li>在同列的话我们首先去掉 $j$ 行和最后一列，然后在 $i$ 行另一个 $1$ 的位置变成 $2.$ 这个 $2$ 则考虑上面 一个 $2$ 的处理方法，那么同列情况的总数就是 $\large (i-1)C_i^2f_{i-2}.$ 注意因为上面一种情况我们算过这个一次了，所以要把它减掉。</li>
+</ol>
+<p>这样就有总的转移式：</p>
 <p>​        $\Large f_i=if_{i-1}+2C_i^2f_{i-1}-(i-1)C_i^2f_{i-2}$ </p>
 <p>这是对于每一个质因数的，总体而言呢？首先对于他们本身是可以加偶数个负号的，这个可以除了最后一行一列任意加，最后一行一列调整一下乘积即可，就是要乘上 $\large2^{(n-1)^2}.$ 然后乘上每一个质因数的答案即可。</p>
 <p>然后线性递推出来记一下有几个 $1$ 几个 $2$ ，快速幂一下回答询问就好。</p>
@@ -305,7 +325,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+              <a href="/tags/dp/" rel="tag"># dp</a>
+              <a href="/tags/%E5%AE%B9%E6%96%A5/" rel="tag"># 容斥</a>
+              <a href="/tags/%E8%AE%A1%E6%95%B0/" rel="tag"># 计数</a>
           </div>
 
         
@@ -384,13 +406,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

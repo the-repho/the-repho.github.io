@@ -51,7 +51,7 @@
 </script>
 
   <meta name="description" content="比赛链接：http:&#x2F;&#x2F;jzoj.net&#x2F;senior&#x2F;#contest&#x2F;home&#x2F;2833Seq题面考场题目变简单了。这道题一个递推式很显然地看出可以做矩乘。那考虑怎么构造矩阵。因为他都是前面式子相乘得到的下一项，而递推式里的常数 $b_i$ 又在指数上，可以想到两个等底数的式子相乘就等于他们的指数相加。那么只需要在指数上做矩乘维护一个递推后的指数和就好了。">
-<meta name="keywords" content="模拟赛">
+<meta name="keywords" content="线段树,贪心,矩阵乘法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.7 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;seq.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;dream.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;tree.png">
-<meta property="og:updated_time" content="2019-10-31T17:14:21.098Z">
+<meta property="og:updated_time" content="2019-11-25T09:52:35.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.7%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;seq.png">
 
@@ -217,9 +217,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-01 00:47:13 / 修改时间：01:14:21" itemprop="dateCreated datePublished" datetime="2019-11-01T00:47:13+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 00:47:13" itemprop="dateCreated datePublished" datetime="2019-11-01T00:47:13+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-25 17:52:35" itemprop="dateModified" datetime="2019-11-25T17:52:35+08:00">2019-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">模拟赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -274,8 +291,7 @@
 <p>​    1. $(x,<del>y)$ 不是相互的祖先，那么一对答案 $(u,</del>v)$ 要满足 $u$ 在 $x$ 的子树里面，$v$ 在 $y$ 的子树里面，那么在一个 $dfs$ 序上就可以直接转化成两段区间。<br>​     2. $(x, <del>y)$ 有祖先后代关系，不妨设 $x$ 是 $y$ 的祖先，那么一对答案 $(u,</del>v)$ 要满足 $u$ 在 $y$ 的子树里面，$v$ 在整棵树除了 $y$ 所在的 $x$ 的子树里面。这个就是整个区间减一个区间，拆成两个区间即可。</p>
 <p>然后就是矩形面积并了。</p>
 <p>那它怎么写呢？？？</p>
-<p>既然这个已经咕了很久，今天又是七夕，那就来写一下他吧。这个还是单独放在另一个博客里吧：[矩形面积并]</p>
-<p>[矩形面积并]: </p>
+<p>既然这个已经咕了很久，今天又是七夕，那就来写一下他吧。这个还是单独放在另一个博客里吧：<a href="https://the-repho.github.io/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%89%AB%E6%8F%8F%E7%BA%BF/2019/08/sol/" target="_blank" rel="noopener">矩形面积并</a></p>
 <p>然后和普通的矩形面积并不同，它的坐标是比较小的，所以不需要离散化，除此之外，因为一对点就算是算面积也只能被算一次，所以要严格保证所有表示矩形区间的横坐标小于纵坐标，大于就换一下，以为换一下不影响计数。而且因为边界都要算上，所以再加矩形的时候吧终边（上边）纵坐标 $+1$ 之后再加，保证上面那条线被算到了。</p>
 <p>最后用 $\frac{n\times (n-1)}{2} - cnt$ 就可以得到答案了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/BDvhkHGKDy/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/BDvhkHGKDy/</a></p>
@@ -288,7 +304,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+              <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag"># 线段树</a>
+              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"># 贪心</a>
+              <a href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" rel="tag"># 矩阵乘法</a>
           </div>
 
         
@@ -367,13 +385,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

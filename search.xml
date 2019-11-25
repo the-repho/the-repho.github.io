@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSP-2019 游记</title>
+    <url>/CSP-2019-%E6%B8%B8%E8%AE%B0/2019/11/sol/</url>
+    <content><![CDATA[<h1 id="My-Dream"><a href="#My-Dream" class="headerlink" title="My Dream"></a>My Dream</h1><p>去年虽然拿了省一，但分数很不理想，导致无法参加 $CCF-WC$ 以及清华营，就比较不甘心。。</p><p>所以今年小目标就是 $450$ ，大目标是 $500.$ </p><p>对于每一天的成绩做这样的预估：$450=100+100+50(100)+100+50+50$，具体是 $450$ 还是 $500$ 应该就看第一天怎么发挥了。</p><a id="more"></a>
+
+
+<p>所以 $D1$ 至关重要啊。。好好考吧。。毕竟复习准备了这么久。</p>
+<p>在赛前的几天，希望复习好所有的模板，避免出现知道算法打不出来的情况。</p>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day -2"></a>Day -2</h1><p>怎么搞着搞着就只剩两天了呢。。感觉去年的 $NOIP$ 还历历在目。。</p>
+<p>今天学校训练的最后一场考试，很不理想的没有考好。（就很烦，本来应该信心考。。）</p>
+<p>明天也是学校校内期中考试的最后一天了，虽然我们停课翘掉了考试。。</p>
+<p>其实觉得只要能够把应该拿得分拿到，就够了，其实所谓的目标也是随之变化的，即使没拿到那么多，知道不可能再有更高的分，也没什么好不甘的了。</p>
+<p>把之前的模拟题看看吧，还有一前的真题。（说不定又原题了呢。）</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>matrix 题解(CSP模拟赛11.11)</title>
     <url>/matrix-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/</url>
     <content><![CDATA[<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小 $P$ 现在有一个 $n\times m$ 的 $01$ 矩阵，某一天他突发奇想：假设矩阵行与行可以任意交换，其中最大的全 $1$ 子矩阵有多大。</p><p>他想了很久都没有得出答案，于是找到了你。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个数 $n, m$，描述矩阵的大小。</p><p>接下来 $n$ 行，每行一个长度为 $m$ 的 $01$ 字符串，描述 $01$ 矩阵。</p><a id="more"></a>
@@ -54,7 +72,7 @@
   <entry>
     <title>pay 题解(CSP模拟赛11.11)</title>
     <url>/pay-%E9%A2%98%E8%A7%A3-CSP%E6%A8%A1%E6%8B%9F%E8%B5%9B11-11/2019/11/sol/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>​                                                                                </p><p>咕掉了。。</p><p>$csp$ 后补吧。</p>]]></content>
       <tags>
         <tag>hide</tag>
       </tags>
@@ -62,19 +80,26 @@
   <entry>
     <title>模拟联合国北外会游记</title>
     <url>/%E6%A8%A1%E6%8B%9F%E8%81%94%E5%90%88%E5%9B%BD%E5%8C%97%E5%A4%96%E4%BC%9A%E6%B8%B8%E8%AE%B0/2019/11/sol/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="The-Beginning"><a href="#The-Beginning" class="headerlink" title="The Beginning"></a>The Beginning</h1><p>校内的一模结束之后随即就有了外出参会的通知，想着体验一把 $mpc$ 的感觉，报了北外会的 $mpc.$ </p><p>本来没什么希望但上了，正好有跟 $csp$ 有点冲突，就有点烦。</p><p>进群之后就是写学测，交完学测就出了席位，结果我被安排在了一个英文场。。</p><p>我一个学德语的就开始看 $40$ 多面的 $BG$ ，开始准备些前瞻。。真的好难。。不知道后面会怎么样但是我相信这样的一次经历从什么角度而言都是有意义的。</p><a id="more"></a>
+
+
+
+<h1 id="11-14"><a href="#11-14" class="headerlink" title="11.14"></a>11.14</h1><p>今天拿到了 $unsc$ 的 $bg$ ，打印下来大概看了一下下，准备晚上研究一下开始谢谢前瞻，$17$ 号晚上就是 $ddl$ 了啊。。</p>
+<p>反正打算先写一份中文的，大概 $google~~translate$ 一下，再看看有什么不好的地方改一改就好了。。</p>
+<p>加油，应该不会熬夜。 </p>
+<p>$-~22:38$  </p>
+]]></content>
       <tags>
-        <tag>hide</tag>
+        <tag>MUN</tag>
       </tags>
   </entry>
   <entry>
     <title>灾难 题解</title>
     <url>/%E7%81%BE%E9%9A%BE-%E9%A2%98%E8%A7%A3/2019/11/sol/</url>
-    <content><![CDATA[<p>​                                                                                </p>]]></content>
+    <content><![CDATA[<p>​                                                                                </p><p>咕掉了。。</p><p>$csp$ 后补吧。</p>]]></content>
       <tags>
         <tag>LCA</tag>
         <tag>拓扑排序</tag>
-        <tag>hide</tag>
       </tags>
   </entry>
   <entry>
@@ -194,8 +219,13 @@
 
 
 <a href="/8.20%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/lottery.pdf" title="solution_lottery">solution_lottery</a>]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>单调栈</tag>
+        <tag>离散化</tag>
       </tags>
   </entry>
   <entry>
@@ -220,7 +250,7 @@
 <p>那么我们考虑现在的答案会从前面的哪里转移过来，用多少代价。我们发现，我们在 $i$ 的时候，会从所有的 $i-w_j$ 转移过来，并且答案是 $\max\{f_i+v_j\}.$ 所以就可以考虑构建一个 $100\times100$ 的矩阵，每次乘法是做的加法取 $\max.$ 那么矩阵具体应该是什么样的呢？</p>
 <p>那么我们考虑从 $\large f_{i-k+1}\to f_i$ 转移到 $\large f_{i-k + 2}\to f_{i+1}.$ （其中 $k=\max\{w_i,~v_i\}$）首先，之前的后 $k-1$ 项和之后的前 $k-1$ 项是要相同的，考虑到是加法取 $\max$ ，可以只算矩阵中非 $-1$ 的数，并把对应斜对角线赋为 $0.$ 这样可以保证前 $k-1$ 项了。那么最后一行的矩阵就是直接和转移方程挂钩了。那么就是在所有的 $w_i$ 的位置上赋 $v_i$ 的值即可。其他空位赋 $-1.$ </p>
 <p>完整矩阵如下图：（最后一行假定被所有物品填满了，且 $w_i=i.$）</p>
-<p>​                                                             $\large\left[\begin{matrix} -1 &amp; 0&amp;-1&amp;\cdots &amp;-1&amp;-1\-1&amp;-1&amp;0&amp;\cdots&amp;-1&amp;-1\\\vdots&amp;\vdots &amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\-1&amp;-1&amp;-1&amp;\cdots&amp;0&amp;-1\-1&amp;-1&amp;-1&amp;\cdots&amp;-1&amp;0\\v_1&amp;v_2&amp;v_3&amp;\cdots&amp;v_{k-1}&amp;v_k\end{matrix}\right]$ </p>
+<p>​                                                             $\large\left[\begin{matrix} -1 &amp; 0&amp;-1&amp;\cdots &amp;-1&amp;-1\newline-1&amp;-1&amp;0&amp;\cdots&amp;-1&amp;-1\newline\vdots&amp;\vdots &amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\newline-1&amp; -1 &amp; -1 &amp;\cdots&amp;0&amp;-1\newline-1&amp;-1&amp;-1&amp;\cdots&amp;-1&amp;0\newline v_1&amp;v_2&amp;v_3&amp;\cdots&amp;v_{k-1}&amp;v_k\end{matrix}\right]$ </p>
 <p>那么用它自乘再预处理前 $k$ 个就可以矩乘了。</p>
 <p>$code:$ </p>
 <h1 id="Median"><a href="#Median" class="headerlink" title="Median"></a>Median</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/median.png" class title="median">
@@ -241,13 +271,19 @@
 <h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>没错，这应该是一个积性函数。因为如果两个数互质，那么他们和 $B$ 的 $\gcd$ 一定是互不相关，因此由乘法原理，它们乘起来的总方案数就是答案。（也就是没有重叠的多余部分被计算了。）</p>
 <p>那么看着这个数据范围，就可以试一下欧拉筛了。（前面模拟赛的时候考过学过。）</p>
 <p>首先考虑 $f(p^c)$ 怎么做。因为最后贡献要和 $B$ 取 $\gcd$ 所以这个一定和 $B$ 中的 $p$ 个数有关。那么考虑 $B$ 质因数分解后 $p$ 的指数是 $k.$ </p>
-<p>那么对于 $A=p^c$ ，我们需要分两类讨论：$c&gt;k$ 与 $c\le k.$ 对于第二类，我们可以枚举所有 $a$ 中最小的次数 $i\leq c$ 每一次用 $p$ 的次数大于等于 $i$ 的所有数的可能情况 $(c-i+1)^n$ 减去大于等于 $i+1$ 的情况就能得到至少有一个最小值次数是等于 $i$ 的情况了，而这些整个要乘上它们的贡献，也就是 $\gcd(a_1,<del>\dots,</del>a_n,~B)$ 也就是 $p^c$ 了。而对于第二类，因为总的次数不能超过 $k$ ，所以 $c$ 超过的部分是没有贡献的，或者说贡献仍然只有 $p^k$，所以我们只需要枚举到 $k$ ，超过的部分直接用一个表示超过取值 $c\to k$ 的整个式子就好了，它们的贡献上面也说了，就是 $p^k$。具体就是：</p>
-<p>​                            $\large\begin{equation}<br>\begin{aligned}    f(p^c)=<br>\begin{cases}<br>c\leq k&amp;&amp;&amp;\sum\limits_{i=1}^c ((c-i+1)^n-(c-i)^n)p^i.\\<br>c &gt; k &amp;&amp;&amp; \sum\limits_{i=1}^k ((c-i+1)^n-(c-i)^n)p^i<del>+</del>p^k(c-k)^n.<br>\end{cases}<br>\end{aligned}\end{equation}$ </p>
+<p>那么对于 $A=p^c$ ，我们需要分两类讨论：$c&gt;k$ 与 $c\le k.$ 对于第二类，我们可以枚举所有 $a$ 中最小的次数 $i\leq c$ 每一次用 $p$ 的次数大于等于 $i$ 的所有数的可能情况 $(c-i+1)^n$ 减去大于等于 $i+1$ 的情况就能得到至少有一个最小值次数是等于 $i$ 的情况了，而这些整个要乘上它们的贡献，也就是 $\gcd(a_1,\dots,a_n,~B)$ 也就是 $p^c$ 了。而对于第二类，因为总的次数不能超过 $k$ ，所以 $c$ 超过的部分是没有贡献的，或者说贡献仍然只有 $p^k$，所以我们只需要枚举到 $k$ ，超过的部分直接用一个表示超过取值 $c\to k$ 的整个式子就好了，它们的贡献上面也说了，就是 $p^k$。具体就是：</p>
+<p>​                            $\large\begin{equation}<br>\begin{aligned}    f(p^c)=<br>\begin{cases}<br>c\leq k&amp;&amp;&amp;\sum\limits_{i=1}^c ((c-i+1)^n-(c-i)^n)p^i.\\<br>c &gt; k &amp;&amp;&amp; \sum\limits_{i=1}^k ((c-i+1)^n-(c-i)^n)p^i+p^k(c-k)^n.<br>\end{cases}<br>\end{aligned}\end{equation}$ </p>
 <p>那么实现起来就是以前的欧拉筛模板，有一点区别的就是当 $i$ 是一个合数的最小质因子的时候，我们就要另外用他这个最小质因子的整个次数去乘了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/fqgyRVMfdR/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/fqgyRVMfdR/</a></p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>贪心</tag>
+        <tag>线性筛</tag>
+        <tag>矩乘</tag>
+        <tag>快速排序</tag>
       </tags>
   </entry>
   <entry>
@@ -296,8 +332,14 @@
 <p>复杂度呢？因为每一次合并的复杂度也需要分治，每一次翻转是 $O(n)$ 所以单次合并是 $O(n\log n)$ ，所以总复杂度是 $O(n\log^2n)$ 的。对于 $4096$ 的数据 $345678$ 就够了。</p>
 <p>$code:$ </p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>贪心</tag>
+        <tag>分治</tag>
+        <tag>单调队列优化</tag>
       </tags>
   </entry>
   <entry>
@@ -338,8 +380,12 @@
 <p>出分：$13pt.$</p>
 <h3 id="正解-2"><a href="#正解-2" class="headerlink" title="正解"></a>正解</h3><p>神仙 $DP~+$  优化。？咕。 </p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
@@ -377,8 +423,11 @@
 <p>指数为二的时候有两种情况，就是一个 $2$ 和两个 $1.$ </p>
 <p>一个二的时候可以类似上面转移，但是两个一就需要再考虑了。</p>
 <p>考虑最后一列的 $i,<del>j$ 有两个 $1.$ 第 $i,</del>j$ 行的另一个 $1$ 在或者不在同列。首先要选两个 $1$ 在那就是 $\large C_i^2.$</p>
-<pre><code>    1. 不在同列的话我们考虑合并其中的两列（可以 $i$ 的到 $j$ 也可以反过来。），那么就变成了两个 $1$ 在一列上。这个就是 $\large 2C_i^2f_{i-1}.$ 
-​         2. 在同列的话我们首先去掉 $j$ 行和最后一列，然后在 $i$ 行另一个 $1$ 的位置变成 $2.$ 这个 $2$ 则考虑上面 一个 $2$ 的处理方法，那么同列情况的总数就是 $\large (i-1)C_i^2f_{i-2}.$ 注意因为上面一种情况我们算过这个一次了，所以要把它减掉。</code></pre><p>这样就有总的转移式：</p>
+<ol>
+<li>不在同列的话我们考虑合并其中的两列（可以 $i$ 的到 $j$ 也可以反过来。），那么就变成了两个 $1$ 在一列上。这个就是 $\large 2C_i^2f_{i-1}.$ </li>
+<li>在同列的话我们首先去掉 $j$ 行和最后一列，然后在 $i$ 行另一个 $1$ 的位置变成 $2.$ 这个 $2$ 则考虑上面 一个 $2$ 的处理方法，那么同列情况的总数就是 $\large (i-1)C_i^2f_{i-2}.$ 注意因为上面一种情况我们算过这个一次了，所以要把它减掉。</li>
+</ol>
+<p>这样就有总的转移式：</p>
 <p>​        $\Large f_i=if_{i-1}+2C_i^2f_{i-1}-(i-1)C_i^2f_{i-2}$ </p>
 <p>这是对于每一个质因数的，总体而言呢？首先对于他们本身是可以加偶数个负号的，这个可以除了最后一行一列任意加，最后一行一列调整一下乘积即可，就是要乘上 $\large2^{(n-1)^2}.$ 然后乘上每一个质因数的答案即可。</p>
 <p>然后线性递推出来记一下有几个 $1$ 几个 $2$ ，快速幂一下回答询问就好。</p>
@@ -402,14 +451,19 @@
 <p>预处理阶乘快速幂求即可。时间复杂度同样 $O(n+q\log n).$ </p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/Mz2wnVvhWt/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/Mz2wnVvhWt/</a></p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>容斥</tag>
+        <tag>计数</tag>
       </tags>
   </entry>
   <entry>
     <title>8.12 模拟赛  题解</title>
     <url>/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/</url>
-    <content><![CDATA[<h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
+    <content><![CDATA[<h1 id="Maze"><a href="#Maze" class="headerlink" title="Maze"></a>Maze</h1><h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/maze.png" class title="maze"><h3 id="考场"><a href="#考场" class="headerlink" title="考场"></a>考场</h3><p>第一眼看到了那个 $n$ 好像特别小，就想着能不能用 $n\times n$ 的正方形来分成很多很多块，然后一起做，至于询问的话想了一下线段树来维护边上的点到另一边点的最短距离（每个节点上开二维数组存），然后写广搜初始化和旁边的情况。至于线段树上的合并可以枚举一下中间从哪里走然后更新整个的答案。</p><a id="more"></a>
 
 
 <p>然后。。。分块块 $+$ 线段树加上两边的广搜，我第一次发现线段树写起来简单。最后一个小时开始写的，还没写完就 $250$ 行左右，还没搞完还没调试。没了。</p>
@@ -423,12 +477,12 @@
 <p>这样复杂度就都是 $qn^3\log m.$ </p>
 <p>好写多了。。</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/8qCFTTQkwM/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/8qCFTTQkwM/</a></p>
-<h1 id="Mhw"><a href="#Mhw" class="headerlink" title="Mhw"></a>Mhw</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3>
+<h1 id="Mhw"><a href="#Mhw" class="headerlink" title="Mhw"></a>Mhw</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/mhw.png" class title="mhw">
 
 <h3 id="考场-1"><a href="#考场-1" class="headerlink" title="考场"></a>考场</h3><p>看上去是个二分图的样子。题目给了两类人，在一定距离下他们有克制关系。那就相当于有向边啊。</p>
 <p>因为要求的三点环必须有两条边是横跨两边，另一边在一半上的，所以只需要给那个在一半上的点定向就可以了。那么三点环有几种连边情况：（对于在一边的两点 $x,~y$ 和 另一边上的点 $z$）</p>
-<p>​    1. 对于两条边 $x\leftrightarrow z <del>\&amp;</del> y \leftrightarrow z$ 他们的方向必须是反的。就是： $x\rightarrow z <del>\&amp;</del> z \rightarrow y$ 或 $y\rightarrow z<del>(\alpha) ~\&amp;</del> z \rightarrow x(\beta).$<br>​     2. 对于上面的两种不同的边的方向，我们要给 $x \leftrightarrow y$ 定向，在最大值的时候就是在所有 $\alpha$ 和 $\beta$ 环里面找到较多的一个给它们定向，最小值则相反。</p>
-<p>那么求两点间的边数就可以确定边的方向了。我只会 $n^3$ 的方法。。</p>
+<pre><code>1. 对于两条边 $x\leftrightarrow z \&amp; y \leftrightarrow z$ 他们的方向必须是反的。就是： $x\rightarrow z \&amp; z \rightarrow y$ 或 $y\rightarrow z(\alpha) \&amp; z \rightarrow x(\beta).$ 
+​     2. 对于上面的两种不同的边的方向，我们要给 $x \leftrightarrow y$ 定向，在最大值的时候就是在所有 $\alpha$ 和 $\beta$ 环里面找到较多的一个给它们定向，最小值则相反。</code></pre><p>那么求两点间的边数就可以确定边的方向了。我只会 $n^3$ 的方法。。</p>
 <p>出分： $20pt.O(n^3).$ </p>
 <h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>$O(n^3)$ 可以过 $1000????$ （要开 $O3$ 优化别想了。）</p>
 <h4 id="线段树扫描线"><a href="#线段树扫描线" class="headerlink" title="线段树扫描线"></a>线段树扫描线</h4><p>又是你。扫描线。</p>
@@ -437,22 +491,22 @@
 <p>我们记白点 $x$ 连向一个黑点的黑点总数是 $f_x.$ 而两个白点 $x,<del>y$ 同时连向一个黑点的黑点总数是 $g_{x,</del>y}.$ </p>
 <p>所以对于两个点 $x,<del>y$ 间半环（两条确定边）个数就是 $f_x-g_{x,</del>y}$ 相当于取一个补集。</p>
 <p>那么对于所有的贡献就是：</p>
-<p>$\Large \begin{aligned}Ans&amp;=\sum\limits_{x,<del>y</del>\in<del>S_{white}} \max\{f_x-g_{x,</del>y},<del>f_y-g_{x,y}\}\\\Large&amp;=\sum\limits_{x,</del>y<del>\in</del>S_{white}} \max\{f_x,f_y\}-g_{x,~y}\end{aligned}$</p>
+<p>$\Large \begin{aligned}Ans&amp;=\sum\limits_{x,y\in S_{white}} \max\{f_x-g_{x,y},f_y-g_{x,y}\}\\\Large&amp;=\sum\limits_{x,y\in S_{white}} \max\{f_x,f_y\}-g_{x,y}\end{aligned}$</p>
 <p>那么我们再考虑右边的那个 $g_{x, y}$ 能不能也化成 $f_x$ ？</p>
 <p>它的意思就是同时连向了一个黑点，那么反过来就是一个黑点被两个白点连了，那么既然我们还要求一遍所有黑点 $f$ 那么就相当于是对于每一个黑点，选两个连向自己的边的总数。所以把 $f$ 重新定义成连向异色点的。</p>
 <p>那么就是：$\large \sum g_{x, y} = \sum\tbinom{f_k}2.$具体而言就是说：</p>
-<p>$\Large Ans=\sum\limits_{x,<del>y</del>\in<del>S_{white}} \max\{f_x,f_y\}-\sum\limits_{k</del>\in~S_{black}}\tbinom {f_k}2.$</p>
+<p>$\Large Ans=\sum\limits_{x,y\in S_{white}} \max\{f_x,f_y\}-\sum\limits_{k\in S_{black}}\tbinom {f_k}2.$</p>
 <p>剩下的就是求所有的 $f_x$ 了。 </p>
 <p>我们回到最初的连边条件：曼哈顿距离小于等于 $D.$ 这个不太好处理所以<del>常规地</del>把他转化成切比雪夫距离。至于它是什么：</p>
-<p>​    对于两个 $k$ 维的点 $A,<del>B$，其中 $A=(a_1,</del>a_2,<del>…,</del>a_k)$，<br>​    则他们的切比雪夫距离定义为：$\large\max\limits_{i<del>=</del>1}^k\{|a_i-b_i|\}.$</p>
+<p>​    对于两个 $k$ 维的点 $A,~B$，其中 $A=(a_1,a_2,…,a_k)$，<br>​    则他们的切比雪夫距离定义为：$\large\max\limits_{i=1}^k\{|a_i-b_i|\}.$</p>
 <p><del>曼哈顿距离是什么就不说了。。</del> </p>
-<p>那么怎么转换呢？曼哈顿距离只是二维的，所以对于 $(x,<del>y)$，就变成 $(x+y,</del>x-y).$ </p>
+<p>那么怎么转换呢？曼哈顿距离只是二维的，所以对于 $(x,y)$，就变成 $(x+y,x-y).$ </p>
 <p>但其实理解起来没那么复杂。我们要算的是曼哈顿距离小于等于 $D$ 就是说要在范围内的点集。因为是曼哈顿距离，所以他就是一个斜着的正方形。这个就已经变成了二维的矩形内选点，但是线段树扫描线只能搞横平竖直的矩形，所以考虑把所有正方形旋转 $45^\circ$ 。而这个其实就可以用上面的那个变换。</p>
 <p>还有一个问题，就是这样转换完之后长度没变吗？没变！证明如下：</p>
-<p>​    对于两个点 $A(x_1, <del>y_1),</del>B(x_2,<del>y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, ~x_1 -y_1),</del>B’(x_2+y_2,<del>x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,</del>b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
+<p>​    对于两个点 $A(x_1, y_1),<del>B(x_2,y_2)$，<br>​    他们变换之后变成了：$A’(x_1+y_1, x_1 -y_1),</del>B’(x_2+y_2,x_2-y_2).$<br>​    然后之前的曼哈顿距离是：$|x_1-x_2|+|y_1-y_2|.$<br>​    现在的切比雪夫距离是： $\max\{|(x_1+y_1)-(x_2+y_2)|, |(x_1-y_1)-(x_2-y_2)|\}.$<br>​    还记得三角不等式吗：$|a-b|\leq|a|+|b|.$ 和 $|a+b|\leq|a|+|b|.$<br>​    我们记 $a=x_1-x_2,~b=y_1-y_2$，不就是最大值吗？<br>​    证完。</p>
 <p>那么就用线段树扫描线扫以一个点为中心的矩形里面包含的点的数量即可。（前缀点数和。）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/PTvD7P2Yqr/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/PTvD7P2Yqr/</a></p>
-<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/Factory.png" class title="Factory">
+<h1 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h1><h3 id="题面-2"><a href="#题面-2" class="headerlink" title="题面"></a>题面</h3><img src="/8.12%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/factory.png" class title="Factory">
 
 <h3 id="考场-2"><a href="#考场-2" class="headerlink" title="考场"></a>考场</h3><p>一开始想到思路的竟然是这题。</p>
 <p>既然要任意情况都行，所以最后的矩阵一定是一个对角线上全是 $1$ 的正方形的方案。</p>
@@ -474,8 +528,12 @@
 <p>发现其实不需要把每一个二元组记下来，只需要记每一种二元组出现了多少次。这个可以用一个 $cnt$ 压起来，每次向上枚举就可以了，出题人说其实 $n=30$ 时一共只有 $1.7e5$ 左右种二元组，每一次就只需要枚举一种二元组，那么时间复杂度就是 $O(n\times 1.7e5)$ ，是能过的。空间复杂度可能有点高，但是也不会太大。</p>
 <p>$code:$ </p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>线段树</tag>
+        <tag>状压dp</tag>
       </tags>
   </entry>
   <entry>
@@ -542,8 +600,12 @@
 <p>是的。就是如此简单，至于横纵交换交换一下横纵坐标即可。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/Nk5JBZfKRc/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/Nk5JBZfKRc/</a></p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>树形dp</tag>
+        <tag>斯坦纳树</tag>
       </tags>
   </entry>
   <entry>
@@ -591,8 +653,14 @@
 <p>其实复杂度瓶颈在让每个点后面的数有序，其实用一个线性排序算法就可以总体线性了。（基数排序。？）</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/x552Wr74HK/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/x552Wr74HK/</a></p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>最短路</tag>
+        <tag>莫队</tag>
+        <tag>区间dp</tag>
       </tags>
   </entry>
   <entry>
@@ -632,14 +700,18 @@
 <p>​    1. $(x,<del>y)$ 不是相互的祖先，那么一对答案 $(u,</del>v)$ 要满足 $u$ 在 $x$ 的子树里面，$v$ 在 $y$ 的子树里面，那么在一个 $dfs$ 序上就可以直接转化成两段区间。<br>​     2. $(x, <del>y)$ 有祖先后代关系，不妨设 $x$ 是 $y$ 的祖先，那么一对答案 $(u,</del>v)$ 要满足 $u$ 在 $y$ 的子树里面，$v$ 在整棵树除了 $y$ 所在的 $x$ 的子树里面。这个就是整个区间减一个区间，拆成两个区间即可。</p>
 <p>然后就是矩形面积并了。</p>
 <p>那它怎么写呢？？？</p>
-<p>既然这个已经咕了很久，今天又是七夕，那就来写一下他吧。这个还是单独放在另一个博客里吧：[矩形面积并]</p>
-<p>[矩形面积并]: </p>
+<p>既然这个已经咕了很久，今天又是七夕，那就来写一下他吧。这个还是单独放在另一个博客里吧：<a href="https://the-repho.github.io/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%89%AB%E6%8F%8F%E7%BA%BF/2019/08/sol/" target="_blank" rel="noopener">矩形面积并</a></p>
 <p>然后和普通的矩形面积并不同，它的坐标是比较小的，所以不需要离散化，除此之外，因为一对点就算是算面积也只能被算一次，所以要严格保证所有表示矩形区间的横坐标小于纵坐标，大于就换一下，以为换一下不影响计数。而且因为边界都要算上，所以再加矩形的时候吧终边（上边）纵坐标 $+1$ 之后再加，保证上面那条线被算到了。</p>
 <p>最后用 $\frac{n\times (n-1)}{2} - cnt$ 就可以得到答案了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/BDvhkHGKDy/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/BDvhkHGKDy/</a></p>
 <h6 id="七夕快乐啊！！orz…"><a href="#七夕快乐啊！！orz…" class="headerlink" title="七夕快乐啊！！orz….."></a>七夕快乐啊！！orz…..</h6>]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>线段树</tag>
+        <tag>贪心</tag>
+        <tag>矩阵乘法</tag>
       </tags>
   </entry>
   <entry>
@@ -762,8 +834,13 @@
 <p>$code: $ <a href="https://paste.ubuntu.com/p/WgP6sm3MQH/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/WgP6sm3MQH/</a></p>
 <h3 id="原题。？？"><a href="#原题。？？" class="headerlink" title="原题。？？"></a>原题。？？</h3><p>$luogu$ 原题链接：<a href="https://www.luogu.org/problem/P4747" target="_blank" rel="noopener">https://www.luogu.org/problem/P4747</a>（它开 $3s$ 比赛开 $1s$ ？？？）</p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>模拟</tag>
+        <tag>线段树</tag>
+        <tag>分治</tag>
       </tags>
   </entry>
   <entry>
@@ -826,16 +903,14 @@
 <p>但是其实还有倍增的做法可以 $A$ 掉。//还能一个 $log$ ！？</p>
 <p>咕。</p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/test/2019/08/sol/</url>
-    <content><![CDATA[<img src="/test/2019/08/sol/1.jpg" class title="???"><p>![123](1.jpg)</p><a href="/test/2019/08/sol/test.txt" title="test">test</a>]]></content>
-      <tags>
-        <tag>hide</tag>
+        <tag>dp</tag>
+        <tag>线性筛</tag>
+        <tag>中国剩余定理</tag>
+        <tag>lct</tag>
       </tags>
   </entry>
   <entry>
@@ -902,8 +977,15 @@
 <p>然后就<del>终于</del>可以 $A$ 了。</p>
 <p>$code: $ <a href="https://paste.ubuntu.com/p/S8WYHmxcRz/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/S8WYHmxcRz/</a></p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>线段树</tag>
+        <tag>贪心</tag>
+        <tag>分治</tag>
+        <tag>二分</tag>
       </tags>
   </entry>
   <entry>
@@ -947,8 +1029,13 @@
 <p>$code: $ <a href="https://paste.ubuntu.com/p/HWJrPTG566/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/HWJrPTG566/</a></p>
 <h4 id="七维很暴力的DP"><a href="#七维很暴力的DP" class="headerlink" title="七维很暴力的DP"></a>七维很暴力的DP</h4><p>先咕吧。。</p>
 ]]></content>
+      <categories>
+        <category>模拟赛</category>
+      </categories>
       <tags>
-        <tag>模拟赛</tag>
+        <tag>dp</tag>
+        <tag>搜索</tag>
+        <tag>二分图匹配</tag>
       </tags>
   </entry>
   <entry>
@@ -1009,7 +1096,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>-树状数组 -离线</tag>
+        <tag>树状数组</tag>
+        <tag>离线</tag>
       </tags>
   </entry>
   <entry>

@@ -51,7 +51,7 @@
 </script>
 
   <meta name="description" content="比赛真的变简单了好多呢。Backpack题面考场首先想了一个贪心。（部分背包类似，把所有物品按照一个性价比排序。）然后黑了自己。然后开始 $dp$ ，发现是一个 $O(nm).$ ：​    $\Large dp_j=\max\{dp_{j-w_i}+v_i\}.$搞完后面的之后回头来看，发现 $a,b$ 的范围只有 $[1,100]$，那可以考虑做一个桶，把 $a$ 一样的物品只存它们的 $\m">
-<meta name="keywords" content="模拟赛">
+<meta name="keywords" content="贪心,线性筛,矩乘,快速排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8.18 模拟赛  题解">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;index.html">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;backpack.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;median.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;sequence.png">
-<meta property="og:updated_time" content="2019-10-31T17:14:51.338Z">
+<meta property="og:updated_time" content="2019-11-25T10:07:06.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3&#x2F;2019&#x2F;11&#x2F;sol&#x2F;backpack.png">
 
@@ -217,9 +217,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-01 00:49:23 / 修改时间：01:14:51" itemprop="dateCreated datePublished" datetime="2019-11-01T00:49:23+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 00:49:23" itemprop="dateCreated datePublished" datetime="2019-11-01T00:49:23+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-25 18:07:06" itemprop="dateModified" datetime="2019-11-25T18:07:06+08:00">2019-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">模拟赛</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -259,7 +276,7 @@
 <p>那么我们考虑现在的答案会从前面的哪里转移过来，用多少代价。我们发现，我们在 $i$ 的时候，会从所有的 $i-w_j$ 转移过来，并且答案是 $\max\{f_i+v_j\}.$ 所以就可以考虑构建一个 $100\times100$ 的矩阵，每次乘法是做的加法取 $\max.$ 那么矩阵具体应该是什么样的呢？</p>
 <p>那么我们考虑从 $\large f_{i-k+1}\to f_i$ 转移到 $\large f_{i-k + 2}\to f_{i+1}.$ （其中 $k=\max\{w_i,~v_i\}$）首先，之前的后 $k-1$ 项和之后的前 $k-1$ 项是要相同的，考虑到是加法取 $\max$ ，可以只算矩阵中非 $-1$ 的数，并把对应斜对角线赋为 $0.$ 这样可以保证前 $k-1$ 项了。那么最后一行的矩阵就是直接和转移方程挂钩了。那么就是在所有的 $w_i$ 的位置上赋 $v_i$ 的值即可。其他空位赋 $-1.$ </p>
 <p>完整矩阵如下图：（最后一行假定被所有物品填满了，且 $w_i=i.$）</p>
-<p>​                                                             $\large\left[\begin{matrix} -1 &amp; 0&amp;-1&amp;\cdots &amp;-1&amp;-1\-1&amp;-1&amp;0&amp;\cdots&amp;-1&amp;-1\\\vdots&amp;\vdots &amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\-1&amp;-1&amp;-1&amp;\cdots&amp;0&amp;-1\-1&amp;-1&amp;-1&amp;\cdots&amp;-1&amp;0\\v_1&amp;v_2&amp;v_3&amp;\cdots&amp;v_{k-1}&amp;v_k\end{matrix}\right]$ </p>
+<p>​                                                             $\large\left[\begin{matrix} -1 &amp; 0&amp;-1&amp;\cdots &amp;-1&amp;-1\newline-1&amp;-1&amp;0&amp;\cdots&amp;-1&amp;-1\newline\vdots&amp;\vdots &amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\newline-1&amp; -1 &amp; -1 &amp;\cdots&amp;0&amp;-1\newline-1&amp;-1&amp;-1&amp;\cdots&amp;-1&amp;0\newline v_1&amp;v_2&amp;v_3&amp;\cdots&amp;v_{k-1}&amp;v_k\end{matrix}\right]$ </p>
 <p>那么用它自乘再预处理前 $k$ 个就可以矩乘了。</p>
 <p>$code:$ </p>
 <h1 id="Median"><a href="#Median" class="headerlink" title="Median"></a>Median</h1><h3 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h3><img src="/8.18%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%20%E9%A2%98%E8%A7%A3/2019/11/sol/median.png" class title="median">
@@ -280,8 +297,8 @@
 <h3 id="正解-1"><a href="#正解-1" class="headerlink" title="正解"></a>正解</h3><p>没错，这应该是一个积性函数。因为如果两个数互质，那么他们和 $B$ 的 $\gcd$ 一定是互不相关，因此由乘法原理，它们乘起来的总方案数就是答案。（也就是没有重叠的多余部分被计算了。）</p>
 <p>那么看着这个数据范围，就可以试一下欧拉筛了。（前面模拟赛的时候考过学过。）</p>
 <p>首先考虑 $f(p^c)$ 怎么做。因为最后贡献要和 $B$ 取 $\gcd$ 所以这个一定和 $B$ 中的 $p$ 个数有关。那么考虑 $B$ 质因数分解后 $p$ 的指数是 $k.$ </p>
-<p>那么对于 $A=p^c$ ，我们需要分两类讨论：$c&gt;k$ 与 $c\le k.$ 对于第二类，我们可以枚举所有 $a$ 中最小的次数 $i\leq c$ 每一次用 $p$ 的次数大于等于 $i$ 的所有数的可能情况 $(c-i+1)^n$ 减去大于等于 $i+1$ 的情况就能得到至少有一个最小值次数是等于 $i$ 的情况了，而这些整个要乘上它们的贡献，也就是 $\gcd(a_1,<del>\dots,</del>a_n,~B)$ 也就是 $p^c$ 了。而对于第二类，因为总的次数不能超过 $k$ ，所以 $c$ 超过的部分是没有贡献的，或者说贡献仍然只有 $p^k$，所以我们只需要枚举到 $k$ ，超过的部分直接用一个表示超过取值 $c\to k$ 的整个式子就好了，它们的贡献上面也说了，就是 $p^k$。具体就是：</p>
-<p>​                            $\large\begin{equation}<br>\begin{aligned}    f(p^c)=<br>\begin{cases}<br>c\leq k&amp;&amp;&amp;\sum\limits_{i=1}^c ((c-i+1)^n-(c-i)^n)p^i.\\<br>c &gt; k &amp;&amp;&amp; \sum\limits_{i=1}^k ((c-i+1)^n-(c-i)^n)p^i<del>+</del>p^k(c-k)^n.<br>\end{cases}<br>\end{aligned}\end{equation}$ </p>
+<p>那么对于 $A=p^c$ ，我们需要分两类讨论：$c&gt;k$ 与 $c\le k.$ 对于第二类，我们可以枚举所有 $a$ 中最小的次数 $i\leq c$ 每一次用 $p$ 的次数大于等于 $i$ 的所有数的可能情况 $(c-i+1)^n$ 减去大于等于 $i+1$ 的情况就能得到至少有一个最小值次数是等于 $i$ 的情况了，而这些整个要乘上它们的贡献，也就是 $\gcd(a_1,\dots,a_n,~B)$ 也就是 $p^c$ 了。而对于第二类，因为总的次数不能超过 $k$ ，所以 $c$ 超过的部分是没有贡献的，或者说贡献仍然只有 $p^k$，所以我们只需要枚举到 $k$ ，超过的部分直接用一个表示超过取值 $c\to k$ 的整个式子就好了，它们的贡献上面也说了，就是 $p^k$。具体就是：</p>
+<p>​                            $\large\begin{equation}<br>\begin{aligned}    f(p^c)=<br>\begin{cases}<br>c\leq k&amp;&amp;&amp;\sum\limits_{i=1}^c ((c-i+1)^n-(c-i)^n)p^i.\\<br>c &gt; k &amp;&amp;&amp; \sum\limits_{i=1}^k ((c-i+1)^n-(c-i)^n)p^i+p^k(c-k)^n.<br>\end{cases}<br>\end{aligned}\end{equation}$ </p>
 <p>那么实现起来就是以前的欧拉筛模板，有一点区别的就是当 $i$ 是一个合数的最小质因子的时候，我们就要另外用他这个最小质因子的整个次数去乘了。</p>
 <p>$code:$ <a href="https://paste.ubuntu.com/p/fqgyRVMfdR/" target="_blank" rel="noopener">https://paste.ubuntu.com/p/fqgyRVMfdR/</a></p>
 
@@ -293,7 +310,10 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag"># 模拟赛</a>
+              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"># 贪心</a>
+              <a href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/" rel="tag"># 线性筛</a>
+              <a href="/tags/%E7%9F%A9%E4%B9%98/" rel="tag"># 矩乘</a>
+              <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" rel="tag"># 快速排序</a>
           </div>
 
         
@@ -372,13 +392,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
