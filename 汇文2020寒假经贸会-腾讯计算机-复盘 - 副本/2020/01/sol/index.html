@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="第一财年1.18 上午分别在交行，建行，中行开户，存款分别为 $4$ 亿，$3.45$ 亿，$3$ 亿。出了初始项目，《诗雨数据中心》，进行了项目估值。1.18 $19:00\to20:00$向建行贷款 $3$ 亿五年期，利息 $5.1\%$，像交行贷款 $3$ 亿五年期，利息未谈妥（$3.5\%$ 被主席团撤回）。">
+<meta name="keywords" content="模联">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇文2020寒假经贸会 腾讯计算机 复盘（未完）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;%E6%B1%87%E6%96%872020%E5%AF%92%E5%81%87%E7%BB%8F%E8%B4%B8%E4%BC%9A-%E8%85%BE%E8%AE%AF%E8%AE%A1%E7%AE%97%E6%9C%BA-%E5%A4%8D%E7%9B%98%20-%20%E5%89%AF%E6%9C%AC&#x2F;2020&#x2F;01&#x2F;sol&#x2F;index.html">
+<meta property="og:site_name" content="Repho&#39;s blog">
+<meta property="og:description" content="第一财年1.18 上午分别在交行，建行，中行开户，存款分别为 $4$ 亿，$3.45$ 亿，$3$ 亿。出了初始项目，《诗雨数据中心》，进行了项目估值。1.18 $19:00\to20:00$向建行贷款 $3$ 亿五年期，利息 $5.1\%$，像交行贷款 $3$ 亿五年期，利息未谈妥（$3.5\%$ 被主席团撤回）。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-23T15:50:53.495Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/%E6%B1%87%E6%96%872020%E5%AF%92%E5%81%87%E7%BB%8F%E8%B4%B8%E4%BC%9A-%E8%85%BE%E8%AE%AF%E8%AE%A1%E7%AE%97%E6%9C%BA-%E5%A4%8D%E7%9B%98%20-%20%E5%89%AF%E6%9C%AC/2020/01/sol/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>汇文2020寒假经贸会 腾讯计算机 复盘（未完） | Repho's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Repho's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The coding life...</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E6%B1%87%E6%96%872020%E5%AF%92%E5%81%87%E7%BB%8F%E8%B4%B8%E4%BC%9A-%E8%85%BE%E8%AE%AF%E8%AE%A1%E7%AE%97%E6%9C%BA-%E5%A4%8D%E7%9B%98%20-%20%E5%89%AF%E6%9C%AC/2020/01/sol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="repho">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Repho's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          汇文2020寒假经贸会 腾讯计算机 复盘（未完）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-23 01:09:59 / 修改时间：23:50:53" itemprop="dateCreated datePublished" datetime="2020-01-23T01:09:59+08:00">2020-01-23</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第一财年"><a href="#第一财年" class="headerlink" title="第一财年"></a>第一财年</h1><h2 id="1-18-上午"><a href="#1-18-上午" class="headerlink" title="1.18 上午"></a>1.18 上午</h2><p>分别在交行，建行，中行开户，存款分别为 $4$ 亿，$3.45$ 亿，$3$ 亿。</p><p>出了初始项目，《诗雨数据中心》，进行了项目估值。</p><hr><h2 id="1-18-19-00-to20-00"><a href="#1-18-19-00-to20-00" class="headerlink" title="1.18 $19:00\to20:00$"></a>1.18 $19:00\to20:00$</h2><p>向<strong>建行贷款 $3$ 亿五年期，利息 $5.1\%$</strong>，像交行贷款 $3$ 亿五年期，利息未谈妥（$3.5\%$ 被主席团撤回）。</p><a id="more"></a>
+
+
+
+<p>债券 $2$ 亿六年期，起初希望以联席的方式向中建，中信，招商发债，债券承销分 $3:3:4$，承销费 $0.6\%:0.6\%:0.7\%$，商榷后中建提醒联席制度的具体方案，中信退出，将债券分为<strong>两笔每笔 $1$ 亿 $6$ 年期</strong>。</p>
+<p>股权融资，唯品会出资 $1.2$ 亿元，持股 $5\%$，收入 $1.2$ 亿元。</p>
+<h2 id="1-18-21-46"><a href="#1-18-21-46" class="headerlink" title="1.18 $21:46$"></a>1.18 $21:46$</h2><p>将中行存款 $3$ 亿全部转入建行。</p>
+<h2 id="1-18-21-54"><a href="#1-18-21-54" class="headerlink" title="1.18 $21:54$"></a>1.18 $21:54$</h2><p><strong>启动《诗雨》项目，花去 $10.8$ 亿元。付款银行与收款银行为建行</strong>，建行余额 $0.4$ 亿元。</p>
+<h2 id="1-18-23-03"><a href="#1-18-23-03" class="headerlink" title="1.18 $23:03$"></a>1.18 $23:03$</h2><p>诗雨的项目启动通过审批。</p>
+<h2 id="1-18-23-18"><a href="#1-18-23-18" class="headerlink" title="1.18 $23:18$"></a>1.18 $23:18$</h2><p>中建提出债券发行申请，利率区间定在 $4.0\%\to5.0\%$ 。</p>
+<h2 id="1-18-23-47"><a href="#1-18-23-47" class="headerlink" title="1.18 $23:47$"></a>1.18 $23:47$</h2><p>晚上没办法跟交行谈利息，于是舍弃交行的贷款，向中行贷款 $3$ 亿五年期，利率 $5.05\%$。</p>
+<h2 id="1-18-23-50"><a href="#1-18-23-50" class="headerlink" title="1.18 $23:50$"></a>1.18 $23:50$</h2><p>字节找我们合作他们的《星宇中文网》项目，要谈 $2$ 亿的投资，股权。发现是个暴利，半忽悠地让他们接受了 $35\%$ 的要求。</p>
+<h2 id="1-19-0-26"><a href="#1-19-0-26" class="headerlink" title="1.19 $0:26$"></a>1.19 $0:26$</h2><p>研发项目，类型游戏，花费 $1$ 亿元。</p>
+<p><del>等了一晚上的房间到了快 $1$ 点。</del> </p>
+<h2 id="第一会期总结"><a href="#第一会期总结" class="headerlink" title="第一会期总结"></a>第一会期总结</h2><p>主席说的很对，<strong>我们拖得太慢了。</strong></p>
+<p>你发现一整场会期只发了个债贷了个款划了个股权，而且并没有整完。</p>
+<p>主席说的很对，<strong>我们花太多时间在利率的商榷上了。</strong></p>
+<p>可以发现在第一会期以及在会前的讨论上有大部分，几乎所有的企业银行间的合作都在谈利率。但是项目才是企业真正的财源，所以应当尽快把项目推进。</p>
+<hr>
+<h2 id="1-19-9-06"><a href="#1-19-9-06" class="headerlink" title="1.19 $9:06$"></a>1.19 $9:06$</h2><p>首先把上一个会期贷款的烂摊子收了，把交行不明不白地贷款还了，把交行里所有的钱转到了中行。至此交行没有余额，中行剩余 $3.45$亿元。</p>
+<h2 id="1-19-9-43"><a href="#1-19-9-43" class="headerlink" title="1.19 $9:43$"></a>1.19 $9:43$</h2><p>联系字节把股权划转协议签了，可以算是跟字节交了个朋友，奠定后期合作基础。</p>
+
+
+<h2 id="1-19-9-53"><a href="#1-19-9-53" class="headerlink" title="1.19 $9:53$"></a>1.19 $9:53$</h2><p>把唯品会《诗雨》的 $5\%$ 股权转了。</p>
+
+
+<h2 id="1-19-9-32"><a href="#1-19-9-32" class="headerlink" title="1.19 $9:32$"></a>1.19 $9:32$</h2><p>中建提出债券发行申请，利率区间定在 $4.0\%\to5.0\%$ 。</p>
+<h2 id="1-19-10-15"><a href="#1-19-10-15" class="headerlink" title="1.19 $10:15$"></a>1.19 $10:15$</h2><p>第一年的债券簿记环节，首先有我们自己的两笔债，另外我们以不低的价格认购了两笔债（光线 $3.3\%\to5.3\%$ $1$ 亿，爱尔眼科 $4.5\%\to6.5\%$ $1$ 亿），都没中标。朱老师说了国债的质押式回购，然后我们发现很赚，认购了 $2$ 亿的国债，但是中建跟我们说已经晚了。售出后最终债券利率为 $3.7\%$ 在招商和 $4.0\%$ 在中建，承销费率均为 $1.5\%$，招商部份售给中信 $0.5$ 雅诗兰黛 $0.5$，中建售给雅诗兰黛。承销商不愿负责每年利率汇总，由席位自己完成。</p>
+<h2 id="1-19-11-30"><a href="#1-19-11-30" class="headerlink" title="1.19 $11:30$"></a>1.19 $11:30$</h2><p>追加了 $9000$ 万元的《诗雨》追加投资，完全没有必要地缩短建设周期。这将近 $1$ 亿就是完全做了慈善打了水漂给主席团当作拜年了。<strong>这是极其严重的错误。</strong></p>
+<h2 id="1-19-11-26"><a href="#1-19-11-26" class="headerlink" title="1.19 $11:26$"></a>1.19 $11:26$</h2><p>会场拍了第一块地《梦乐坊商城》，我们开始等项目下来（水会），就过没等到。</p>
+<p><strong>推年了！</strong> 与此同时，第二会期结束。</p>
+<hr>
+<h2 id="1-19-11-47-，-13：02"><a href="#1-19-11-47-，-13：02" class="headerlink" title="1.19 $11:47$ ，$13：02$"></a>1.19 $11:47$ ，$13：02$</h2><p>转了承销费。总计支出 $300$ 万元。</p>
+<h1 id="第二财年"><a href="#第二财年" class="headerlink" title="第二财年"></a>第二财年</h1><h2 id="1-19-14-00"><a href="#1-19-14-00" class="headerlink" title="1.19 $14:00$"></a>1.19 $14:00$</h2><p>联系两家认购债券的企业谈债券的事，让他们交付本金我们交付利息。（中信得 $5000$ 万元本金，付 $185$ 万元利息；雅诗兰黛得 $1.5$ 亿本金，付 $585$ 万元利息）</p>
+<p>清还第一财年的贷款利息（中行 $1515$ 万元，建行 $1530$ 万元）。</p>
+<h2 id="1-19-15-07"><a href="#1-19-15-07" class="headerlink" title="1.19 $15:07$"></a>1.19 $15:07$</h2><p>研发文化传媒类项目，支出 $6000$ 万元。</p>
+<p>获得文化传媒类项目《汇文炸裂经纪工作室》，进行项目分析，决定不进行股权融资。并发 $1$ 亿债券三年期。</p>
+<h2 id="1-19-15-40"><a href="#1-19-15-40" class="headerlink" title="1.19 $15:40$"></a>1.19 $15:40$</h2><p>购入 $2$ 亿同仁堂 $6.0\%\to6.3\%$ 债券，猜测由于款项不足未中标。</p>
+<h2 id="1-19-15-45"><a href="#1-19-15-45" class="headerlink" title="1.19 $15:45$"></a>1.19 $15:45$</h2><p>经过催，主席团把游戏项目发了，《跳跳球》，是个很小的项目，感觉没必要做，于是谈转让，找到了瑞银想要，经过商讨决定以 $1.5$ 亿卖出，并签订了股权划转协议。算上研发开支净赚了 $5000$ 万元，这是第一桶金，但现在已经第三会期了。</p>
+
+
+<h2 id="1-19-16-30"><a href="#1-19-16-30" class="headerlink" title="1.19 $16:30$"></a>1.19 $16:30$</h2><p>联系中建发行 $1$ 亿债券三年期利率 $3.5\%\to4.5\%$，因利率过低被拒。</p>
+<p><strong>推年了！</strong> </p>
+<h1 id="第三财年"><a href="#第三财年" class="headerlink" title="第三财年"></a>第三财年</h1><h2 id="1-19-16-45"><a href="#1-19-16-45" class="headerlink" title="1.19 $16:45$"></a>1.19 $16:45$</h2><p>清还第二财年债券利息。（付中信 $185$ 万元利息；付雅诗兰黛 $585$ 万元利息）</p>
+<h2 id="1-19-16-53"><a href="#1-19-16-53" class="headerlink" title="1.19 $16:53$"></a>1.19 $16:53$</h2><p>清还第二财年贷款利息。（中行 $1515$ 万元，建行 $1530$ 万元）</p>
+<h2 id="1-19-17-10"><a href="#1-19-17-10" class="headerlink" title="1.19 $17:10$"></a>1.19 $17:10$</h2><p>《炸裂》启动，付 $4000$ 万元启动费，同时追加第一年投资 $8000$ 万元。</p>
+<h2 id="1-19-22-00"><a href="#1-19-22-00" class="headerlink" title="1.19 $22:00$"></a>1.19 $22:00$</h2><p>受到曹诗雨老师约谈，问清了项目收益的清算方式，并明确的认识到了追加投资和项目指令的重要性，并且认识到启动更多项目的必要性。</p>
+<h2 id="1-19-夜间"><a href="#1-19-夜间" class="headerlink" title="1.19 夜间"></a>1.19 夜间</h2><p>分别为《诗雨》，《炸裂》和《星宇》写了 $5$ 条项目指令，计划第二天研发 $6$ 个项目。（最后只研发了一个）</p>
+<hr>
+<h2 id="1-20-9-20"><a href="#1-20-9-20" class="headerlink" title="1.20 $9:20$"></a>1.20 $9:20$</h2><p>转回了中信银行多转的 $5000$ 万。他们转两次。</p>
+<h2 id="1-20-9-30"><a href="#1-20-9-30" class="headerlink" title="1.20 $9:30$"></a>1.20 $9:30$</h2><p>研发一个互联网应用，花费 $8000$ 万元。</p>
+<h2 id="1-20-9-30-to-10-44"><a href="#1-20-9-30-to-10-44" class="headerlink" title="1.20 $9:30\to 10:44$"></a>1.20 $9:30\to 10:44$</h2><p>经过跟曹老师不断地磨合格式与规则，发出了前一天写的《诗雨》，《炸裂》的经营指令，总计追加投资 $9000$ 万元。</p>
+<h2 id="1-20-9-36"><a href="#1-20-9-36" class="headerlink" title="1.20 $9:36$"></a>1.20 $9:36$</h2><p>获得项目《有慧农业》，并进行估值。</p>
+<p>字节合资《有慧》，字节投 $3000$ 万元获得 $17\%$ 股权，发 $1$ 亿一年期债，自己出 $5000$ 万元。签订股权划转协议，并收到 $3000$ 万元。</p>
+<h2 id="1-20-10-57"><a href="#1-20-10-57" class="headerlink" title="1.20 $10:57$"></a>1.20 $10:57$</h2><p>联系瑞银发布 $1$ 亿债券一年期，利率 $4.5\%\to5.5\%$ 。但由于时间已经过了第三财年的债券发布，延期到第四财年。</p>
+<p>启动《有慧》并追加第一年投资，共花费 $1.8$ 亿，</p>
+<p>联系中建重新发行前一天晚上被拒的 $1$ 亿债券三年期利率 $4.8\%\to5.5\%$ 通过。最终以 $5.5$ 的利率敲定。得 $1$ 亿本金，支出 $150$ 万承销费。</p>
+<p>购入字节 $1.5$ 亿五年期债券，利率 $5.9\%$，评级 $AA+$，可质押式回购。支出 $1.5$ 亿。</p>
+<p><strong>推年了！</strong> 同时第四会期结束。</p>
+<hr>
+<h1 id="第四财年"><a href="#第四财年" class="headerlink" title="第四财年"></a>第四财年</h1><p>清还第三财年贷款利息。（中行 $1515$ 万元）</p>
+<p>清还第三财年债券利息。（付中信 $185$ 万元利息；付雅诗兰黛 $585$ 万元利息；付中建 $550$ 万元利息）</p>
+<p>瑞银第四财年债券发行，以 $4.5$ 发售成功。</p>
+<p>发行房贷（CDO），为经融危机埋下伏笔。</p>
+<p>写《有慧》经营指令并发出，追加投资 $2000$ 万元。</p>
+<p>写《炸裂》经营指令并发出，追加投资 $2000$ 万元。</p>
+<p>写《诗雨》经营指令并发出，追加投资 $1000$ 万元。</p>
+<p>字节《星宇》分红 $2.8$ 亿，《炸裂》分红 $5000$ 万元。总收益 $3.3$ 亿元。</p>
+<p>从欧莱雅中国购买京东世纪贸易项目《花花世界》 $3\%$ 股份，花费 $3500$ 万元。</p>
+<p>从雅诗兰黛购买亚马逊中国项目《特产网》$10\%$ 股份，花费 $2070$ 万元。</p>
+<p>被高盛忽悠购买 $3$ 亿五年期债券，利率 $5\%$，评级 $AA$，无法质押式回购，支付 $3$ 亿元。</p>
+<p>首次出现现金危机，中行账户暴负，建行余额 $4000$ 万。</p>
+<p>清还第三财年贷款利息。（建行 $1530$ 万元）</p>
+<p>申请质押式回购，将字节 $1.5$ 亿债券质押，获得借款规模 $11250$ 万元。</p>
+<p>交付本年税款 $3000$ 万元。</p>
+<p>第五会期结束。</p>
+<p>清理所有审批账目，发现仍存在近 $1$ 亿亏空，首先找瑞银将债券要了。暂时补齐亏空。由于《诗雨》并没有分红。</p>
+<hr>
+<h1 id="第五财年"><a href="#第五财年" class="headerlink" title="第五财年"></a>第五财年</h1><p>主席在第六会期开始时推动财年，并发放，要求支付第四财年的利息与收益，若在一定时间后有企业在银行帐上存在亏空，且无法通过转账不足，则宣布破产。</p>
+<p>清还第三财年贷款利息。（中行 $1515$ 万元；建行 $1530$ 万元）</p>
+<p>清还第三财年债券利息及部分本金。（付中信 $185$ 万元利息；付雅诗兰黛 $585$ 万元利息；付中建 $550$ 万元利息；付瑞银证券 $10450$ 万元本息）</p>
+<p>收取第三财年债券利息。（字节 $885$ 万元，高盛 $1500$ 万元）</p>
+<p>将 $3$ 亿五年期债券中 $2$ 亿以 $1.8$ 亿卖给字节以补足中行账上亏空。</p>
+<p>获得所有项目分红：《星宇》$3.5$ 亿，《炸裂》 $4500$ 万元，《诗雨》 $8.55$ 亿，《特产网》 $1000$ 万元， 《花花世界》 $1500$ 万元，《有慧》 $8300$ 万元。共 $13.58$ 万元。现金不足导致的破产危机彻底解决。</p>
+<p>还清中行建行共 $6$ 亿贷款。（提前一年交还）</p>
+<p>进入经融危机状态，各大银行遭受不同程度亏损，地产项目收益折半，并且全场需要通过有主持核心磋商商议写作并交付一份指令草案 $dd$ 来脱离危机，重新回到正常经贸体系中推动财年。</p>
+<p>经过 $2$ 轮没有实际意义的有主持核心磋商后，第六会期结束。</p>
+<p>在国青讨论 $dd$ ，朱老师讲解经融危机（以及各种危机）爆发原因。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发原因</th>
+<th>灾难形式</th>
+<th>灾难加深形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>经融危机</td>
+<td>银行自由财产过少，房贷损失放大导致银行破产</td>
+<td>房价下跌，房贷贬值，CDO价值蒸发</td>
+<td>银行向企业传递</td>
+</tr>
+<tr>
+<td>去杠杆</td>
+<td>企业项目中负债过高，自身投入资金过少</td>
+<td>强制项目需拥有 $80%$ 自有资金投入，导致企业难以启动新项目，难以获得新收益，同时贷款量减少，银行赚钱渠道减少</td>
+<td>企业向银行传递</td>
+</tr>
+<tr>
+<td>中美贸易战</td>
+<td>企业收益过度依赖进口材料，海外贸易公司收入低于国内公司</td>
+<td>建设成本，经营成本增加，银行贷款受限</td>
+<td>企业银行投资机构三方受损</td>
+</tr>
+</tbody></table>
+<p>写完 $dd$ 初稿。写完《花花世界》，《特产网》，《诗雨》，《炸裂》经营指令。</p>
+<hr>
+<p>联系京东世纪贸易和亚马逊中国发布经营指令，</p>
+<p>在第六会期为了和有慧农业对接而入股的亚马逊特产网追加投资7100万（用于经营指令，并且成功）。然而在前一天晚上写的京东花花世界项目在第七年已经停止运行，花花世界的指令未提交成功。</p>
+<p>中信建投的债券偿还本金1亿元。交瑞银证券的承销费150万元。</p>
+<p>第五财年纳税12488.896万元。</p>
+<p>主席团短暂开放的项目研发两个（花费12000万元）</p>
+<p>诗雨数据中心和有慧农业的经营指令发布（总共花费3000万元）</p>
+<p>开发项目得到的1030汇文联盟开启投资（花费9亿元），继续追加投资10000万元。</p>
+<p>还掉第六年在中行借的本金（50000万元）</p>
+<p>给中信银行还0.5亿债券的利息以及本金五千一百八十五万元整；给雅诗兰黛还款1.5亿元债券利息以及本金共15585万元整。</p>
+<p>从网易的债券连本带息收益三亿七千五百万，分给字节两亿五千万(这个不卖好像也可以，但是需要前面的那个五亿贷款。</p>
+<p>启动1031项目以及追加投资一共花费八亿+三亿等于十一亿元。</p>
+<p>从字节得到债券利息一亿一千七百万元。此时我们忘记了找字节要2亿的本金…以及发现的神级操作字节转给自己1.8亿我们也没收到……哭哭哭哭哭</p>
+<p>项目收益59亿加16亿共75亿(未纳税)</p>
+<p>最后在账上我们有 $96$ 亿，但是主席把成本一扣扣成了 $40$ 亿出头然后没有奖。我们坚决怀疑这个帐算的肯定有问题，因为《诗雨》可以算出来是有 $15$ 亿的成本要扣，但是《有慧》没有后期成本，《炸裂》没有后期成本而且应该已经在第七年退出了，《星宇》的成本只有 $8000$ 万元，而且我们只占小股，所以也没有什么成本，另外的都分别只占了 $10\%$ 和 $3\%$ ，成本不可能有几十亿。所以，主席团吞了我们的 $bd$。也没有什么好争的了。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A8%A1%E8%81%94/" rel="tag"># 模联</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/CSP-2019-%E6%B8%B8%E8%AE%B0/2019/11/sol/" rel="next" title="CSP-2019 游记">
+                  <i class="fa fa-chevron-left"></i> CSP-2019 游记
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/%E6%B1%87%E6%96%872020%E5%AF%92%E5%81%87%E7%BB%8F%E8%B4%B8%E4%BC%9A-%E8%85%BE%E8%AE%AF%E8%AE%A1%E7%AE%97%E6%9C%BA-%E5%A4%8D%E7%9B%98/2020/01/sol/" rel="prev" title="汇文2020寒假经贸会 腾讯计算机 复盘">
+                  汇文2020寒假经贸会 腾讯计算机 复盘 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一财年"><span class="nav-number">1.</span> <span class="nav-text">第一财年</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-上午"><span class="nav-number">1.1.</span> <span class="nav-text">1.18 上午</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-19-00-to20-00"><span class="nav-number">1.2.</span> <span class="nav-text">1.18 $19:00\to20:00$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-21-46"><span class="nav-number">1.3.</span> <span class="nav-text">1.18 $21:46$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-21-54"><span class="nav-number">1.4.</span> <span class="nav-text">1.18 $21:54$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-23-03"><span class="nav-number">1.5.</span> <span class="nav-text">1.18 $23:03$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-23-18"><span class="nav-number">1.6.</span> <span class="nav-text">1.18 $23:18$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-23-47"><span class="nav-number">1.7.</span> <span class="nav-text">1.18 $23:47$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-23-50"><span class="nav-number">1.8.</span> <span class="nav-text">1.18 $23:50$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-0-26"><span class="nav-number">1.9.</span> <span class="nav-text">1.19 $0:26$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一会期总结"><span class="nav-number">1.10.</span> <span class="nav-text">第一会期总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-9-06"><span class="nav-number">1.11.</span> <span class="nav-text">1.19 $9:06$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-9-43"><span class="nav-number">1.12.</span> <span class="nav-text">1.19 $9:43$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-9-53"><span class="nav-number">1.13.</span> <span class="nav-text">1.19 $9:53$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-9-32"><span class="nav-number">1.14.</span> <span class="nav-text">1.19 $9:32$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-10-15"><span class="nav-number">1.15.</span> <span class="nav-text">1.19 $10:15$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-11-30"><span class="nav-number">1.16.</span> <span class="nav-text">1.19 $11:30$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-11-26"><span class="nav-number">1.17.</span> <span class="nav-text">1.19 $11:26$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-11-47-，-13：02"><span class="nav-number">1.18.</span> <span class="nav-text">1.19 $11:47$ ，$13：02$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二财年"><span class="nav-number">2.</span> <span class="nav-text">第二财年</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-14-00"><span class="nav-number">2.1.</span> <span class="nav-text">1.19 $14:00$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-15-07"><span class="nav-number">2.2.</span> <span class="nav-text">1.19 $15:07$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-15-40"><span class="nav-number">2.3.</span> <span class="nav-text">1.19 $15:40$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-15-45"><span class="nav-number">2.4.</span> <span class="nav-text">1.19 $15:45$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-16-30"><span class="nav-number">2.5.</span> <span class="nav-text">1.19 $16:30$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三财年"><span class="nav-number">3.</span> <span class="nav-text">第三财年</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-16-45"><span class="nav-number">3.1.</span> <span class="nav-text">1.19 $16:45$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-16-53"><span class="nav-number">3.2.</span> <span class="nav-text">1.19 $16:53$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-17-10"><span class="nav-number">3.3.</span> <span class="nav-text">1.19 $17:10$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-22-00"><span class="nav-number">3.4.</span> <span class="nav-text">1.19 $22:00$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-夜间"><span class="nav-number">3.5.</span> <span class="nav-text">1.19 夜间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-9-20"><span class="nav-number">3.6.</span> <span class="nav-text">1.20 $9:20$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-9-30"><span class="nav-number">3.7.</span> <span class="nav-text">1.20 $9:30$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-9-30-to-10-44"><span class="nav-number">3.8.</span> <span class="nav-text">1.20 $9:30\to 10:44$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-9-36"><span class="nav-number">3.9.</span> <span class="nav-text">1.20 $9:36$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-20-10-57"><span class="nav-number">3.10.</span> <span class="nav-text">1.20 $10:57$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四财年"><span class="nav-number">4.</span> <span class="nav-text">第四财年</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五财年"><span class="nav-number">5.</span> <span class="nav-text">第五财年</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="repho"
+    src="/images/head.png">
+  <p class="site-author-name" itemprop="name">repho</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/the-repho" title="GitHub &rarr; https://github.com/the-repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2373338240@qq.com" title="E-Mail &rarr; mailto:2373338240@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.org/space/show?uid=78369" title="Luogu &rarr; https://www.luogu.org/space/show?uid=78369" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Harmony_" title="Codeforces1 &rarr; https://codeforces.com/profile/Harmony_" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces1</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/Repho" title="Codeforces2 &rarr; https://codeforces.com/profile/Repho" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>Codeforces2</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/180000517" title="bilibili &rarr; https://space.bilibili.com/180000517" rel="noopener" target="_blank"><i class="fa fa-fw fa-tv"></i>bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">repho</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
